@@ -13,8 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var letterButton: [UIButton]!
     
-    private var listOfItem = ["buccaneer", "swift", "glorious", "incandescent", "bug", "program"]
-    private let incorrectMovesAllowed = 7
+    // Game Setting
+    private var listOfItem: [String] = ["buccaneer", "swift", "glorious", "incandescent", "bug", "program"]
+    private let incorrectMovesAllowed: Int = 7
     
     private var totalWins = 0 {
         didSet {
@@ -27,7 +28,8 @@ class ViewController: UIViewController {
         }
     }
     
-    var currentGame: Game!
+    // Game Model
+    var currentGame: Game?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
     
     func updateUI() {
         var letters = [String]()
+        guard let currentGame = currentGame else { return }
         for letter in currentGame.formattedWord {
             letters.append(String(letter))
         }
@@ -67,14 +70,14 @@ class ViewController: UIViewController {
         sender.isEnabled = false
         let letterString = sender.title(for: .normal)!
         let letter = Character(letterString.lowercased())
-        currentGame.playerGussed(letter: letter)
+        currentGame?.playerGussed(letter: letter)
         updateGameState()
     }
     
     func updateGameState() {
-        if currentGame.incorrectMovesRemaining == 0 {
+        if currentGame?.incorrectMovesRemaining == 0 {
             totalLosses += 1
-        } else if currentGame.word == currentGame.formattedWord {
+        } else if currentGame?.word == currentGame?.formattedWord {
             totalWins += 1
         } else {
             updateUI()
