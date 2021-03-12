@@ -19,11 +19,13 @@ class ViewController: UIViewController {
     
     private var totalWins = 0 {
         didSet {
+            alertView(title: "정답!", message: "정답입니다!")
             newRound()
         }
     }
     private var totalLosses = 0 {
         didSet {
+            alertView(title: "실패!", message: "틀렸습니다!")
             newRound()
         }
     }
@@ -82,6 +84,14 @@ class ViewController: UIViewController {
         } else {
             updateUI()
         }
+    }
+    
+    func alertView(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
