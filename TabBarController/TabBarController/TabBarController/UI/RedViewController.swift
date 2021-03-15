@@ -7,13 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class RedViewController: UIViewController {
+    @IBOutlet weak var redBarItem: UITabBarItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        redBarItem.badgeValue = "!"
     }
-
-
+    
+    
+    
 }
 
