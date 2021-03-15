@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-1410" y="94"/>
         </scene>
-        <!--View Controller-->
+        <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LifeCycle" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,13 +47,13 @@
                             <constraint firstItem="mUo-PV-oeL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NkQ-2s-rIv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fg5-Hn-9P4"/>
+                    <navigationItem key="navigationItem" title="ViewController" id="fg5-Hn-9P4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="95"/>
         </scene>
-        <!--Second View Controller-->
+        <!--SecondViewController-->
         <scene sceneID="gVm-iG-XAY">
             <objects>
                 <viewController id="qSe-TU-E0R" customClass="SecondViewController" customModule="LifeCycle" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +63,7 @@
                         <viewLayoutGuide key="safeArea" id="9UF-uV-tYd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pjL-ko-Xa4"/>
+                    <navigationItem key="navigationItem" title="SecondViewController" id="pjL-ko-Xa4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Coc-8E-xAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
