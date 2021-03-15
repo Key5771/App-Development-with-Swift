@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA5F317225FF275E001E6FB2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F317125FF275E001E6FB2 /* SecondViewController.swift */; };
 		EAB321E125FF239200ABD25B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB321E025FF239200ABD25B /* AppDelegate.swift */; };
 		EAB321E325FF239200ABD25B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB321E225FF239200ABD25B /* SceneDelegate.swift */; };
 		EAB321E525FF239200ABD25B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB321E425FF239200ABD25B /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA5F317125FF275E001E6FB2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		EAB321DD25FF239200ABD25B /* LifeCycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeCycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB321E025FF239200ABD25B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB321E225FF239200ABD25B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA5F317025FF2754001E6FB2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EAB321E425FF239200ABD25B /* ViewController.swift */,
+				EA5F317125FF275E001E6FB2 /* SecondViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		EAB321D425FF239200ABD25B = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +110,9 @@
 		EAB321DF25FF239200ABD25B /* LifeCycle */ = {
 			isa = PBXGroup;
 			children = (
+				EA5F317025FF2754001E6FB2 /* UI */,
 				EAB321E025FF239200ABD25B /* AppDelegate.swift */,
 				EAB321E225FF239200ABD25B /* SceneDelegate.swift */,
-				EAB321E425FF239200ABD25B /* ViewController.swift */,
 				EAB321E625FF239200ABD25B /* Main.storyboard */,
 				EAB321E925FF239400ABD25B /* Assets.xcassets */,
 				EAB321EB25FF239400ABD25B /* LaunchScreen.storyboard */,
@@ -258,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA5F317225FF275E001E6FB2 /* SecondViewController.swift in Sources */,
 				EAB321E525FF239200ABD25B /* ViewController.swift in Sources */,
 				EAB321E125FF239200ABD25B /* AppDelegate.swift in Sources */,
 				EAB321E325FF239200ABD25B /* SceneDelegate.swift in Sources */,
