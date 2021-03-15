@@ -8,23 +8,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var segueSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        textField.text = ""
-    }
-
-    @IBAction func unwindtoRed(unwindSegue: UIStoryboardSegue) {
-        
+    @IBAction func yellowButtonTapped(_ sender: Any) {
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Yellow", sender: nil)
+        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.navigationItem.title = textField.text
+    @IBAction func greenButtonTapped(_ sender: Any) {
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Green", sender: nil)
+        }
     }
+    
 }
 
