@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ITG-iv-zuS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Red-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Segue_Test" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,35 +19,63 @@
                                 <rect key="frame" x="184" y="433" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="QVx-ig-7pG" kind="presentation" id="cFT-9L-BTK"/>
+                                    <segue destination="QVx-ig-7pG" kind="show" id="szu-gO-Avv"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avJ-8K-9iq">
+                                <rect key="frame" x="120" y="347" width="174" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.96609288449999997" green="0.82064908739999998" blue="0.78859323260000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Bxx-Xj-UyI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BVg-NC-tCi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="avJ-8K-9iq" secondAttribute="trailing" constant="120" id="hD1-fG-wuE"/>
+                            <constraint firstItem="Bxx-Xj-UyI" firstAttribute="top" secondItem="avJ-8K-9iq" secondAttribute="bottom" constant="52" id="lAr-QI-XLq"/>
+                            <constraint firstItem="avJ-8K-9iq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="oah-Kv-NfL"/>
                             <constraint firstItem="Bxx-Xj-UyI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oy8-uF-pW8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Red" largeTitleDisplayMode="always" id="UuL-LW-4KY"/>
+                    <connections>
+                        <outlet property="textField" destination="avJ-8K-9iq" id="gXT-d4-DOs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="81" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="FCX-Ef-qR9">
+            <objects>
+                <navigationController id="ITG-iv-zuS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="S3e-hF-BAN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Mhf-gf-3Jl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RLD-ki-1DH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-736" y="80"/>
+        </scene>
+        <!--Yellow-->
         <scene sceneID="502-7M-bRS">
             <objects>
                 <viewController id="QVx-ig-7pG" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NG6-SF-o8T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWO-1A-yVz">
-                                <rect key="frame" x="184" y="406" width="46" height="30"/>
+                                <rect key="frame" x="184" y="433" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="hKW-Er-CKp" kind="presentation" id="MN3-Mb-jHL"/>
+                                    <segue destination="hKW-Er-CKp" kind="show" id="IfH-Rv-5u1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,21 +86,22 @@
                             <constraint firstItem="uWO-1A-yVz" firstAttribute="centerX" secondItem="NG6-SF-o8T" secondAttribute="centerX" id="g0x-L2-Gij"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Yellow" largeTitleDisplayMode="never" id="ypu-Oh-a34"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8NR-EF-EXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="913" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Green-->
         <scene sceneID="07f-1m-ThA">
             <objects>
                 <viewController id="hKW-Er-CKp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eXj-Vi-rOk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Daj-PB-pnY">
-                                <rect key="frame" x="180" y="406" width="54" height="30"/>
+                                <rect key="frame" x="180" y="433" width="54" height="30"/>
                                 <state key="normal" title="Dismiss"/>
                                 <connections>
                                     <segue destination="vVZ-Mg-aja" kind="unwind" unwindAction="unwindtoRedWithUnwindSegue:" id="2IP-Nl-Cac"/>
@@ -86,6 +115,13 @@
                             <constraint firstItem="Daj-PB-pnY" firstAttribute="centerY" secondItem="eXj-Vi-rOk" secondAttribute="centerY" id="nft-TH-A0E"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Green" largeTitleDisplayMode="never" id="jsg-nc-qIc">
+                        <barButtonItem key="rightBarButtonItem" title="Pop" id="96Y-xa-6iF">
+                            <connections>
+                                <segue destination="vVZ-Mg-aja" kind="unwind" unwindAction="unwindtoRedWithUnwindSegue:" id="Pim-98-tSU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8U-VE-7JQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="vVZ-Mg-aja" userLabel="Exit" sceneMemberID="exit"/>
