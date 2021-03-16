@@ -15,6 +15,8 @@
 		EA8F6A2426003F7700964204 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA8F6A2226003F7700964204 /* LaunchScreen.storyboard */; };
 		EA8F6A2F26003F7700964204 /* AppLifeCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F6A2E26003F7700964204 /* AppLifeCycleTests.swift */; };
 		EA8F6A3A26003F7700964204 /* AppLifeCycleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F6A3926003F7700964204 /* AppLifeCycleUITests.swift */; };
+		EA8F6A4E260085DE00964204 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F6A4D260085DE00964204 /* Meal.swift */; };
+		EA8F6A622600869600964204 /* MealListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F6A612600869600964204 /* MealListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		EA8F6A3526003F7700964204 /* AppLifeCycleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppLifeCycleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8F6A3926003F7700964204 /* AppLifeCycleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifeCycleUITests.swift; sourceTree = "<group>"; };
 		EA8F6A3B26003F7700964204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA8F6A4D260085DE00964204 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		EA8F6A612600869600964204 /* MealListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,10 @@
 				EA8F6A1726003F7600964204 /* AppDelegate.swift */,
 				EA8F6A1926003F7600964204 /* SceneDelegate.swift */,
 				EA8F6A1B26003F7600964204 /* ViewController.swift */,
+				EA8F6A4A260085AE00964204 /* Model */,
+				EA8F6A4B260085C400964204 /* ViewControllers */,
+				EA8F6A552600863C00964204 /* Views */,
+				EA8F6A4C260085D200964204 /* Controller */,
 				EA8F6A1D26003F7600964204 /* Main.storyboard */,
 				EA8F6A2026003F7700964204 /* Assets.xcassets */,
 				EA8F6A2226003F7700964204 /* LaunchScreen.storyboard */,
@@ -126,6 +134,36 @@
 				EA8F6A3B26003F7700964204 /* Info.plist */,
 			);
 			path = AppLifeCycleUITests;
+			sourceTree = "<group>";
+		};
+		EA8F6A4A260085AE00964204 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA8F6A4D260085DE00964204 /* Meal.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EA8F6A4B260085C400964204 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA8F6A612600869600964204 /* MealListTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EA8F6A4C260085D200964204 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EA8F6A552600863C00964204 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA8F6A4E260085DE00964204 /* Meal.swift in Sources */,
 				EA8F6A1C26003F7600964204 /* ViewController.swift in Sources */,
 				EA8F6A1826003F7600964204 /* AppDelegate.swift in Sources */,
 				EA8F6A1A26003F7600964204 /* SceneDelegate.swift in Sources */,
+				EA8F6A622600869600964204 /* MealListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
