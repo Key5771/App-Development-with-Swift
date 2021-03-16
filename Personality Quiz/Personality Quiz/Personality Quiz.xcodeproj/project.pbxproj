@@ -17,6 +17,8 @@
 		EA5F31A825FF3DE1001E6FB2 /* Personality_QuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F31A725FF3DE1001E6FB2 /* Personality_QuizUITests.swift */; };
 		EA5F31BA25FF4095001E6FB2 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F31B925FF4095001E6FB2 /* QuestionViewController.swift */; };
 		EA5F31BF25FF40C6001E6FB2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F31BE25FF40C6001E6FB2 /* ResultsViewController.swift */; };
+		EA5F31CC25FF4C39001E6FB2 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F31CB25FF4C39001E6FB2 /* QuestionModel.swift */; };
+		EA5F31D125FF4C83001E6FB2 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F31D025FF4C83001E6FB2 /* AnswerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		EA5F31A925FF3DE1001E6FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA5F31B925FF4095001E6FB2 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		EA5F31BE25FF40C6001E6FB2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		EA5F31CB25FF4C39001E6FB2 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
+		EA5F31D025FF4C83001E6FB2 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		EA5F318425FF3DDF001E6FB2 /* Personality Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				EA5F31CA25FF4C2E001E6FB2 /* Model */,
 				EA5F31B825FF4086001E6FB2 /* UI */,
 				EA5F318525FF3DDF001E6FB2 /* AppDelegate.swift */,
 				EA5F318725FF3DDF001E6FB2 /* SceneDelegate.swift */,
@@ -140,6 +145,15 @@
 				EA5F31BE25FF40C6001E6FB2 /* ResultsViewController.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		EA5F31CA25FF4C2E001E6FB2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA5F31CB25FF4C39001E6FB2 /* QuestionModel.swift */,
+				EA5F31D025FF4C83001E6FB2 /* AnswerModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +288,11 @@
 			files = (
 				EA5F318A25FF3DDF001E6FB2 /* MainViewController.swift in Sources */,
 				EA5F318625FF3DDF001E6FB2 /* AppDelegate.swift in Sources */,
+				EA5F31D125FF4C83001E6FB2 /* AnswerModel.swift in Sources */,
 				EA5F31BA25FF4095001E6FB2 /* QuestionViewController.swift in Sources */,
 				EA5F31BF25FF40C6001E6FB2 /* ResultsViewController.swift in Sources */,
 				EA5F318825FF3DDF001E6FB2 /* SceneDelegate.swift in Sources */,
+				EA5F31CC25FF4C39001E6FB2 /* QuestionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
