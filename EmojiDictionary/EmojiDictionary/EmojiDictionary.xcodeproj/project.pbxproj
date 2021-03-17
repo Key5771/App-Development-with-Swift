@@ -16,6 +16,7 @@
 		EABE9CB026019E6200D1BA74 /* EmojiDictionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE9CAF26019E6200D1BA74 /* EmojiDictionaryUITests.swift */; };
 		EABE9CC526019F0E00D1BA74 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE9CC426019F0E00D1BA74 /* EmojiTableViewController.swift */; };
 		EABE9CCD26019F3C00D1BA74 /* EmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE9CCC26019F3C00D1BA74 /* EmojiModel.swift */; };
+		EABE9CD32601D3EA00D1BA74 /* EmojiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE9CD22601D3EA00D1BA74 /* EmojiTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		EABE9CB126019E6200D1BA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EABE9CC426019F0E00D1BA74 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 		EABE9CCC26019F3C00D1BA74 /* EmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiModel.swift; sourceTree = "<group>"; };
+		EABE9CD22601D3EA00D1BA74 /* EmojiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,9 +136,18 @@
 		EABE9CC326019EDF00D1BA74 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				EABE9CD12601D3D800D1BA74 /* Cell */,
 				EABE9CC426019F0E00D1BA74 /* EmojiTableViewController.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		EABE9CD12601D3D800D1BA74 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EABE9CD22601D3EA00D1BA74 /* EmojiTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 			files = (
 				EABE9CCD26019F3C00D1BA74 /* EmojiModel.swift in Sources */,
 				EABE9C8E26019E6100D1BA74 /* AppDelegate.swift in Sources */,
+				EABE9CD32601D3EA00D1BA74 /* EmojiTableViewCell.swift in Sources */,
 				EABE9CC526019F0E00D1BA74 /* EmojiTableViewController.swift in Sources */,
 				EABE9C9026019E6100D1BA74 /* SceneDelegate.swift in Sources */,
 			);
