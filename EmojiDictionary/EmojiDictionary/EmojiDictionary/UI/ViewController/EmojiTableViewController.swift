@@ -75,6 +75,13 @@ class EmojiTableViewController: UITableViewController {
         
     }
     
+    @IBAction func editButtonTapped(_ sender: Any) {
+        let tableViewEditingMode = tableView.isEditing
+        
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
+    
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,11 +124,41 @@ class EmojiTableViewController: UITableViewController {
             cell.descriptionLabel.text = emojis2[indexPath.row].description
         }
         
+        cell.showsReorderControl = true
+        
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedEmoji: Emoji
+        if sourceIndexPath.section == 0 {
+            movedEmoji = emojis.remove(at: sourceIndexPath.row)
+            emojis.insert(movedEmoji, at: destinationIndexPath.row)
+        } else {
+            movedEmoji = emojis2.remove(at: sourceIndexPath.row)
+            emojis2.insert(movedEmoji, at: destinationIndexPath.row)
+        }
+        
+        tableView.reloadData()
+    }
+    
+    // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var emoji: Emoji
+        
+        if indexPath.section == 0 {
+            emoji = emojis[indexPath.row]
+        } else {
+            emoji = emojis2[indexPath.row]
+        }
+        
+        print("\(emoji.symbol) \(indexPath)")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
