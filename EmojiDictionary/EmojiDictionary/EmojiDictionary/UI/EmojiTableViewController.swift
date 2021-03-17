@@ -9,6 +9,8 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
     
+    var emojiTitle: [String] = ["Emoji", "Emoji2"]
+    
     var emojis: [Emoji] = [
         Emoji(symbol: "😀",
               name: "Grinning Face",
@@ -33,7 +35,10 @@ class EmojiTableViewController: UITableViewController {
         Emoji(symbol: "🐘",
               name: "Elephant",
               description: "A gray elephant.",
-              usage: "good memory"),
+              usage: "good memory")
+        ]
+    
+    var emojis2: [Emoji] = [
         Emoji(symbol: "🍝",
               name: "Spaghetti",
               description: "A plate of spaghetti.",
@@ -61,7 +66,8 @@ class EmojiTableViewController: UITableViewController {
         Emoji(symbol: "🏁",
               name: "Checkered Flag",
               description: "A black-and-white checkered flag.",
-              usage: "completion")]
+              usage: "completion")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,12 +79,28 @@ class EmojiTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return emojiTitle.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return emojiTitle[0]
+        } else {
+            return emojiTitle[1]
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return emojis.count
+        if section == 0 {
+            return emojis.count
+        } else {
+            return emojis2.count
+        }
     }
     
     
@@ -87,8 +109,13 @@ class EmojiTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.titleLabel.text = emojis[indexPath.row].symbol + " - " + emojis[indexPath.row].name
-        cell.descriptionLabel.text = emojis[indexPath.row].description
+        if indexPath.section == 0 {
+            cell.titleLabel.text = emojis[indexPath.row].symbol + " - " + emojis[indexPath.row].name
+            cell.descriptionLabel.text = emojis[indexPath.row].description
+        } else {
+            cell.titleLabel.text = emojis2[indexPath.row].symbol + " - " + emojis2[indexPath.row].name
+            cell.descriptionLabel.text = emojis2[indexPath.row].description
+        }
         
         return cell
     }
