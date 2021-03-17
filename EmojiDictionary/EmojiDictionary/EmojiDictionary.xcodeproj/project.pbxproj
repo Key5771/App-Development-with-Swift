@@ -136,8 +136,8 @@
 		EABE9CC326019EDF00D1BA74 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				EABE9CDA2601DDF700D1BA74 /* ViewController */,
 				EABE9CD12601D3D800D1BA74 /* Cell */,
-				EABE9CC426019F0E00D1BA74 /* EmojiTableViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -148,6 +148,14 @@
 				EABE9CD22601D3EA00D1BA74 /* EmojiTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		EABE9CDA2601DDF700D1BA74 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EABE9CC426019F0E00D1BA74 /* EmojiTableViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
