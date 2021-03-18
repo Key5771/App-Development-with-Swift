@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         guard let url = URL(string: urlStr) else { return }
         let request = URLRequest(url: url)
         wkWebView.load(request)
-        urlTextField.text = urlStr
+//        urlTextField.text = urlStr
     }
     
     func toolBarButtonSetup() {
