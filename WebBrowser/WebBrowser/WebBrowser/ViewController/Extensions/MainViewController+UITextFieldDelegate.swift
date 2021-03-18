@@ -13,7 +13,7 @@ extension MainViewController: UITextFieldDelegate {
         self.urlTextField.resignFirstResponder()
         
         var url = "https://"
-        guard let text = textField.text else { return false }
+        guard var text = textField.text else { return false }
         
 //        if !text.contains(url) {
 //            url += text
@@ -21,9 +21,17 @@ extension MainViewController: UITextFieldDelegate {
 //            url = text
 //        }
         
+        if text.contains("http://") {
+            for _ in 0..<7 {
+                text.removeFirst()
+            }
+        }
+        
         !text.contains(url) ? (url += text) : (url = text)
         
-        loadWebView(urlStr: url)
+        DispatchQueue.main.async {
+            self.loadWebView(urlStr: url)
+        }
         
         return true
     }
