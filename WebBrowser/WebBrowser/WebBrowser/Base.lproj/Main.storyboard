@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0p6-nS-5Ps">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y0V-XK-Kld">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -9,41 +9,54 @@
     </dependencies>
     <scenes>
         <!--Main View Controller-->
-        <scene sceneID="HWB-QH-s57">
+        <scene sceneID="NrB-tB-YIy">
             <objects>
-                <viewController id="0p6-nS-5Ps" customClass="MainViewController" customModule="WebBrowser" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ra1-pe-7qN">
+                <viewController id="Y0V-XK-Kld" customClass="MainViewController" customModule="WebBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JSk-XP-O2b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJF-4U-EP7">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUu-Si-NtN">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="Back" id="2NG-rl-wDk">
+                                        <connections>
+                                            <action selector="backButtonClick:" destination="Y0V-XK-Kld" id="CrW-R2-qg9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Srd-yx-ILG"/>
+                                    <barButtonItem title="Home" id="9X3-K2-IGk">
+                                        <connections>
+                                            <action selector="homeButtonClick:" destination="Y0V-XK-Kld" id="Xqz-5J-ugQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wtu-kI-vhP"/>
+                                    <barButtonItem title="Forward" id="hqa-HA-Cb2">
+                                        <connections>
+                                            <action selector="forwardButtonClick:" destination="Y0V-XK-Kld" id="huZ-Mq-sha"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xbz-XX-c4V">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Eo-W2-Ley">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v9s-qO-RyA">
                                         <rect key="frame" x="16" y="5" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97619134190000001" green="0.97633117439999995" blue="0.97616070509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.9795874953" green="0.97972780469999998" blue="0.97955685849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="0Eo-W2-Ley" secondAttribute="bottom" constant="5" id="PDd-2h-cf3"/>
-                                    <constraint firstItem="0Eo-W2-Ley" firstAttribute="top" secondItem="eJF-4U-EP7" secondAttribute="top" constant="5" id="Zco-4a-bk0"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Eo-W2-Ley" secondAttribute="trailing" constant="16" id="ekj-cz-xu7"/>
-                                    <constraint firstItem="0Eo-W2-Ley" firstAttribute="leading" secondItem="eJF-4U-EP7" secondAttribute="leading" constant="16" id="zrO-Na-Eas"/>
+                                    <constraint firstItem="v9s-qO-RyA" firstAttribute="leading" secondItem="Xbz-XX-c4V" secondAttribute="leading" constant="16" id="ag7-GS-C6J"/>
+                                    <constraint firstAttribute="trailing" secondItem="v9s-qO-RyA" secondAttribute="trailing" constant="16" id="bho-Uf-SDR"/>
+                                    <constraint firstAttribute="bottom" secondItem="v9s-qO-RyA" secondAttribute="bottom" constant="5" id="hbK-nd-rWi"/>
+                                    <constraint firstItem="v9s-qO-RyA" firstAttribute="top" secondItem="Xbz-XX-c4V" secondAttribute="top" constant="5" id="jbe-RP-ZJf"/>
+                                    <constraint firstAttribute="height" constant="44" id="sk7-jg-zuS"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MA1-Ve-Sav">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
-                                <items>
-                                    <barButtonItem title="Back" id="YsY-4q-3xt"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wfe-fH-uvK"/>
-                                    <barButtonItem title="Home" id="ZUI-Uh-FFD"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aJt-Aq-F4Y"/>
-                                    <barButtonItem title="Forward" id="g2H-zI-Nkd"/>
-                                </items>
-                            </toolbar>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nk3-fE-vD5">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4U-Ht-scR">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -51,29 +64,32 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="j6c-T1-L3X"/>
+                        <viewLayoutGuide key="safeArea" id="xee-Bz-mOX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MA1-Ve-Sav" firstAttribute="leading" secondItem="j6c-T1-L3X" secondAttribute="leading" id="BPf-8I-ACL"/>
-                            <constraint firstItem="MA1-Ve-Sav" firstAttribute="top" secondItem="Nk3-fE-vD5" secondAttribute="bottom" id="GEf-Yi-49v"/>
-                            <constraint firstItem="Nk3-fE-vD5" firstAttribute="top" secondItem="eJF-4U-EP7" secondAttribute="bottom" id="Kwf-m1-kyt"/>
-                            <constraint firstItem="Nk3-fE-vD5" firstAttribute="leading" secondItem="j6c-T1-L3X" secondAttribute="leading" id="Qeu-f8-G8n"/>
-                            <constraint firstItem="eJF-4U-EP7" firstAttribute="leading" secondItem="j6c-T1-L3X" secondAttribute="leading" id="aHw-Gy-5wT"/>
-                            <constraint firstItem="MA1-Ve-Sav" firstAttribute="bottom" secondItem="j6c-T1-L3X" secondAttribute="bottom" id="eDn-Kg-v50"/>
-                            <constraint firstItem="j6c-T1-L3X" firstAttribute="trailing" secondItem="Nk3-fE-vD5" secondAttribute="trailing" id="fA3-kt-Q7N"/>
-                            <constraint firstItem="eJF-4U-EP7" firstAttribute="top" secondItem="j6c-T1-L3X" secondAttribute="top" id="fMa-ho-MUx"/>
-                            <constraint firstItem="j6c-T1-L3X" firstAttribute="trailing" secondItem="eJF-4U-EP7" secondAttribute="trailing" id="k6H-Ah-nk3"/>
-                            <constraint firstItem="MA1-Ve-Sav" firstAttribute="trailing" secondItem="j6c-T1-L3X" secondAttribute="trailing" id="kbN-qe-4mX"/>
+                            <constraint firstItem="xee-Bz-mOX" firstAttribute="trailing" secondItem="Xbz-XX-c4V" secondAttribute="trailing" id="3MJ-p1-XqY"/>
+                            <constraint firstItem="l4U-Ht-scR" firstAttribute="leading" secondItem="xee-Bz-mOX" secondAttribute="leading" id="Dc2-Yh-2GT"/>
+                            <constraint firstItem="TUu-Si-NtN" firstAttribute="trailing" secondItem="xee-Bz-mOX" secondAttribute="trailing" id="Ias-Ej-x5h"/>
+                            <constraint firstItem="Xbz-XX-c4V" firstAttribute="top" secondItem="xee-Bz-mOX" secondAttribute="top" id="Quc-eZ-D2a"/>
+                            <constraint firstItem="TUu-Si-NtN" firstAttribute="top" secondItem="l4U-Ht-scR" secondAttribute="bottom" id="VOw-cN-GoW"/>
+                            <constraint firstItem="TUu-Si-NtN" firstAttribute="leading" secondItem="xee-Bz-mOX" secondAttribute="leading" id="eTv-wC-EXd"/>
+                            <constraint firstItem="l4U-Ht-scR" firstAttribute="top" secondItem="Xbz-XX-c4V" secondAttribute="bottom" id="ekW-kq-Zzi"/>
+                            <constraint firstItem="TUu-Si-NtN" firstAttribute="bottom" secondItem="xee-Bz-mOX" secondAttribute="bottom" id="lZd-ha-bW5"/>
+                            <constraint firstItem="xee-Bz-mOX" firstAttribute="trailing" secondItem="l4U-Ht-scR" secondAttribute="trailing" id="mgG-ar-JJ6"/>
+                            <constraint firstItem="Xbz-XX-c4V" firstAttribute="leading" secondItem="xee-Bz-mOX" secondAttribute="leading" id="qPj-vz-gHt"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="urlTextField" destination="0Eo-W2-Ley" id="4lL-2l-gnO"/>
-                        <outlet property="wkWebView" destination="Nk3-fE-vD5" id="T06-I3-4Dq"/>
+                        <outlet property="backButton" destination="2NG-rl-wDk" id="E2g-Xf-dhb"/>
+                        <outlet property="forwardButton" destination="hqa-HA-Cb2" id="16e-nG-kZ8"/>
+                        <outlet property="homeButton" destination="9X3-K2-IGk" id="NCd-no-gbW"/>
+                        <outlet property="urlTextField" destination="v9s-qO-RyA" id="y07-3F-bNP"/>
+                        <outlet property="wkWebView" destination="l4U-Ht-scR" id="gD5-EO-7Mg"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dsd-nm-gnd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6C-19-vBR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="302.89855072463769" y="93.75"/>
+            <point key="canvasLocation" x="1120" y="94"/>
         </scene>
     </scenes>
     <resources>
