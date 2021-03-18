@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         wkWebView.navigationDelegate = self
+        wkWebView.uiDelegate = self
         urlTextField.delegate = self
         
         loadWebView(urlStr: defaultUrl)

@@ -18,6 +18,7 @@
 		EAB575342602D63000D8E39D /* WebBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB575332602D63000D8E39D /* WebBrowserUITests.swift */; };
 		EAB575502603064B00D8E39D /* MainViewController+WKNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5754F2603064B00D8E39D /* MainViewController+WKNavigationDelegate.swift */; };
 		EAB575552603073900D8E39D /* MainViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB575542603073900D8E39D /* MainViewController+UITextFieldDelegate.swift */; };
+		EAB5755B26030D3000D8E39D /* MainViewController+WKUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB5755A26030D3000D8E39D /* MainViewController+WKUIDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		EAB575352602D63000D8E39D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAB5754F2603064B00D8E39D /* MainViewController+WKNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+WKNavigationDelegate.swift"; sourceTree = "<group>"; };
 		EAB575542603073900D8E39D /* MainViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		EAB5755A26030D3000D8E39D /* MainViewController+WKUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+WKUIDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +140,8 @@
 		EAB575472602D8E500D8E39D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EAB5755926030C9700D8E39D /* UI */,
 				EAB5754E2603062600D8E39D /* Extensions */,
-				EAB575122602D63000D8E39D /* MainViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -149,8 +151,17 @@
 			children = (
 				EAB5754F2603064B00D8E39D /* MainViewController+WKNavigationDelegate.swift */,
 				EAB575542603073900D8E39D /* MainViewController+UITextFieldDelegate.swift */,
+				EAB5755A26030D3000D8E39D /* MainViewController+WKUIDelegate.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAB5755926030C9700D8E39D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EAB575122602D63000D8E39D /* MainViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 			files = (
 				EAB575132602D63000D8E39D /* MainViewController.swift in Sources */,
 				EAB575192602D63000D8E39D /* WebBrowser.xcdatamodeld in Sources */,
+				EAB5755B26030D3000D8E39D /* MainViewController+WKUIDelegate.swift in Sources */,
 				EAB5750F2602D63000D8E39D /* AppDelegate.swift in Sources */,
 				EAB575112602D63000D8E39D /* SceneDelegate.swift in Sources */,
 				EAB575552603073900D8E39D /* MainViewController+UITextFieldDelegate.swift in Sources */,
