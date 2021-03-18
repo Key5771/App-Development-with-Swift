@@ -24,19 +24,20 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         wkWebView.navigationDelegate = self
+        urlTextField.delegate = self
         
         loadWebView(urlStr: defaultUrl)
         toolBarButtonSetup()
     }
     
-    private func loadWebView(urlStr: String) {
+    func loadWebView(urlStr: String) {
         guard let url = URL(string: urlStr) else { return }
         let request = URLRequest(url: url)
         wkWebView.load(request)
         urlTextField.text = urlStr
     }
     
-    private func toolBarButtonSetup() {
+    func toolBarButtonSetup() {
         backButton.isEnabled = wkWebView.canGoBack ? true : false
         forwardButton.isEnabled = wkWebView.canGoForward ? true : false
         homeButton.isEnabled = true
@@ -59,18 +60,5 @@ class MainViewController: UIViewController {
     @IBAction func homeButtonClick(_ sender: Any) {
         loadWebView(urlStr: defaultUrl)
     }
-    
-}
-
-// MARK: - Extension WKNavigationDelegate
-extension MainViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        urlTextField.text = webView.url?.absoluteString
-        toolBarButtonSetup()
-    }
-}
-
-// MARK: - Extension UITextFieldDelegate
-extension MainViewController: UITextFieldDelegate {
     
 }
