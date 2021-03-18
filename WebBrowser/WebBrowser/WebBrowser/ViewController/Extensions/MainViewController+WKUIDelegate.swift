@@ -24,7 +24,7 @@ extension MainViewController: WKUIDelegate {
     
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "취소", style: .cancel) { _ in
+        let cancelButton = UIAlertAction(title: "취소", style: .destructive) { _ in
             completionHandler(false)
         }
         let okButton = UIAlertAction(title: "확인", style: .default) { _ in
