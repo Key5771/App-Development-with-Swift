@@ -9,6 +9,7 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
     
+    private let estimatedSize: CGFloat = 80
     var emojiTitle: [String] = ["Emoji", "Emoji2"]
     
     var emojis: [Emoji] = [
@@ -97,10 +98,6 @@ class EmojiTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
@@ -117,11 +114,11 @@ class EmojiTableViewController: UITableViewController {
         }
         
         if indexPath.section == 0 {
-            cell.titleLabel.text = emojis[indexPath.row].symbol + " - " + emojis[indexPath.row].name
-            cell.descriptionLabel.text = emojis[indexPath.row].description
+            let emoji = emojis[indexPath.row]
+            cell.update(with: emoji)
         } else {
-            cell.titleLabel.text = emojis2[indexPath.row].symbol + " - " + emojis2[indexPath.row].name
-            cell.descriptionLabel.text = emojis2[indexPath.row].description
+            let emoji2 = emojis2[indexPath.row]
+            cell.update(with: emoji2)
         }
         
         cell.showsReorderControl = true
@@ -142,9 +139,23 @@ class EmojiTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && editingStyle == .delete {
+            emojis.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } else if editingStyle == .delete {
+            emojis2.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     // MARK: - Table view delegate
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return estimatedSize
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -161,4 +172,15 @@ class EmojiTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return estimatedSize
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 240 / 255, green: 240 / 255, blue: 246 / 255, alpha: 1)
+    }
 }

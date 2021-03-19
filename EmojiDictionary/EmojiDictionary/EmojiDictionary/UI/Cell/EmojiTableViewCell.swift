@@ -8,7 +8,8 @@
 import UIKit
 
 class EmojiTableViewCell: UITableViewCell {
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
@@ -23,6 +24,8 @@ class EmojiTableViewCell: UITableViewCell {
     }
 
     func update(with emoji: Emoji) {
-        
+        symbolLabel.text = emoji.symbol
+        nameLabel.text = emoji.name
+        descriptionLabel.text = emoji.description
     }
 }
