@@ -158,17 +158,8 @@ class EmojiTableViewController: UITableViewController {
         return UITableView.automaticDimension
     }
     
+    /// segue로 연결하기 때문에 기존에 indexPath를 확인하던 코드 삭제
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var emoji: Emoji
-        
-        if indexPath.section == 0 {
-            emoji = emojis[indexPath.row]
-        } else {
-            emoji = emojis2[indexPath.row]
-        }
-        
-        print("\(emoji.symbol) \(indexPath)")
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -182,5 +173,23 @@ class EmojiTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor(red: 240 / 255, green: 240 / 255, blue: 246 / 255, alpha: 1)
+    }
+    
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditEmoji" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            let emoji: Emoji
+            indexPath.section == 0 ? (emoji = emojis[indexPath.row]) : (emoji = emojis2[indexPath.row])
+            
+            guard let navController = segue.destination as? UINavigationController,
+                  let addEditEmojiTableViewController = navController.topViewController as? AddEditEmojiTableViewController else {
+                return
+            }
+            
+            addEditEmojiTableViewController.emoji = emoji
+        }
     }
 }
