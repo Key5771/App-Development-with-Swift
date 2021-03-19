@@ -158,22 +158,22 @@ class EmojiTableViewController: UITableViewController {
         return UITableView.automaticDimension
     }
     
-    /// segue로 연결하기 때문에 기존에 indexPath를 확인하던 코드 삭제
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
+    /// segue로 연결하기 때문에 기존에 구현되어 있던 코드가 먼저 이벤트를 받기 때문에 삭제.
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     
-    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return estimatedSize
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor(red: 240 / 255, green: 240 / 255, blue: 246 / 255, alpha: 1)
-    }
+//    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+//        return estimatedSize
+//    }
+//
+//    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        view.tintColor = UIColor(red: 240 / 255, green: 240 / 255, blue: 246 / 255, alpha: 1)
+//    }
     
     
     // MARK: - Navigation
@@ -190,6 +190,23 @@ class EmojiTableViewController: UITableViewController {
             }
             
             addEditEmojiTableViewController.emoji = emoji
+        }
+    }
+    
+    @IBAction func unwindToEmojiTableView(_ unwindSegue: UIStoryboardSegue) {
+        guard unwindSegue.identifier == "saveUnwind",
+              let sourceViewController = unwindSegue.source as? AddEditEmojiTableViewController,
+              let emoji = sourceViewController.emoji else { return }
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow,
+           let section = tableView.indexPathForSelectedRow?.section {
+            print("Section: \(section)")
+            section == 0 ? (emojis[selectedIndexPath.row] = emoji) : (emojis2[selectedIndexPath.row] = emoji)
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        } else {
+            let newIndexPath = IndexPath(row: emojis.count, section: 0)
+            emojis.append(emoji)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
 }
