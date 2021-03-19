@@ -77,7 +77,7 @@
                                 <action selector="editButtonTapped:" destination="nM6-tB-bek" id="bgv-Dw-Uuy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="+" id="YEt-Wd-BJv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YEt-Wd-BJv">
                             <connections>
                                 <segue destination="sqc-KQ-4hM" kind="show" id="r2o-3p-wtB"/>
                             </connections>
