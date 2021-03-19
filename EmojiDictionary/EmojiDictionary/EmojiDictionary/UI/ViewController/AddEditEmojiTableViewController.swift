@@ -25,4 +25,9 @@ class AddEditEmojiTableViewController: UITableViewController {
             usageTextField.text = emoji.usage
         }
     }
+    
+    // MARK: - Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
