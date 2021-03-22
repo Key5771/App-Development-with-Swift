@@ -394,7 +394,7 @@
             </objects>
             <point key="canvasLocation" x="-559" y="1726"/>
         </scene>
-        <!--SystemViewController-->
+        <!--SystemController-->
         <scene sceneID="XHc-it-7Xj">
             <objects>
                 <viewController id="yOm-99-kfB" customClass="SystemViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
@@ -454,7 +454,7 @@
                             <constraint firstItem="cbM-2R-J0V" firstAttribute="trailing" secondItem="u2Q-9h-dJg" secondAttribute="trailing" constant="15" id="tXq-Jw-kOe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SystemViewController" largeTitleDisplayMode="always" id="zzP-oU-40l"/>
+                    <navigationItem key="navigationItem" title="SystemController" largeTitleDisplayMode="always" id="zzP-oU-40l"/>
                     <connections>
                         <outlet property="imageView" destination="u2Q-9h-dJg" id="mq8-Ha-ilr"/>
                     </connections>
