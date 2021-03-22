@@ -241,7 +241,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aL-CZ-DFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Fx6-1i-neR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2122" y="102"/>
+            <point key="canvasLocation" x="2130" y="500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CRc-mw-fJf">
@@ -258,9 +258,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAa-97-i1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230" y="102"/>
+            <point key="canvasLocation" x="1238" y="500"/>
         </scene>
-        <!--CollectionView-->
+        <!--EmojiDictionary-->
         <scene sceneID="obL-ex-rv3">
             <objects>
                 <viewController id="P17-Pr-0cP" customClass="EmojiCollectionViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
@@ -269,9 +269,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cYP-oj-emQ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gn1-oW-KVH">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gn1-oW-KVH">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -284,7 +284,53 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bfG-eM-nRE">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AUg-tC-AAS">
+                                                    <rect key="frame" x="8" y="0.0" width="112" height="128"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9w-6R-A0A">
+                                                            <rect key="frame" x="0.0" y="0.0" width="112" height="64"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="emoji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-Nf-Mhv">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="64"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9ho-5R-LSd">
+                                                                    <rect key="frame" x="41" y="0.0" width="71" height="64"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vib-mG-esc">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="71" height="64"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6x-o7-LCI">
+                                                            <rect key="frame" x="0.0" y="64" width="112" height="64"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AUg-tC-AAS" firstAttribute="top" secondItem="bfG-eM-nRE" secondAttribute="top" id="8IX-1u-8m0"/>
+                                                <constraint firstAttribute="trailing" secondItem="AUg-tC-AAS" secondAttribute="trailing" constant="8" id="PzR-hD-F32"/>
+                                                <constraint firstItem="AUg-tC-AAS" firstAttribute="leading" secondItem="bfG-eM-nRE" secondAttribute="leading" constant="8" id="crH-aJ-oI3"/>
+                                                <constraint firstAttribute="bottom" secondItem="AUg-tC-AAS" secondAttribute="bottom" id="t0B-ec-pFT"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="X6x-o7-LCI" id="2qD-To-aBk"/>
+                                            <outlet property="nameLabel" destination="Vib-mG-esc" id="q0o-cD-WUQ"/>
+                                            <outlet property="symbolLabel" destination="ZmK-Nf-Mhv" id="404-6h-UVT"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="RKI-P5-NkM" customClass="EmojiCollectionReusableView" customModule="EmojiDictionary" customModuleProvider="target">
@@ -320,13 +366,38 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="CollectionView" id="6qt-AT-4dE"/>
+                    <navigationItem key="navigationItem" title="EmojiDictionary" largeTitleDisplayMode="always" id="pAQ-Qu-Kg7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Hjq-Ly-hM1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ms9-Zg-lcE">
+                            <connections>
+                                <segue destination="sqc-KQ-4hM" kind="show" id="EnF-S6-fIg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="cYP-oj-emQ" id="chf-nE-emW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9UH-fi-g3z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-558" y="818"/>
+            <point key="canvasLocation" x="332" y="962"/>
+        </scene>
+        <!--CollectionView-->
+        <scene sceneID="aEi-dq-Hvo">
+            <objects>
+                <navigationController id="zuI-Sa-cz2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="CollectionView" id="GWr-Z8-YXf"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="g4t-ih-7Ri">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="P17-Pr-0cP" kind="relationship" relationship="rootViewController" id="pZ0-4T-zb3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CH0-Dn-ED2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-558" y="962"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kfP-Aj-wdb">
@@ -338,19 +409,19 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="P17-Pr-0cP" kind="relationship" relationship="viewControllers" id="p7g-Gc-Le4"/>
                         <segue destination="973-09-FF0" kind="relationship" relationship="viewControllers" id="nMU-Wy-uON"/>
+                        <segue destination="zuI-Sa-cz2" kind="relationship" relationship="viewControllers" id="Viy-wA-55j"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sww-Ct-tck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1439" y="500"/>
         </scene>
-        <!--EmojiDictionary-->
+        <!--TableView-->
         <scene sceneID="Kx5-VB-CFP">
             <objects>
                 <navigationController id="973-09-FF0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="EmojiDictionary" id="yFi-Lh-Qkd"/>
+                    <tabBarItem key="tabBarItem" title="TableView" id="yFi-Lh-Qkd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="zhL-58-UOV">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -365,7 +436,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dFu-cf-L3O"/>
+        <segue reference="EnF-S6-fIg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

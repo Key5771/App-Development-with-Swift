@@ -109,7 +109,19 @@ extension EmojiCollectionViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.backgroundColor = .blue
+        if indexPath.section == 0 {
+            cell.symbolLabel.text = emojis[indexPath.row].symbol
+            cell.nameLabel.text = emojis[indexPath.row].name
+            cell.descriptionLabel.text = emojis[indexPath.row].description
+        } else {
+            cell.symbolLabel.text = emojis2[indexPath.row].symbol
+            cell.nameLabel.text = emojis2[indexPath.row].name
+            cell.descriptionLabel.text = emojis2[indexPath.row].description
+        }
+        
+//        cell.backgroundColor = .blue
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 10
         
         return cell
     }
@@ -148,8 +160,8 @@ extension EmojiCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: Cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.view.frame.width * 0.392
-        return CGSize(width: width, height: width * 1.075)
+        let width = self.view.frame.width * 0.85
+        return CGSize(width: width, height: width * 0.3)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
