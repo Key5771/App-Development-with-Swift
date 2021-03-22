@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EA4C66C726046B0600589499 /* AddEditEmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C66C626046B0600589499 /* AddEditEmojiTableViewController.swift */; };
+		EA979EC92608214E007878FF /* EmojiCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA979EC82608214E007878FF /* EmojiCollectionViewController.swift */; };
+		EA979ECE260821C4007878FF /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA979ECD260821C4007878FF /* EmojiCollectionViewCell.swift */; };
 		EABE9C8E26019E6100D1BA74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE9C8D26019E6100D1BA74 /* AppDelegate.swift */; };
 		EABE9C9026019E6100D1BA74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE9C8F26019E6100D1BA74 /* SceneDelegate.swift */; };
 		EABE9C9526019E6100D1BA74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EABE9C9326019E6100D1BA74 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		EA4C66C626046B0600589499 /* AddEditEmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditEmojiTableViewController.swift; sourceTree = "<group>"; };
+		EA979EC82608214E007878FF /* EmojiCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewController.swift; sourceTree = "<group>"; };
+		EA979ECD260821C4007878FF /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
 		EABE9C8A26019E6100D1BA74 /* EmojiDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EABE9C8D26019E6100D1BA74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EABE9C8F26019E6100D1BA74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA979EBC260812EC007878FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EABE9CCC26019F3C00D1BA74 /* EmojiModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EABE9C8126019E6100D1BA74 = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +117,7 @@
 		EABE9C8C26019E6100D1BA74 /* EmojiDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				EABE9CCC26019F3C00D1BA74 /* EmojiModel.swift */,
+				EA979EBC260812EC007878FF /* Model */,
 				EABE9CC326019EDF00D1BA74 /* UI */,
 				EABE9C8D26019E6100D1BA74 /* AppDelegate.swift */,
 				EABE9C8F26019E6100D1BA74 /* SceneDelegate.swift */,
@@ -148,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				EABE9CD22601D3EA00D1BA74 /* EmojiTableViewCell.swift */,
+				EA979ECD260821C4007878FF /* EmojiCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -157,6 +170,7 @@
 			children = (
 				EABE9CC426019F0E00D1BA74 /* EmojiTableViewController.swift */,
 				EA4C66C626046B0600589499 /* AddEditEmojiTableViewController.swift */,
+				EA979EC82608214E007878FF /* EmojiCollectionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -294,6 +308,8 @@
 				EA4C66C726046B0600589499 /* AddEditEmojiTableViewController.swift in Sources */,
 				EABE9CCD26019F3C00D1BA74 /* EmojiModel.swift in Sources */,
 				EABE9C8E26019E6100D1BA74 /* AppDelegate.swift in Sources */,
+				EA979ECE260821C4007878FF /* EmojiCollectionViewCell.swift in Sources */,
+				EA979EC92608214E007878FF /* EmojiCollectionViewController.swift in Sources */,
 				EABE9CD32601D3EA00D1BA74 /* EmojiTableViewCell.swift in Sources */,
 				EABE9CC526019F0E00D1BA74 /* EmojiTableViewController.swift in Sources */,
 				EABE9C9026019E6100D1BA74 /* SceneDelegate.swift in Sources */,
