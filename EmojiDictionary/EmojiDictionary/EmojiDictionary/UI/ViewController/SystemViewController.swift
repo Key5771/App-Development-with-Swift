@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import MessageUI
 
 class SystemViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
@@ -66,6 +67,19 @@ class SystemViewController: UIViewController {
     }
     
     @IBAction func emailButtonTapped(_ sender: Any) {
+        guard MFMailComposeViewController.canSendMail() else {
+            print("Can not send mail")
+            return
+        }
+        
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.delegate = self
+        
+        mailComposer.setToRecipients(["ksj57715@etoos.com"])
+        mailComposer.setSubject("Look at this")
+        mailComposer.setMessageBody("Hello, this is an email from the app I made.", isHTML: false)
+        
+        present(mailComposer, animated: true, completion: nil)
     }
 }
 
@@ -74,6 +88,12 @@ extension SystemViewController: UIImagePickerControllerDelegate, UINavigationCon
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         
         imageView.image = selectedImage
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SystemViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         dismiss(animated: true, completion: nil)
     }
 }
