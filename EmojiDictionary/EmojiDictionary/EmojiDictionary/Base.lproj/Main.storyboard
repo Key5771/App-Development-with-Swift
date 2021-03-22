@@ -273,13 +273,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gn1-oW-KVH">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Y7o-2g-khn" customClass="EmojiCollectionViewCell" customModule="EmojiDictionary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="50" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bfG-eM-nRE">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -287,6 +287,27 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="RKI-P5-NkM" customClass="EmojiCollectionReusableView" customModule="EmojiDictionary" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTE-Is-TAe">
+                                            <rect key="frame" x="24" y="13" width="366" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oTE-Is-TAe" secondAttribute="bottom" constant="5" id="Lft-Q1-EcV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="oTE-Is-TAe" secondAttribute="trailing" constant="16" id="eiD-gV-ebi"/>
+                                        <constraint firstItem="oTE-Is-TAe" firstAttribute="leading" secondItem="RKI-P5-NkM" secondAttribute="leadingMargin" constant="16" id="emj-To-SjU"/>
+                                        <constraint firstItem="oTE-Is-TAe" firstAttribute="top" secondItem="RKI-P5-NkM" secondAttribute="topMargin" constant="5" id="yxb-gK-1ql"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerTitleLabel" destination="oTE-Is-TAe" id="VBV-Wz-24f"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OZ2-G4-Ohj"/>
