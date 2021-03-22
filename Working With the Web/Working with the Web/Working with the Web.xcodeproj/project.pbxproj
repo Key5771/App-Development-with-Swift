@@ -49,6 +49,7 @@
 		EA979F2826088099007878FF /* Working with the WebUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Working with the WebUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA979F2C26088099007878FF /* Working_with_the_WebUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Working_with_the_WebUITests.swift; sourceTree = "<group>"; };
 		EA979F2E26088099007878FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA979F3D2608875B007878FF /* Web.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Web.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		EA979EFE26088097007878FF = {
 			isa = PBXGroup;
 			children = (
+				EA979F3D2608875B007878FF /* Web.playground */,
 				EA979F0926088097007878FF /* Working with the Web */,
 				EA979F2026088099007878FF /* Working with the WebTests */,
 				EA979F2B26088099007878FF /* Working with the WebUITests */,

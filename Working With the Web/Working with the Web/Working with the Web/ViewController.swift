@@ -9,9 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: www.apple.com으로 변경해서 커밋
+    let url = URL(string: "https://www.apple.com")
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        guard let url = url else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data,
+               let string = String(data: data, encoding: .utf8) {
+                print(string)
+            }
+        }
+        
+        task.resume()
     }
 
 
