@@ -82,15 +82,30 @@ class EmojiCollectionViewController: UIViewController {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: "footer")
     }
-
-}
-
-extension EmojiCollectionViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+    
+    // MARK: - Navigation
+    
+    @IBAction func unwindToEmojiCollectionView(_ unwindSegue: UIStoryboardSegue) {
+        guard unwindSegue.identifier == "collectionViewUnwind",
+              let sourceViewController = unwindSegue.source as? AddEditEmojiTableViewController,
+              let emoji = sourceViewController.emoji else { return }
+        print("emoji: \(emoji)")
+        
+//        if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first,
+//           let section = collectionView.indexPathsForSelectedItems?.first?.section {
+//            print("section: \(section)")
+//
+//            section == 0 ? (emojis[selectedIndexPath.row] = emoji) : (emojis2[selectedIndexPath.row] = emoji)
+//            collectionView.reloadItems(at: [selectedIndexPath])
+//        } else {
+//            let newIndexPath = IndexPath(row: emojis.count, section: 0)
+//            emojis.append(emoji)
+//            collectionView.insertItems(at: [newIndexPath])
+//        }
     }
 }
 
+// MARK: - DataSource
 extension EmojiCollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return emojiTitle.count
@@ -127,7 +142,9 @@ extension EmojiCollectionViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - DelegateFlowLayout
 extension EmojiCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
     //MARK: Header & Footer
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {

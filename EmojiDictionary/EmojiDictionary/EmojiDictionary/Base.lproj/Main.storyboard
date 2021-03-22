@@ -241,7 +241,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aL-CZ-DFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Fx6-1i-neR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="500"/>
+            <point key="canvasLocation" x="2149" y="102"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CRc-mw-fJf">
@@ -258,9 +258,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAa-97-i1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238" y="500"/>
+            <point key="canvasLocation" x="1258" y="102"/>
         </scene>
-        <!--EmojiDictionary-->
+        <!--Emoji Dictionary-->
         <scene sceneID="obL-ex-rv3">
             <objects>
                 <viewController id="P17-Pr-0cP" customClass="EmojiCollectionViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
@@ -366,13 +366,8 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="CollectionView" id="6qt-AT-4dE"/>
-                    <navigationItem key="navigationItem" title="EmojiDictionary" largeTitleDisplayMode="always" id="pAQ-Qu-Kg7">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Hjq-Ly-hM1"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ms9-Zg-lcE">
-                            <connections>
-                                <segue destination="sqc-KQ-4hM" kind="show" id="EnF-S6-fIg"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Emoji Dictionary" largeTitleDisplayMode="always" id="pAQ-Qu-Kg7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ms9-Zg-lcE"/>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="cYP-oj-emQ" id="chf-nE-emW"/>
@@ -436,7 +431,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EnF-S6-fIg"/>
+        <segue reference="r2o-3p-wtB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
