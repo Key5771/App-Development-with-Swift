@@ -377,6 +377,92 @@
             </objects>
             <point key="canvasLocation" x="332" y="962"/>
         </scene>
+        <!--System-->
+        <scene sceneID="3SM-d1-eB2">
+            <objects>
+                <navigationController id="Eo0-vf-NKE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="System" id="tHA-eF-sPd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="aQY-jS-z5l">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yOm-99-kfB" kind="relationship" relationship="rootViewController" id="eW7-0X-Mb3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wy0-Rl-Lwk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-559" y="1726"/>
+        </scene>
+        <!--SystemViewController-->
+        <scene sceneID="XHc-it-7Xj">
+            <objects>
+                <viewController id="yOm-99-kfB" customClass="SystemViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dex-71-bpe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.moon.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u2Q-9h-dJg">
+                                <rect key="frame" x="15" y="156" width="384.5" height="224.5"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kn7-98-6Lj">
+                                <rect key="frame" x="15" y="398" width="384" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRo-0R-3Jl">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="100"/>
+                                        <state key="normal" title="Share"/>
+                                        <connections>
+                                            <action selector="shareButtomTapped:" destination="yOm-99-kfB" eventType="touchUpInside" id="NmW-lE-QVu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVf-dc-1bS">
+                                        <rect key="frame" x="96" y="0.0" width="96" height="100"/>
+                                        <state key="normal" title="Safari"/>
+                                        <connections>
+                                            <action selector="safariButtomTapped:" destination="yOm-99-kfB" eventType="touchUpInside" id="c5t-dW-Ntx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJw-vA-dkj">
+                                        <rect key="frame" x="192" y="0.0" width="96" height="100"/>
+                                        <state key="normal" title="Camera"/>
+                                        <connections>
+                                            <action selector="cameraButtomTapped:" destination="yOm-99-kfB" eventType="touchUpInside" id="APd-xl-T7g"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-Fl-e6D">
+                                        <rect key="frame" x="288" y="0.0" width="96" height="100"/>
+                                        <state key="normal" title="Email"/>
+                                        <connections>
+                                            <action selector="emailButtonTapped:" destination="yOm-99-kfB" eventType="touchUpInside" id="iAU-Gd-C6A"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Sgb-5r-6B5"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cbM-2R-J0V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cbM-2R-J0V" firstAttribute="trailing" secondItem="kn7-98-6Lj" secondAttribute="trailing" constant="15" id="9eZ-Hx-cwR"/>
+                            <constraint firstItem="kn7-98-6Lj" firstAttribute="centerY" secondItem="dex-71-bpe" secondAttribute="centerY" id="EPT-p0-ioq"/>
+                            <constraint firstItem="kn7-98-6Lj" firstAttribute="top" secondItem="u2Q-9h-dJg" secondAttribute="bottom" constant="15" id="GY5-2Y-ehC"/>
+                            <constraint firstItem="u2Q-9h-dJg" firstAttribute="top" secondItem="cbM-2R-J0V" secondAttribute="top" constant="15" id="RnE-cc-bnS"/>
+                            <constraint firstItem="u2Q-9h-dJg" firstAttribute="leading" secondItem="cbM-2R-J0V" secondAttribute="leading" constant="15" id="SLQ-cd-xQI"/>
+                            <constraint firstItem="kn7-98-6Lj" firstAttribute="leading" secondItem="cbM-2R-J0V" secondAttribute="leading" constant="15" id="t3s-1C-MZO"/>
+                            <constraint firstItem="cbM-2R-J0V" firstAttribute="trailing" secondItem="u2Q-9h-dJg" secondAttribute="trailing" constant="15" id="tXq-Jw-kOe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="SystemViewController" largeTitleDisplayMode="always" id="zzP-oU-40l"/>
+                    <connections>
+                        <outlet property="imageView" destination="u2Q-9h-dJg" id="mq8-Ha-ilr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eRx-2I-uHt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="332" y="1726"/>
+        </scene>
         <!--CollectionView-->
         <scene sceneID="aEi-dq-Hvo">
             <objects>
@@ -406,6 +492,7 @@
                     <connections>
                         <segue destination="973-09-FF0" kind="relationship" relationship="viewControllers" id="nMU-Wy-uON"/>
                         <segue destination="zuI-Sa-cz2" kind="relationship" relationship="viewControllers" id="Viy-wA-55j"/>
+                        <segue destination="Eo0-vf-NKE" kind="relationship" relationship="viewControllers" id="dWM-ts-jSR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sww-Ct-tck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -434,6 +521,7 @@
         <segue reference="r2o-3p-wtB"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="cloud.moon.fill" catalog="system" width="128" height="89"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
