@@ -3,16 +3,55 @@ import PlaygroundSupport
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
-// MARK: !!!!!!!!!!!!!! api_key 있으니까 커밋할 때 ignore 시킬 것 !!!!!!!!!!!!!!!!!
-// MARK: www.apple.com으로 변경
-let url = URL(string: "https://www.apple.com")!
+struct PhotoInfo: Codable {
+    var title: String
+    var description: String
+    var url: URL
+    var copyright: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case description = "explanation"
+        case url
+        case copyright
+    }
+    
+    init(from decoder: Decoder) throws {
+        let valueContainer = try decoder.container(keyedBy: CodingKeys.self)
+        self.title = try valueContainer.decode(String.self, forKey: CodingKeys.title)
+        self.description = try valueContainer.decode(String.self, forKey: CodingKeys.description)
+        self.url = try valueContainer.decode(URL.self, forKey: CodingKeys.url)
+        self.copyright = try valueContainer.decode(String.self, forKey: CodingKeys.copyright)
+    }
+}
+
+extension URL {
+    func withQueries(_ queries: [String: String]) -> URL? {
+        var components = URLComponents(url: self, resolvingAgainstBaseURL: true)
+        components?.queryItems = queries.map { URLQueryItem(name: $0.key, value: $0.value) }
+        
+        return components?.url
+    }
+}
+
+let baseURL = URL(string: "https://api.nasa.gov/planetary/apod")!
+
+let query: [String: String] = [
+    "api_key": "DEMO_KEY"
+]
+
+let url = baseURL.withQueries(query)!
 let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+    let jsonDecoder = JSONDecoder()
+    
     if let data = data,
-       let string = String(data: data, encoding: .utf8) {
-        print(string)
+       let photoInfo = try? jsonDecoder.decode(PhotoInfo.self, from: data) {
+        print(photoInfo)
     }
     
     PlaygroundPage.current.finishExecution()
 }
 
 task.resume()
+
+
