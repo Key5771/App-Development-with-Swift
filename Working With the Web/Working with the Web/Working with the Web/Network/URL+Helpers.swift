@@ -13,4 +13,10 @@ extension URL {
         components?.queryItems = queries.map { URLQueryItem(name: $0.key, value: $0.value) }
         return components?.url
     }
+    
+    func withHTTPS() -> URL? {
+        var components = URLComponents(url: self, resolvingAgainstBaseURL: true)
+        components?.scheme = "https"
+        return components?.url
+    }
 }
