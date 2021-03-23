@@ -15,6 +15,9 @@
 		EA979F1726088099007878FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA979F1526088099007878FF /* LaunchScreen.storyboard */; };
 		EA979F2226088099007878FF /* Working_with_the_WebTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA979F2126088099007878FF /* Working_with_the_WebTests.swift */; };
 		EA979F2D26088099007878FF /* Working_with_the_WebUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA979F2C26088099007878FF /* Working_with_the_WebUITests.swift */; };
+		EAF87A912609AFE90021F570 /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF87A902609AFE90021F570 /* PhotoInfo.swift */; };
+		EAF87A9A2609B0A20021F570 /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF87A992609B0A20021F570 /* URL+Helpers.swift */; };
+		EAF87AAB2609B2500021F570 /* PhotoInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF87AAA2609B2500021F570 /* PhotoInfoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		EA979F2C26088099007878FF /* Working_with_the_WebUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Working_with_the_WebUITests.swift; sourceTree = "<group>"; };
 		EA979F2E26088099007878FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA979F3D2608875B007878FF /* Web.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Web.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EAF87A902609AFE90021F570 /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
+		EAF87A992609B0A20021F570 /* URL+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
+		EAF87AAA2609B2500021F570 /* PhotoInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +107,12 @@
 		EA979F0926088097007878FF /* Working with the Web */ = {
 			isa = PBXGroup;
 			children = (
+				EAF87AA92609B2440021F570 /* Controller */,
+				EAF87A982609B0950021F570 /* Network */,
+				EAF87A8E2609AFD50021F570 /* Model */,
+				EAF87A8F2609AFDB0021F570 /* UI */,
 				EA979F0A26088097007878FF /* AppDelegate.swift */,
 				EA979F0C26088097007878FF /* SceneDelegate.swift */,
-				EA979F0E26088097007878FF /* ViewController.swift */,
 				EA979F1026088097007878FF /* Main.storyboard */,
 				EA979F1326088099007878FF /* Assets.xcassets */,
 				EA979F1526088099007878FF /* LaunchScreen.storyboard */,
@@ -128,6 +137,38 @@
 				EA979F2E26088099007878FF /* Info.plist */,
 			);
 			path = "Working with the WebUITests";
+			sourceTree = "<group>";
+		};
+		EAF87A8E2609AFD50021F570 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAF87A902609AFE90021F570 /* PhotoInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EAF87A8F2609AFDB0021F570 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EA979F0E26088097007878FF /* ViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EAF87A982609B0950021F570 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EAF87A992609B0A20021F570 /* URL+Helpers.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EAF87AA92609B2440021F570 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EAF87AAA2609B2500021F570 /* PhotoInfoController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF87A912609AFE90021F570 /* PhotoInfo.swift in Sources */,
+				EAF87A9A2609B0A20021F570 /* URL+Helpers.swift in Sources */,
+				EAF87AAB2609B2500021F570 /* PhotoInfoController.swift in Sources */,
 				EA979F0F26088097007878FF /* ViewController.swift in Sources */,
 				EA979F0B26088097007878FF /* AppDelegate.swift in Sources */,
 				EA979F0D26088097007878FF /* SceneDelegate.swift in Sources */,
