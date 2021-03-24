@@ -9,7 +9,9 @@ import UIKit
 import WebKit
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var mainWebView: WKWebView!
+//    @IBOutlet weak var mainWebView: WKWebView!
+    
+    var mainWebView: WKWebView!
     
     private let defaultUrl = "https://dive-etoos.github.io/pub/test.html"
     
@@ -17,13 +19,23 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let contentController = WKUserContentController()
+        contentController.add(self, name: "iOSHandler")
+        
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController = contentController
+        
+        mainWebView = WKWebView(frame: self.view.frame, configuration: configuration)
+        
         mainWebView.navigationDelegate = self
         mainWebView.uiDelegate = self
+        
+        view.addSubview(mainWebView)
 
         loadWebView(urlStr: defaultUrl)
     }
     
-    func loadWebView(urlStr: String) {
+    private func loadWebView(urlStr: String) {
         guard let url = URL(string: urlStr) else { return }
         let request = URLRequest(url: url)
         mainWebView.load(request)

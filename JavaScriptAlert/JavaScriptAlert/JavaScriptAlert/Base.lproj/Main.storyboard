@@ -15,28 +15,10 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvl-Ri-JRO">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nvl-Ri-JRO" secondAttribute="bottom" id="BuU-MK-uue"/>
-                            <constraint firstItem="Nvl-Ri-JRO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LYi-b3-0fu"/>
-                            <constraint firstItem="Nvl-Ri-JRO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="W6e-ur-Ns0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nvl-Ri-JRO" secondAttribute="trailing" id="s2P-pn-9b3"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mission 2" id="xzr-V1-hAh"/>
-                    <connections>
-                        <outlet property="mainWebView" destination="Nvl-Ri-JRO" id="Rdf-Gg-aJ3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

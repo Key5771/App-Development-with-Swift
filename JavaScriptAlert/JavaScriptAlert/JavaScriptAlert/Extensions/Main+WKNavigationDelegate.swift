@@ -17,4 +17,49 @@ extension MainViewController: WKNavigationDelegate {
             }
         }
     }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        defer {
+            decisionHandler(.allow)
+        }
+        
+        guard navigationAction.navigationType == .linkActivated else {
+            return
+        }
+        
+        print("hello world")
+        
+        if let url = navigationAction.request.url,
+           let scheme = url.scheme {
+            print("url: \(url)")
+            print("scheme: \(scheme)")
+
+            if let data = url.params {
+                let alertController = UIAlertController(title: data["message"], message: nil, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+
+                alertController.addAction(okAction)
+
+                DispatchQueue.main.async {
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+}
+
+extension URL {
+    var params: [String: String]? {
+        if let urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true),
+           let queryItem = urlComponents.queryItems {
+            var params: [String: String] = [:]
+            queryItem.forEach {
+                params[$0.name] = $0.value
+            }
+            
+            return params
+        }
+        
+        return nil
+    }
 }

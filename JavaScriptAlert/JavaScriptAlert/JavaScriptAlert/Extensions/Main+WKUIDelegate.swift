@@ -23,4 +23,22 @@ extension MainViewController: WKUIDelegate {
             self.present(alertController, animated: true, completion: nil)
         }
     }
+    
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive) { _ in
+            completionHandler(false)
+        }
+        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+            completionHandler(true)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }

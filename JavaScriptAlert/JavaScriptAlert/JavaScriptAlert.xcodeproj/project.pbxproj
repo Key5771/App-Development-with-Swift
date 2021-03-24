@@ -17,6 +17,7 @@
 		EA7E7DA2260ABB1400D82D3F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7E7DA1260ABB1400D82D3F /* MainViewController.swift */; };
 		EA7E7DA8260ABFBC00D82D3F /* Main+WKNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7E7DA7260ABFBC00D82D3F /* Main+WKNavigationDelegate.swift */; };
 		EA7E7DB0260ACCED00D82D3F /* Main+WKUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7E7DAF260ACCED00D82D3F /* Main+WKUIDelegate.swift */; };
+		EA7E7DB5260AD90200D82D3F /* Main+WKScriptMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7E7DB4260AD90200D82D3F /* Main+WKScriptMessageHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		EA7E7DA1260ABB1400D82D3F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EA7E7DA7260ABFBC00D82D3F /* Main+WKNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Main+WKNavigationDelegate.swift"; sourceTree = "<group>"; };
 		EA7E7DAF260ACCED00D82D3F /* Main+WKUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Main+WKUIDelegate.swift"; sourceTree = "<group>"; };
+		EA7E7DB4260AD90200D82D3F /* Main+WKScriptMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Main+WKScriptMessageHandler.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				EA7E7DA7260ABFBC00D82D3F /* Main+WKNavigationDelegate.swift */,
 				EA7E7DAF260ACCED00D82D3F /* Main+WKUIDelegate.swift */,
+				EA7E7DB4260AD90200D82D3F /* Main+WKScriptMessageHandler.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			files = (
 				EA7E7DA2260ABB1400D82D3F /* MainViewController.swift in Sources */,
 				EA7E7D6B260AB8E300D82D3F /* AppDelegate.swift in Sources */,
+				EA7E7DB5260AD90200D82D3F /* Main+WKScriptMessageHandler.swift in Sources */,
 				EA7E7DB0260ACCED00D82D3F /* Main+WKUIDelegate.swift in Sources */,
 				EA7E7D6D260AB8E300D82D3F /* SceneDelegate.swift in Sources */,
 				EA7E7DA8260ABFBC00D82D3F /* Main+WKNavigationDelegate.swift in Sources */,
