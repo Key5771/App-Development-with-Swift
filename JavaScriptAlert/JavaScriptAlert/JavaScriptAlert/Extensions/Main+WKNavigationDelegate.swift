@@ -27,8 +27,6 @@ extension MainViewController: WKNavigationDelegate {
             return
         }
         
-        print("hello world")
-        
         if let url = navigationAction.request.url,
            let scheme = url.scheme {
             print("url: \(url)")

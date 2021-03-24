@@ -9,8 +9,6 @@ import UIKit
 import WebKit
 
 class MainViewController: UIViewController {
-//    @IBOutlet weak var mainWebView: WKWebView!
-    
     var mainWebView: WKWebView!
     
     private let defaultUrl = "https://dive-etoos.github.io/pub/test.html"
