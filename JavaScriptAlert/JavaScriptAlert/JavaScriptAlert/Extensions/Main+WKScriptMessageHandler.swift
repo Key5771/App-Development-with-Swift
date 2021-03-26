@@ -10,6 +10,10 @@ import UIKit
 import WebKit
 
 extension MainViewController: WKScriptMessageHandler {
+    
+    /*
+        javascript 내부의 message를 받았을 때
+    */
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print("CALL!!!")
         

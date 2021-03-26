@@ -10,6 +10,9 @@ import UIKit
 import WebKit
 
 extension MainViewController: WKUIDelegate {
+    /*
+        javascript alert
+    */
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         
@@ -24,6 +27,9 @@ extension MainViewController: WKUIDelegate {
         }
     }
     
+    /*
+        javascript confirm
+    */
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         

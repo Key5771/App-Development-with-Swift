@@ -9,12 +9,11 @@ import UIKit
 import WebKit
 
 class MainViewController: UIViewController {
-    var mainWebView: WKWebView!
-    
     @IBOutlet weak var webView: WKWebView!
+    
     var contentController: WKUserContentController?
     
-    private let defaultUrl = "https://dive-etoos.github.io/pub/test.html"
+    private let defaultUrl = "http://ec2-18-191-254-2.us-east-2.compute.amazonaws.com/examples/jsp/test.jsp"
     
     
     override func viewDidLoad() {
@@ -22,16 +21,6 @@ class MainViewController: UIViewController {
         
         contentController = webView.configuration.userContentController
         contentController?.add(self, name: "iOSHandler")
-        
-//        let configuration = WKWebViewConfiguration()
-//        configuration.userContentController = contentController!
-        
-//        mainWebView = WKWebView(frame: self.view.frame, configuration: configuration)
-//
-//        mainWebView.navigationDelegate = self
-//        mainWebView.uiDelegate = self
-        
-//        view.addSubview(mainWebView)
         
         webView.uiDelegate = self
         webView.navigationDelegate = self

@@ -10,6 +10,9 @@ import UIKit
 import WebKit
 
 extension MainViewController: WKNavigationDelegate {
+    /*
+        WKWebView Load가 끝났을 때
+    */
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             webView.evaluateJavaScript("showMessageOnLoad()") { (result, error) in
@@ -18,7 +21,13 @@ extension MainViewController: WKNavigationDelegate {
         }
     }
     
+    /*
+        WKWebView 내부의 버튼이 클릭된 경우
+    */
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        defer {
+            decisionHandler(.allow)
+        }
         
         guard navigationAction.navigationType == .linkActivated,
               let url = navigationAction.request.url,
@@ -40,9 +49,6 @@ extension MainViewController: WKNavigationDelegate {
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
-            decisionHandler(.allow)
-        } else {
-            decisionHandler(.cancel)
         }
     }
 }
