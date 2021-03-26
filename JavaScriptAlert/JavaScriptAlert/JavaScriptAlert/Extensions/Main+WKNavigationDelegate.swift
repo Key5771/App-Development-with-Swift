@@ -50,9 +50,9 @@ extension MainViewController: WKNavigationDelegate {
             if let data = url.params {
                 print("data: \(data)")
                 
-                if let message = data["message"] {
+                if let message = data["message"] {              // 3번 - JavaScript 함수 내 메시지 호출
                     showAlert(message: message)
-                } else if let dataUrl = data["url"] {
+                } else if let dataUrl = data["url"] {           // 6번 - 외부 브라우저로 실행
                     print("newURL: \(dataUrl)")
                     
                     guard let externalUrl = URL(string: defaultUrl + dataUrl),
@@ -62,6 +62,23 @@ extension MainViewController: WKNavigationDelegate {
                     UIApplication.shared.open(externalUrl, options: [.universalLinksOnly : host], completionHandler: nil)
                 }
             }
+            decisionHandler(.cancel)
+        } else if scheme == "http" {
+            let downloadUrl = url
+            
+            DispatchQueue.main.async {
+                let documentsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let dataPath = documentsDir
+                
+                let fileName = downloadUrl.lastPathComponent
+                let destination = dataPath.appendingPathComponent("/" + fileName)
+                Downloaderr.load(url: downloadUrl, to: destination)
+                
+                
+                // TODO: 다운로드 후 자동으로 Files 앱이 실행되도록 구현
+//                let documentPicker = UIDocumentPickerViewController(
+            }
+            
             decisionHandler(.cancel)
         } else {
             decisionHandler(.allow)
@@ -78,6 +95,35 @@ extension MainViewController: WKNavigationDelegate {
 
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    class Downloaderr {
+        class func load(url: URL, to localUrl: URL) {
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig)
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            
+            let task = session.downloadTask(with: request) { (tempUrl, response, error) in
+                if let tempUrl = tempUrl, error == nil {
+                    guard let httpResponse = response as? HTTPURLResponse else {
+                        return
+                    }
+                    
+                    print("Success: \(httpResponse.statusCode)")
+                    
+                    do {
+                        try FileManager.default.copyItem(at: tempUrl, to: localUrl)
+                    } catch (let writeError) {
+                        print("error writing file: \(writeError)")
+                    }
+                } else {
+                    print("FAIL: \(error?.localizedDescription as Any)")
+                }
+            }
+            
+            task.resume()
         }
     }
 }
