@@ -30,7 +30,8 @@ class MainViewController: UIViewController {
     
     private func loadWebView(urlStr: String) {
         guard let url = URL(string: urlStr) else { return }
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.addValue("myapp", forHTTPHeaderField: "x-app-key")
         webView.load(request)
     }
 }

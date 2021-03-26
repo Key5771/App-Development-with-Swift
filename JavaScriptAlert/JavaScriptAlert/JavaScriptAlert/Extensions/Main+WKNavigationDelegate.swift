@@ -14,7 +14,7 @@ extension MainViewController: WKNavigationDelegate {
         WKWebView Load가 끝났을 때
     */
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             webView.evaluateJavaScript("showMessageOnLoad()") { (result, error) in
                 print("end")
             }
@@ -25,13 +25,18 @@ extension MainViewController: WKNavigationDelegate {
         WKWebView 내부의 버튼이 클릭된 경우
     */
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        defer {
+        guard let header = navigationAction.request.allHTTPHeaderFields else {
+            print("Header is empty")
             decisionHandler(.allow)
+            return
         }
+        
+        print("header: \(header)")
         
         guard navigationAction.navigationType == .linkActivated,
               let url = navigationAction.request.url,
               let scheme = url.scheme else {
+            decisionHandler(.allow)
             return
         }
         
@@ -49,6 +54,9 @@ extension MainViewController: WKNavigationDelegate {
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
         }
     }
 }
