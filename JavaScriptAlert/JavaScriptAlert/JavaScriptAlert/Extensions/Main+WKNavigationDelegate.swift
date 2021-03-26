@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import WebKit
+import QuickLook
 
 extension MainViewController: WKNavigationDelegate {
     /*
@@ -50,14 +51,7 @@ extension MainViewController: WKNavigationDelegate {
                 print("data: \(data)")
                 
                 if let message = data["message"] {
-                    let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-                    
-                    alertController.addAction(okAction)
-                    
-                    DispatchQueue.main.async {
-                        self.present(alertController, animated: true, completion: nil)
-                    }
+                    showAlert(message: message)
                 } else if let dataUrl = data["url"] {
                     print("newURL: \(dataUrl)")
                     
@@ -71,6 +65,19 @@ extension MainViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
         } else {
             decisionHandler(.allow)
+        }
+        
+        
+    }
+    
+    private func showAlert(message: String) {
+        let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+
+        alertController.addAction(okAction)
+
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }
