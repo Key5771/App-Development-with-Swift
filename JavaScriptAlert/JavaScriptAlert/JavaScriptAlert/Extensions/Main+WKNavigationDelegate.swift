@@ -25,6 +25,7 @@ extension MainViewController: WKNavigationDelegate {
         WKWebView 내부의 버튼이 클릭된 경우
     */
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        // Header
         guard let header = navigationAction.request.allHTTPHeaderFields else {
             print("Header is empty")
             decisionHandler(.allow)
@@ -33,6 +34,7 @@ extension MainViewController: WKNavigationDelegate {
         
         print("header: \(header)")
         
+        // Click Event
         guard navigationAction.navigationType == .linkActivated,
               let url = navigationAction.request.url,
               let scheme = url.scheme else {
@@ -45,13 +47,25 @@ extension MainViewController: WKNavigationDelegate {
         
         if scheme == "myapp"{
             if let data = url.params {
-                let alertController = UIAlertController(title: data["message"], message: nil, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                print("data: \(data)")
                 
-                alertController.addAction(okAction)
-                
-                DispatchQueue.main.async {
-                    self.present(alertController, animated: true, completion: nil)
+                if let message = data["message"] {
+                    let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                    
+                    alertController.addAction(okAction)
+                    
+                    DispatchQueue.main.async {
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                } else if let dataUrl = data["url"] {
+                    print("newURL: \(dataUrl)")
+                    
+                    guard let externalUrl = URL(string: defaultUrl + dataUrl),
+                          let host = externalUrl.host,
+                          UIApplication.shared.canOpenURL(externalUrl) else { return }
+                    
+                    UIApplication.shared.open(externalUrl, options: [.universalLinksOnly : host], completionHandler: nil)
                 }
             }
             decisionHandler(.cancel)

@@ -13,8 +13,8 @@ class MainViewController: UIViewController {
     
     var contentController: WKUserContentController?
     
-    private let defaultUrl = "http://ec2-18-191-254-2.us-east-2.compute.amazonaws.com/examples/jsp/test.jsp"
-    
+    let defaultUrl = "http://ec2-18-191-254-2.us-east-2.compute.amazonaws.com"
+    private let defaultPath = "/examples/jsp/test.jsp"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,9 @@ class MainViewController: UIViewController {
         
         webView.uiDelegate = self
         webView.navigationDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
 
-        loadWebView(urlStr: defaultUrl)
+        loadWebView(urlStr: defaultUrl + defaultPath)
     }
     
     private func loadWebView(urlStr: String) {
