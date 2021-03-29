@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mission 2-->
+        <!--Mission-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="JavaScriptAlert" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qua-CZ-Kjx" secondAttribute="bottom" id="INb-66-2gM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Mission 2" id="xzr-V1-hAh"/>
+                    <navigationItem key="navigationItem" title="Mission" id="xzr-V1-hAh"/>
                     <connections>
                         <outlet property="webView" destination="qua-CZ-Kjx" id="siM-Nf-OLD"/>
                     </connections>
