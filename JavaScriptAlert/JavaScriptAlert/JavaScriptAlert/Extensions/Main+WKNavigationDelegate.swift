@@ -67,16 +67,21 @@ extension MainViewController: WKNavigationDelegate {
             let downloadUrl = url
             
             DispatchQueue.main.async {
-                let documentsDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let fileManager = FileManager.default
+                let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
                 let dataPath = documentsDir
                 
                 let fileName = downloadUrl.lastPathComponent
+                print("FILE NAME: \(fileName)")
                 let destination = dataPath.appendingPathComponent("/" + fileName)
+                
                 Downloaderr.load(url: downloadUrl, to: destination)
                 
-                
                 // TODO: 다운로드 후 자동으로 Files 앱이 실행되도록 구현
-//                let documentPicker = UIDocumentPickerViewController(
+                let activityViewController = UIActivityViewController(activityItems: [destination], applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                
+                self.present(activityViewController, animated: true, completion: nil)
             }
             
             decisionHandler(.cancel)
