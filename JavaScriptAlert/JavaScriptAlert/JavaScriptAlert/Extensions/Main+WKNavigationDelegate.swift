@@ -56,68 +56,28 @@ extension MainViewController: WKNavigationDelegate {
         
         if navigationAction.navigationType == .linkActivated {
             if scheme == "myapp"{
-                if let data = url.params {
-                    print("data: \(data)")
+                guard let data = url.params else { return }
+                
+                print("data: \(data)")
+                
+                if let message = data["message"] {              // 4번 - JavaScript 함수 내 메시지 호출
+                    showAlert(message: message)
+                } else if let dataUrl = data["url"] {           // 6번 - 외부 브라우저로 실행
+                    print("newURL: \(dataUrl)")
                     
-                    if let message = data["message"] {              // 3번 - JavaScript 함수 내 메시지 호출
-                        showAlert(message: message)
-                    } else if let dataUrl = data["url"] {           // 6번 - 외부 브라우저로 실행
-                        print("newURL: \(dataUrl)")
-                        
-                        guard let externalUrl = URL(string: defaultUrl + dataUrl),
-                              let host = externalUrl.host,
-                              UIApplication.shared.canOpenURL(externalUrl) else { return }
-                        
-                        UIApplication.shared.open(externalUrl, options: [.universalLinksOnly : host], completionHandler: nil)
-                    }
+                    guard let externalUrl = URL(string: defaultUrl + dataUrl),
+                          let host = externalUrl.host,
+                          UIApplication.shared.canOpenURL(externalUrl) else { return }
+                    
+                    UIApplication.shared.open(externalUrl, options: [.universalLinksOnly : host], completionHandler: nil)
                 }
+                
                 decisionHandler(.allow)
             } else if scheme == "http" && url.absoluteString.contains(".zip") {     // 5번 - 파일 다운로드
                 let downloadUrl = url
                 print("downloadUrl: \(downloadUrl)")
-                DispatchQueue.main.async {
-                    let fileManager = FileManager.default
-                    let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-                    let dataPath = documentsDir
-                    
-                    let fileName = downloadUrl.lastPathComponent
-                    print("FILE NAME: \(fileName)")
-                    let destination = dataPath.appendingPathComponent("/" + fileName)
-                    
-                    print("Destination: \(destination)")
-//                    Downloaderr.load(url: downloadUrl, to: destination)
-                    
-                    let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-                    let url = NSURL(fileURLWithPath: path)
-                    
-                    print("PATH: \(path)")
-                    
-                    if let pathComponent = url.appendingPathComponent(fileName) {
-                        let filePath = pathComponent.path
-                        if fileManager.fileExists(atPath: filePath) {
-                            print("File is Exist")
-                        } else {
-                            Downloaderr.load(url: downloadUrl, to: destination)
-                        }
-                        
-                        guard let documentUrl = URL(string: "shareddocuments://" + path) else {
-                            print("documentUrl is nil")
-                            return
-                        }
-                        
-                        if UIApplication.shared.canOpenURL(documentUrl) {
-                            print("POSSIBLE")
-                            UIApplication.shared.open(documentUrl, options: [:], completionHandler: nil)
-                            
-                        } else {
-                            print("NOT POSSIBLE")
-                        }
-                        
-                        print("DocumentURL: \(documentUrl)")
-                    } else {
-                        print("File path not Available")
-                    }
-                }
+                
+                moveToFiles(downloadUrl: downloadUrl)
                 
                 decisionHandler(.allow)
             } else {
@@ -160,6 +120,41 @@ extension MainViewController: WKNavigationDelegate {
 
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    private func moveToFiles(downloadUrl: URL) {
+        let downloadUrl = downloadUrl
+        
+        DispatchQueue.main.async {
+            let fileManager = FileManager.default
+            let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+            
+            let fileName = downloadUrl.lastPathComponent
+            let destination = documentsDir.appendingPathComponent("/" + fileName)
+            
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+            let url = NSURL(fileURLWithPath: path)
+            
+            if let pathComponent = url.appendingPathComponent(fileName) {
+                let filePath = pathComponent.path
+                if fileManager.fileExists(atPath: filePath) {
+                    print("File is Exist")
+                } else {
+                    Downloaderr.load(url: downloadUrl, to: destination)
+                }
+                
+                guard let documentUrl = URL(string: "shareddocuments://" + path) else { return }
+                
+                if UIApplication.shared.canOpenURL(documentUrl) {
+                    print("POSSIBLE")
+                    UIApplication.shared.open(documentUrl, options: [:], completionHandler: nil)
+                } else {
+                    print("NOT POSSIBLE")
+                }
+            } else {
+                print("File path not Available")
+            }
         }
     }
     
