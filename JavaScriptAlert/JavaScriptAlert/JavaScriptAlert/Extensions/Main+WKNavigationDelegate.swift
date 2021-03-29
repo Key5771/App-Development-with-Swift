@@ -36,8 +36,7 @@ extension MainViewController: WKNavigationDelegate {
         print("header: \(header)")
         
         // Click Event
-        guard navigationAction.navigationType == .linkActivated,
-              let url = navigationAction.request.url,
+        guard let url = navigationAction.request.url,
               let scheme = url.scheme else {
             decisionHandler(.allow)
             return
@@ -46,50 +45,52 @@ extension MainViewController: WKNavigationDelegate {
         print("url: \(url)")
         print("scheme: \(scheme)")
         
-        if scheme == "myapp"{
-            if let data = url.params {
-                print("data: \(data)")
-                
-                if let message = data["message"] {              // 3번 - JavaScript 함수 내 메시지 호출
-                    showAlert(message: message)
-                } else if let dataUrl = data["url"] {           // 6번 - 외부 브라우저로 실행
-                    print("newURL: \(dataUrl)")
+        if navigationAction.navigationType == .linkActivated {
+            if scheme == "myapp"{
+                if let data = url.params {
+                    print("data: \(data)")
                     
-                    guard let externalUrl = URL(string: defaultUrl + dataUrl),
-                          let host = externalUrl.host,
-                          UIApplication.shared.canOpenURL(externalUrl) else { return }
-                    
-                    UIApplication.shared.open(externalUrl, options: [.universalLinksOnly : host], completionHandler: nil)
+                    if let message = data["message"] {              // 3번 - JavaScript 함수 내 메시지 호출
+                        showAlert(message: message)
+                    } else if let dataUrl = data["url"] {           // 6번 - 외부 브라우저로 실행
+                        print("newURL: \(dataUrl)")
+                        
+                        guard let externalUrl = URL(string: defaultUrl + dataUrl),
+                              let host = externalUrl.host,
+                              UIApplication.shared.canOpenURL(externalUrl) else { return }
+                        
+                        UIApplication.shared.open(externalUrl, options: [.universalLinksOnly : host], completionHandler: nil)
+                    }
                 }
+                decisionHandler(.cancel)
+            } else if scheme == "http" && url.absoluteString.contains(".zip") {
+                let downloadUrl = url
+                print("downloadUrl: \(downloadUrl)")
+                DispatchQueue.main.async {
+                    let fileManager = FileManager.default
+                    let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+                    let dataPath = documentsDir
+                    
+                    let fileName = downloadUrl.lastPathComponent
+                    print("FILE NAME: \(fileName)")
+                    let destination = dataPath.appendingPathComponent("/" + fileName)
+                    
+                    Downloaderr.load(url: downloadUrl, to: destination)
+                    
+                    // TODO: 다운로드 후 자동으로 Files 앱이 실행되도록 구현
+                    let activityViewController = UIActivityViewController(activityItems: [destination], applicationActivities: nil)
+                    activityViewController.popoverPresentationController?.sourceView = self.view
+                    
+                    self.present(activityViewController, animated: true, completion: nil)
+                }
+                
+                decisionHandler(.cancel)
+            } else {
+                decisionHandler(.allow)
             }
-            decisionHandler(.cancel)
-        } else if scheme == "http" {
-            let downloadUrl = url
-            
-            DispatchQueue.main.async {
-                let fileManager = FileManager.default
-                let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-                let dataPath = documentsDir
-                
-                let fileName = downloadUrl.lastPathComponent
-                print("FILE NAME: \(fileName)")
-                let destination = dataPath.appendingPathComponent("/" + fileName)
-                
-                Downloaderr.load(url: downloadUrl, to: destination)
-                
-                // TODO: 다운로드 후 자동으로 Files 앱이 실행되도록 구현
-                let activityViewController = UIActivityViewController(activityItems: [destination], applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                
-                self.present(activityViewController, animated: true, completion: nil)
-            }
-            
-            decisionHandler(.cancel)
         } else {
             decisionHandler(.allow)
         }
-        
-        
     }
     
     private func showAlert(message: String) {
