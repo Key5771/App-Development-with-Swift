@@ -17,6 +17,8 @@ class MainViewController: UIViewController {
     let defaultUrl = "http://ec2-18-191-254-2.us-east-2.compute.amazonaws.com"
     private let defaultPath = "/examples/jsp/test.jsp"
     
+    var userAgentIsChanged = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,10 +40,10 @@ class MainViewController: UIViewController {
         }
     }
     
-    private func loadWebView(urlStr: String) {
+    func loadWebView(urlStr: String) {
         guard let url = URL(string: urlStr) else { return }
-        var request = URLRequest(url: url)
-        request.addValue("myapp", forHTTPHeaderField: "x-app-key")
+        let request = URLRequest(url: url)
+//        request.addValue("myapp", forHTTPHeaderField: "x-app-key")
         webView.load(request)
     }
 }

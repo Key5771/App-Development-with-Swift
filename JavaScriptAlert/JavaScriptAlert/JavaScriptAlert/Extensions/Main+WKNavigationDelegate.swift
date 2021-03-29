@@ -12,15 +12,15 @@ import QuickLook
 
 extension MainViewController: WKNavigationDelegate {
     /*
-        WKWebView Load가 시작될 때
-    */
+     WKWebView Load가 시작될 때
+     */
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         progressView.isHidden = false
     }
     
     /*
-        WKWebView Load가 끝났을 때
-    */
+     WKWebView Load가 끝났을 때
+     */
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             webView.evaluateJavaScript("showMessageOnLoad()") { (result, error) in
@@ -32,22 +32,43 @@ extension MainViewController: WKNavigationDelegate {
     }
     
     /*
-        WKWebView 내부의 버튼이 클릭된 경우
-    */
+     WKWebView 내부의 버튼이 클릭된 경우
+     */
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         // Header
         guard let header = navigationAction.request.allHTTPHeaderFields else {
             print("Header is empty")
-            decisionHandler(.allow)
+            decisionHandler(.cancel)
             return
         }
         
         print("header: \(header)")
         
+        let headerField = "x-app-key"
+        let headerValue = "myapp"
+
+        if userAgentIsChanged && navigationAction.request.value(forHTTPHeaderField: headerField) == headerValue {
+            decisionHandler(.allow)
+            return
+        } else {
+            var request = navigationAction.request
+            guard var userAgent = request.value(forHTTPHeaderField: "user-agent") else { return }
+            
+            if !userAgent.contains("_myapp_") {
+                userAgent += "_myapp_"
+            }
+            
+            self.webView.customUserAgent = userAgent
+            request.setValue("myapp", forHTTPHeaderField: "x-app-key")
+            
+            userAgentIsChanged = true
+            self.webView.load(request)
+        }
+        
         // Click Event
         guard let url = navigationAction.request.url,
               let scheme = url.scheme else {
-            decisionHandler(.allow)
+            decisionHandler(.cancel)
             return
         }
         
@@ -71,7 +92,7 @@ extension MainViewController: WKNavigationDelegate {
                         UIApplication.shared.open(externalUrl, options: [.universalLinksOnly : host], completionHandler: nil)
                     }
                 }
-                decisionHandler(.cancel)
+                decisionHandler(.allow)
             } else if scheme == "http" && url.absoluteString.contains(".zip") {     // 5번 - 파일 다운로드
                 let downloadUrl = url
                 print("downloadUrl: \(downloadUrl)")
@@ -117,21 +138,14 @@ extension MainViewController: WKNavigationDelegate {
                     } else {
                         print("File path not Available")
                     }
-                    
-                    
-                    // TODO: 다운로드 후 자동으로 Files 앱이 실행되도록 구현
-//                    let activityViewController = UIActivityViewController(activityItems: [destination], applicationActivities: nil)
-//                    activityViewController.popoverPresentationController?.sourceView = self.view
-//
-//                    self.present(activityViewController, animated: true, completion: nil)
                 }
                 
-                decisionHandler(.cancel)
-            } else {
                 decisionHandler(.allow)
+            } else {
+                decisionHandler(.cancel)
             }
         } else {
-            decisionHandler(.allow)
+            decisionHandler(.cancel)
         }
     }
     
