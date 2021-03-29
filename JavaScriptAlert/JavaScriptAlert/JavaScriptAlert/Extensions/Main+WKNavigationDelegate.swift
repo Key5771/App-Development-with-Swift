@@ -100,9 +100,17 @@ extension MainViewController: WKNavigationDelegate {
                             Downloaderr.load(url: downloadUrl, to: destination)
                         }
                         
-                        guard let documentUrl = URL(string: "file://" + path) else {
+                        guard let documentUrl = URL(string: "shareddocuments://" + path) else {
                             print("documentUrl is nil")
                             return
+                        }
+                        
+                        if UIApplication.shared.canOpenURL(documentUrl) {
+                            print("POSSIBLE")
+                            UIApplication.shared.open(documentUrl, options: [:], completionHandler: nil)
+                            
+                        } else {
+                            print("NOT POSSIBLE")
                         }
                         
                         print("DocumentURL: \(documentUrl)")
