@@ -72,7 +72,7 @@ extension MainViewController: WKNavigationDelegate {
                     }
                 }
                 decisionHandler(.cancel)
-            } else if scheme == "http" && url.absoluteString.contains(".zip") {
+            } else if scheme == "http" && url.absoluteString.contains(".zip") {     // 5번 - 파일 다운로드
                 let downloadUrl = url
                 print("downloadUrl: \(downloadUrl)")
                 DispatchQueue.main.async {
@@ -84,13 +84,38 @@ extension MainViewController: WKNavigationDelegate {
                     print("FILE NAME: \(fileName)")
                     let destination = dataPath.appendingPathComponent("/" + fileName)
                     
-                    Downloaderr.load(url: downloadUrl, to: destination)
+                    print("Destination: \(destination)")
+//                    Downloaderr.load(url: downloadUrl, to: destination)
+                    
+                    let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+                    let url = NSURL(fileURLWithPath: path)
+                    
+                    print("PATH: \(path)")
+                    
+                    if let pathComponent = url.appendingPathComponent(fileName) {
+                        let filePath = pathComponent.path
+                        if fileManager.fileExists(atPath: filePath) {
+                            print("File is Exist")
+                        } else {
+                            Downloaderr.load(url: downloadUrl, to: destination)
+                        }
+                        
+                        guard let documentUrl = URL(string: "file://" + path) else {
+                            print("documentUrl is nil")
+                            return
+                        }
+                        
+                        print("DocumentURL: \(documentUrl)")
+                    } else {
+                        print("File path not Available")
+                    }
+                    
                     
                     // TODO: 다운로드 후 자동으로 Files 앱이 실행되도록 구현
-                    let activityViewController = UIActivityViewController(activityItems: [destination], applicationActivities: nil)
-                    activityViewController.popoverPresentationController?.sourceView = self.view
-                    
-                    self.present(activityViewController, animated: true, completion: nil)
+//                    let activityViewController = UIActivityViewController(activityItems: [destination], applicationActivities: nil)
+//                    activityViewController.popoverPresentationController?.sourceView = self.view
+//
+//                    self.present(activityViewController, animated: true, completion: nil)
                 }
                 
                 decisionHandler(.cancel)
