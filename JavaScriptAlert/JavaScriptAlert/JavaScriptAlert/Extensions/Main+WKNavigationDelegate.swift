@@ -12,6 +12,13 @@ import QuickLook
 
 extension MainViewController: WKNavigationDelegate {
     /*
+        WKWebView Load가 시작될 때
+    */
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        progressView.isHidden = false
+    }
+    
+    /*
         WKWebView Load가 끝났을 때
     */
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -20,6 +27,8 @@ extension MainViewController: WKNavigationDelegate {
                 print("end")
             }
         }
+        
+        progressView.isHidden = true
     }
     
     /*
