@@ -73,6 +73,7 @@
                     <connections>
                         <outlet property="clearButton" destination="Qm7-bA-d6h" id="6XL-my-vKW"/>
                         <outlet property="imageView" destination="7Lq-iO-M8Y" id="QrK-uI-Whs"/>
+                        <outlet property="itemAdd" destination="y26-KV-vYI" id="ibU-6N-Xrx"/>
                         <outlet property="saveButton" destination="wDy-En-rI7" id="pH1-y6-UBY"/>
                     </connections>
                 </viewController>
