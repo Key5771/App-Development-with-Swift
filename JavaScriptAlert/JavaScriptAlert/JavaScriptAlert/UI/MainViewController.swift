@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        clearCache()
+        
         contentController = webView.configuration.userContentController
         contentController?.add(self, name: "iOSHandler")
         
@@ -40,10 +42,26 @@ class MainViewController: UIViewController {
         }
     }
     
-    func loadWebView(urlStr: String) {
+    private func loadWebView(urlStr: String) {
         guard let url = URL(string: urlStr) else { return }
         let request = URLRequest(url: url)
 //        request.addValue("myapp", forHTTPHeaderField: "x-app-key")
         webView.load(request)
+    }
+    
+    private func clearCache() {
+        let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        do {
+            let dirContents = try FileManager.default.contentsOfDirectory(at: cacheURL, includingPropertiesForKeys: nil, options: [])
+            for file in dirContents {
+                do {
+                    try FileManager.default.removeItem(at: file)
+                } catch let error as NSError {
+                    debugPrint("ERROR: \(error.localizedDescription)")
+                }
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 }

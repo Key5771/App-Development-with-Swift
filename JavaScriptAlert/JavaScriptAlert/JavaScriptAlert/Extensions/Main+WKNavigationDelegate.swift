@@ -127,12 +127,12 @@ extension MainViewController: WKNavigationDelegate {
         
         DispatchQueue.main.async {
             let fileManager = FileManager.default
-            let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let documentsDir = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
             
             let fileName = downloadUrl.lastPathComponent
             let destination = documentsDir.appendingPathComponent("/" + fileName)
             
-            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+            let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] as String
             let url = NSURL(fileURLWithPath: path)
             
             if let pathComponent = url.appendingPathComponent(fileName) {
