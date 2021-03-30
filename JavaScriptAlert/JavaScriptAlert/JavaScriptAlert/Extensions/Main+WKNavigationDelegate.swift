@@ -147,10 +147,14 @@ extension MainViewController: WKNavigationDelegate {
                 
                 if UIApplication.shared.canOpenURL(documentUrl) {
                     print("POSSIBLE")
-//                    UIApplication.shared.open(documentUrl, options: [:], completionHandler: nil)
                     let activityViewController = UIActivityViewController(activityItems: [destination], applicationActivities: nil)
                     activityViewController.completionWithItemsHandler = { (activityType, completed: Bool, returnedItems: [Any]?, error: Error?) in
-                        UIApplication.shared.open(documentUrl)
+                        if completed {
+                            print("completed")
+                            UIApplication.shared.open(documentUrl)
+                        } else {
+                            print("not completed")
+                        }
                     }
                     
                     self.present(activityViewController, animated: true) {
