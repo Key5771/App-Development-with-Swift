@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,12 +11,12 @@
 		DB44EF2331BD7B606A3BFA21 /* Pods_Combinestagram_CombinestagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB932FF667AAE083484A3586 /* Pods_Combinestagram_CombinestagramUITests.framework */; };
 		EA15651B2612E59700F126B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15651A2612E59700F126B9 /* AppDelegate.swift */; };
 		EA15651D2612E59700F126B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15651C2612E59700F126B9 /* SceneDelegate.swift */; };
-		EA15651F2612E59700F126B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15651E2612E59700F126B9 /* ViewController.swift */; };
 		EA1565222612E59700F126B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA1565202612E59700F126B9 /* Main.storyboard */; };
 		EA1565242612E59900F126B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA1565232612E59900F126B9 /* Assets.xcassets */; };
 		EA1565272612E59900F126B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA1565252612E59900F126B9 /* LaunchScreen.storyboard */; };
 		EA1565322612E59900F126B9 /* CombinestagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1565312612E59900F126B9 /* CombinestagramTests.swift */; };
 		EA15653D2612E59900F126B9 /* CombinestagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15653C2612E59900F126B9 /* CombinestagramUITests.swift */; };
+		EA1565642612E8D100F126B9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1565632612E8D100F126B9 /* MainViewController.swift */; };
 		F12A2E0E633D1C2F8005BEA5 /* Pods_CombinestagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C42326BB95DF3339025C83 /* Pods_CombinestagramTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,6 @@
 		EA1565172612E59700F126B9 /* Combinestagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Combinestagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA15651A2612E59700F126B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA15651C2612E59700F126B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA15651E2612E59700F126B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EA1565212612E59700F126B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA1565232612E59900F126B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA1565262612E59900F126B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		EA1565382612E59900F126B9 /* CombinestagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CombinestagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA15653C2612E59900F126B9 /* CombinestagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinestagramUITests.swift; sourceTree = "<group>"; };
 		EA15653E2612E59900F126B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA1565632612E8D100F126B9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F2C42326BB95DF3339025C83 /* Pods_CombinestagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CombinestagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E61B8856BEF56C757EC033 /* Pods-CombinestagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombinestagramTests.release.xcconfig"; path = "Target Support Files/Pods-CombinestagramTests/Pods-CombinestagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB932FF667AAE083484A3586 /* Pods_Combinestagram_CombinestagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Combinestagram_CombinestagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +101,6 @@
 				148B4E77D270E5D771883297 /* Pods-CombinestagramTests.debug.xcconfig */,
 				F5E61B8856BEF56C757EC033 /* Pods-CombinestagramTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,9 +139,9 @@
 		EA1565192612E59700F126B9 /* Combinestagram */ = {
 			isa = PBXGroup;
 			children = (
+				EA1565622612E8BD00F126B9 /* UI */,
 				EA15651A2612E59700F126B9 /* AppDelegate.swift */,
 				EA15651C2612E59700F126B9 /* SceneDelegate.swift */,
-				EA15651E2612E59700F126B9 /* ViewController.swift */,
 				EA1565202612E59700F126B9 /* Main.storyboard */,
 				EA1565232612E59900F126B9 /* Assets.xcassets */,
 				EA1565252612E59900F126B9 /* LaunchScreen.storyboard */,
@@ -167,6 +166,14 @@
 				EA15653E2612E59900F126B9 /* Info.plist */,
 			);
 			path = CombinestagramUITests;
+			sourceTree = "<group>";
+		};
+		EA1565622612E8BD00F126B9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EA1565632612E8D100F126B9 /* MainViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,7 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA15651F2612E59700F126B9 /* ViewController.swift in Sources */,
+				EA1565642612E8D100F126B9 /* MainViewController.swift in Sources */,
 				EA15651B2612E59700F126B9 /* AppDelegate.swift in Sources */,
 				EA15651D2612E59700F126B9 /* SceneDelegate.swift in Sources */,
 			);
