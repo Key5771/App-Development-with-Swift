@@ -49,7 +49,9 @@ class MainViewController: UIViewController {
 //        let newImages = images.value + [UIImage(named: "sunset")!]
 //        images.accept(newImages)
         
+        guard let photosViewController = storyboard!.instantiateViewController(identifier: "PhotosViewController") as? PhotosViewController else { return }
         
+        navigationController?.pushViewController(photosViewController, animated: true)
     }
     
     @IBAction func actionClear(_ sender: Any) {
