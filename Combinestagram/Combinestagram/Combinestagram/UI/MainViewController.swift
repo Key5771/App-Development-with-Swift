@@ -51,6 +51,16 @@ class MainViewController: UIViewController {
         
         guard let photosViewController = storyboard!.instantiateViewController(identifier: "PhotosViewController") as? PhotosViewController else { return }
         
+        photosViewController.selectedPhotos
+            .subscribe { [weak self] newImage in
+                guard let images = self?.images else { return }
+                images.accept(images.value + [newImage])
+            } onDisposed: {
+                print("completed photo selection")
+            }
+            .disposed(by: disposeBag)
+
+        
         navigationController?.pushViewController(photosViewController, animated: true)
     }
     
