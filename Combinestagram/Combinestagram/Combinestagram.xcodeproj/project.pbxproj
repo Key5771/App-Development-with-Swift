@@ -17,6 +17,7 @@
 		EA1565322612E59900F126B9 /* CombinestagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1565312612E59900F126B9 /* CombinestagramTests.swift */; };
 		EA15653D2612E59900F126B9 /* CombinestagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15653C2612E59900F126B9 /* CombinestagramUITests.swift */; };
 		EA1565642612E8D100F126B9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1565632612E8D100F126B9 /* MainViewController.swift */; };
+		EA15656A2612EF6F00F126B9 /* UIImage+Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1565692612EF6F00F126B9 /* UIImage+Collage.swift */; };
 		F12A2E0E633D1C2F8005BEA5 /* Pods_CombinestagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C42326BB95DF3339025C83 /* Pods_CombinestagramTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		EA15653C2612E59900F126B9 /* CombinestagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinestagramUITests.swift; sourceTree = "<group>"; };
 		EA15653E2612E59900F126B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA1565632612E8D100F126B9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EA1565692612EF6F00F126B9 /* UIImage+Collage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Collage.swift"; sourceTree = "<group>"; };
 		F2C42326BB95DF3339025C83 /* Pods_CombinestagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CombinestagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E61B8856BEF56C757EC033 /* Pods-CombinestagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombinestagramTests.release.xcconfig"; path = "Target Support Files/Pods-CombinestagramTests/Pods-CombinestagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB932FF667AAE083484A3586 /* Pods_Combinestagram_CombinestagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Combinestagram_CombinestagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 		EA1565192612E59700F126B9 /* Combinestagram */ = {
 			isa = PBXGroup;
 			children = (
+				EA1565682612EF5E00F126B9 /* Extensions */,
 				EA1565622612E8BD00F126B9 /* UI */,
 				EA15651A2612E59700F126B9 /* AppDelegate.swift */,
 				EA15651C2612E59700F126B9 /* SceneDelegate.swift */,
@@ -174,6 +177,14 @@
 				EA1565632612E8D100F126B9 /* MainViewController.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		EA1565682612EF5E00F126B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EA1565692612EF6F00F126B9 /* UIImage+Collage.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +428,7 @@
 				EA1565642612E8D100F126B9 /* MainViewController.swift in Sources */,
 				EA15651B2612E59700F126B9 /* AppDelegate.swift in Sources */,
 				EA15651D2612E59700F126B9 /* SceneDelegate.swift in Sources */,
+				EA15656A2612EF6F00F126B9 /* UIImage+Collage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

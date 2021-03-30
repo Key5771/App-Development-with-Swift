@@ -41,9 +41,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-bA-d6h">
                                 <rect key="frame" x="100" y="570" width="36" height="30"/>
                                 <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="actionClear:" destination="cMW-ce-Ka3" eventType="touchUpInside" id="hFt-qk-yf8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDy-En-rI7">
-                                <rect key="frame" x="286" y="570" width="34" height="30"/>
+                                <rect key="frame" x="280" y="570" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
                             </button>
                         </subviews>
@@ -54,14 +57,24 @@
                             <constraint firstItem="Qm7-bA-d6h" firstAttribute="top" secondItem="7Lq-iO-M8Y" secondAttribute="bottom" constant="150" id="TdC-Jg-kH3"/>
                             <constraint firstItem="wDy-En-rI7" firstAttribute="top" secondItem="7Lq-iO-M8Y" secondAttribute="bottom" constant="150" id="ZWF-Kg-rB6"/>
                             <constraint firstItem="UlI-IA-rIF" firstAttribute="trailing" secondItem="7Lq-iO-M8Y" secondAttribute="trailing" constant="16" id="lLX-y7-Hxe"/>
-                            <constraint firstItem="wDy-En-rI7" firstAttribute="leading" secondItem="Qm7-bA-d6h" secondAttribute="trailing" constant="150" id="lM1-PM-6vF"/>
+                            <constraint firstItem="wDy-En-rI7" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Qm7-bA-d6h" secondAttribute="trailing" constant="150" id="lM1-PM-6vF"/>
+                            <constraint firstItem="UlI-IA-rIF" firstAttribute="trailing" secondItem="wDy-En-rI7" secondAttribute="trailing" constant="100" id="qCI-MI-dT5"/>
                             <constraint firstItem="7Lq-iO-M8Y" firstAttribute="top" secondItem="UlI-IA-rIF" secondAttribute="top" constant="32" id="rfa-oW-LbN"/>
                             <constraint firstItem="7Lq-iO-M8Y" firstAttribute="leading" secondItem="UlI-IA-rIF" secondAttribute="leading" constant="16" id="vqQ-5G-Flk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Combinestagram" id="Lus-mJ-FbZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="y26-KV-vYI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="y26-KV-vYI">
+                            <connections>
+                                <action selector="actionAdd:" destination="cMW-ce-Ka3" id="Ar3-M2-X9Q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="clearButton" destination="Qm7-bA-d6h" id="6XL-my-vKW"/>
+                        <outlet property="imageView" destination="7Lq-iO-M8Y" id="QrK-uI-Whs"/>
+                        <outlet property="saveButton" destination="wDy-En-rI7" id="pH1-y6-UBY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhe-m0-Zd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
