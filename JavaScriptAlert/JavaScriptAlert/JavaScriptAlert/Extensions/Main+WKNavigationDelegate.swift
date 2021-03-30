@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import WebKit
-import QuickLook
 
 extension MainViewController: WKNavigationDelegate {
     /*
@@ -148,7 +147,15 @@ extension MainViewController: WKNavigationDelegate {
                 
                 if UIApplication.shared.canOpenURL(documentUrl) {
                     print("POSSIBLE")
-                    UIApplication.shared.open(documentUrl, options: [:], completionHandler: nil)
+//                    UIApplication.shared.open(documentUrl, options: [:], completionHandler: nil)
+                    let activityViewController = UIActivityViewController(activityItems: [destination], applicationActivities: nil)
+                    activityViewController.completionWithItemsHandler = { (activityType, completed: Bool, returnedItems: [Any]?, error: Error?) in
+                        UIApplication.shared.open(documentUrl)
+                    }
+                    
+                    self.present(activityViewController, animated: true) {
+                        
+                    }
                 } else {
                     print("NOT POSSIBLE")
                 }
