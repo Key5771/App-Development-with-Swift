@@ -22,6 +22,7 @@
 		EA15664E26143B2E00F126B9 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15664D26143B2E00F126B9 /* ThirdViewController.swift */; };
 		EA15665326143B3600F126B9 /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15665226143B3600F126B9 /* ForthViewController.swift */; };
 		EA15665826143C9B00F126B9 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15665726143C9B00F126B9 /* SideMenuViewController.swift */; };
+		EA15665E2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15665D2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift */; };
 		F151DC5DED4D0549B4651306 /* Pods_WebViewPageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1CCD17267301355904C075 /* Pods_WebViewPageTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		EA15664D26143B2E00F126B9 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		EA15665226143B3600F126B9 /* ForthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
 		EA15665726143C9B00F126B9 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		EA15665D2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePage+UIPageViewControllerDataSource.swift"; sourceTree = "<group>"; };
 		FC3B2598B71CFE029E562977 /* Pods-WebViewPage-WebViewPageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewPage-WebViewPageUITests/Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				EA15664226143AB000F126B9 /* ViewControllers */,
-				EA1566372614389100F126B9 /* HomePageViewController.swift */,
 				EA15665726143C9B00F126B9 /* SideMenuViewController.swift */,
 			);
 			path = UI;
@@ -191,12 +192,22 @@
 		EA15664226143AB000F126B9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA15665C261447EB00F126B9 /* PageViewController */,
 				EA15664326143B1D00F126B9 /* FirstViewController.swift */,
 				EA15664826143B2500F126B9 /* SecondViewController.swift */,
 				EA15664D26143B2E00F126B9 /* ThirdViewController.swift */,
 				EA15665226143B3600F126B9 /* ForthViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EA15665C261447EB00F126B9 /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EA1566372614389100F126B9 /* HomePageViewController.swift */,
+				EA15665D2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift */,
+			);
+			path = PageViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +455,7 @@
 				EA15665326143B3600F126B9 /* ForthViewController.swift in Sources */,
 				EA15664926143B2500F126B9 /* SecondViewController.swift in Sources */,
 				EA15664E26143B2E00F126B9 /* ThirdViewController.swift in Sources */,
+				EA15665E2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift in Sources */,
 				EA15664426143B1D00F126B9 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

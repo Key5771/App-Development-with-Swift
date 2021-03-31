@@ -25,6 +25,7 @@ class HomePageViewController: UIPageViewController {
         super.viewDidLoad()
 
         self.dataSource = self
+        self.title = "LastMission"
         
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
@@ -35,6 +36,9 @@ class HomePageViewController: UIPageViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SideMenu")
         
         guard let root = vc as? SideMenuViewController else { return }
+        root.navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .close, target: self, action: #selector(closeMenu))
+        root.navigationItem.title = "Menu"
+        
         let menu = SideMenuNavigationController(rootViewController: root)
         menu.presentationStyle = .menuSlideIn
         menu.leftSide = true
@@ -43,38 +47,7 @@ class HomePageViewController: UIPageViewController {
         self.present(menu, animated: true, completion: nil)
     }
     
-
-}
-
-extension HomePageViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else { return nil }
-        
-        let previousIndex = viewControllerIndex - 1
-        
-        guard previousIndex >= 0 else {
-            return orderedViewControllers.last
-        }
-        
-        guard orderedViewControllers.count > previousIndex else { return nil }
-        
-        return orderedViewControllers[previousIndex]
+    @objc func closeMenu() {
+        self.dismiss(animated: true, completion: nil)
     }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else { return nil }
-        
-        let nextIndex = viewControllerIndex + 1
-        let orderedViewControllersCount = orderedViewControllers.count
-        
-        guard orderedViewControllersCount != nextIndex else {
-            return orderedViewControllers.first
-        }
-        
-        guard orderedViewControllersCount > nextIndex else { return nil }
-        
-        return orderedViewControllers[nextIndex]
-    }
-    
-    
 }
