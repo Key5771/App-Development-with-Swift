@@ -25,6 +25,10 @@
 		EA15665E2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15665D2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift */; };
 		EA15666B2614493300F126B9 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15666A2614493300F126B9 /* SideMenuTableViewCell.swift */; };
 		EA15667426144B5900F126B9 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15667326144B5900F126B9 /* GalleryViewController.swift */; };
+		EA15667B2614508700F126B9 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15667A2614508700F126B9 /* FirstTableViewCell.swift */; };
+		EA15668B2614527700F126B9 /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15668A2614527700F126B9 /* SecondTableViewCell.swift */; };
+		EA1566912614538D00F126B9 /* ThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1566902614538D00F126B9 /* ThirdTableViewCell.swift */; };
+		EA15669D2614551700F126B9 /* ForthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15669C2614551700F126B9 /* ForthTableViewCell.swift */; };
 		F151DC5DED4D0549B4651306 /* Pods_WebViewPageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1CCD17267301355904C075 /* Pods_WebViewPageTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +80,10 @@
 		EA15665D2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePage+UIPageViewControllerDataSource.swift"; sourceTree = "<group>"; };
 		EA15666A2614493300F126B9 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		EA15667326144B5900F126B9 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		EA15667A2614508700F126B9 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
+		EA15668A2614527700F126B9 /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
+		EA1566902614538D00F126B9 /* ThirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTableViewCell.swift; sourceTree = "<group>"; };
+		EA15669C2614551700F126B9 /* ForthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthTableViewCell.swift; sourceTree = "<group>"; };
 		FC3B2598B71CFE029E562977 /* Pods-WebViewPage-WebViewPageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewPage-WebViewPageUITests/Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,13 +203,13 @@
 		EA15664226143AB000F126B9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA1566792614507300F126B9 /* FirstViewController */,
+				EA1566892614526300F126B9 /* SecondViewController */,
+				EA15668F2614537400F126B9 /* ThirdViewController */,
+				EA156698261454E500F126B9 /* ForthViewController */,
 				EA15667226144B4C00F126B9 /* GalleryViewController */,
 				EA1566692614491C00F126B9 /* SideMenuController */,
 				EA15665C261447EB00F126B9 /* PageViewController */,
-				EA15664326143B1D00F126B9 /* FirstViewController.swift */,
-				EA15664826143B2500F126B9 /* SecondViewController.swift */,
-				EA15664D26143B2E00F126B9 /* ThirdViewController.swift */,
-				EA15665226143B3600F126B9 /* ForthViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -230,6 +238,42 @@
 				EA15667326144B5900F126B9 /* GalleryViewController.swift */,
 			);
 			path = GalleryViewController;
+			sourceTree = "<group>";
+		};
+		EA1566792614507300F126B9 /* FirstViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EA15664326143B1D00F126B9 /* FirstViewController.swift */,
+				EA15667A2614508700F126B9 /* FirstTableViewCell.swift */,
+			);
+			path = FirstViewController;
+			sourceTree = "<group>";
+		};
+		EA1566892614526300F126B9 /* SecondViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EA15664826143B2500F126B9 /* SecondViewController.swift */,
+				EA15668A2614527700F126B9 /* SecondTableViewCell.swift */,
+			);
+			path = SecondViewController;
+			sourceTree = "<group>";
+		};
+		EA15668F2614537400F126B9 /* ThirdViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EA15664D26143B2E00F126B9 /* ThirdViewController.swift */,
+				EA1566902614538D00F126B9 /* ThirdTableViewCell.swift */,
+			);
+			path = ThirdViewController;
+			sourceTree = "<group>";
+		};
+		EA156698261454E500F126B9 /* ForthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EA15665226143B3600F126B9 /* ForthViewController.swift */,
+				EA15669C2614551700F126B9 /* ForthTableViewCell.swift */,
+			);
+			path = ForthViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,12 +519,16 @@
 				EA1566382614389100F126B9 /* HomePageViewController.swift in Sources */,
 				EA1565EC26140C4700F126B9 /* AppDelegate.swift in Sources */,
 				EA1565EE26140C4700F126B9 /* SceneDelegate.swift in Sources */,
+				EA15669D2614551700F126B9 /* ForthTableViewCell.swift in Sources */,
 				EA15665326143B3600F126B9 /* ForthViewController.swift in Sources */,
+				EA15667B2614508700F126B9 /* FirstTableViewCell.swift in Sources */,
 				EA15666B2614493300F126B9 /* SideMenuTableViewCell.swift in Sources */,
 				EA15664926143B2500F126B9 /* SecondViewController.swift in Sources */,
+				EA15668B2614527700F126B9 /* SecondTableViewCell.swift in Sources */,
 				EA15664E26143B2E00F126B9 /* ThirdViewController.swift in Sources */,
 				EA15665E2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift in Sources */,
 				EA15664426143B1D00F126B9 /* FirstViewController.swift in Sources */,
+				EA1566912614538D00F126B9 /* ThirdTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
