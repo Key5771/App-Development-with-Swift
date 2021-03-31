@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class HomePageViewController: UIPageViewController {
     
@@ -29,6 +30,19 @@ class HomePageViewController: UIPageViewController {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func sideMenuClick(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SideMenu")
+        
+        guard let root = vc as? SideMenuViewController else { return }
+        let menu = SideMenuNavigationController(rootViewController: root)
+        menu.presentationStyle = .menuSlideIn
+        menu.leftSide = true
+        menu.statusBarEndAlpha = 0.0
+        
+        self.present(menu, animated: true, completion: nil)
+    }
+    
 
 }
 

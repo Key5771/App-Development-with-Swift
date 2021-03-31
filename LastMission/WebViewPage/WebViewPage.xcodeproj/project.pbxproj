@@ -21,6 +21,7 @@
 		EA15664926143B2500F126B9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15664826143B2500F126B9 /* SecondViewController.swift */; };
 		EA15664E26143B2E00F126B9 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15664D26143B2E00F126B9 /* ThirdViewController.swift */; };
 		EA15665326143B3600F126B9 /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15665226143B3600F126B9 /* ForthViewController.swift */; };
+		EA15665826143C9B00F126B9 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15665726143C9B00F126B9 /* SideMenuViewController.swift */; };
 		F151DC5DED4D0549B4651306 /* Pods_WebViewPageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1CCD17267301355904C075 /* Pods_WebViewPageTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		EA15664826143B2500F126B9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		EA15664D26143B2E00F126B9 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		EA15665226143B3600F126B9 /* ForthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
+		EA15665726143C9B00F126B9 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		FC3B2598B71CFE029E562977 /* Pods-WebViewPage-WebViewPageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewPage-WebViewPageUITests/Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			children = (
 				EA15664226143AB000F126B9 /* ViewControllers */,
 				EA1566372614389100F126B9 /* HomePageViewController.swift */,
+				EA15665726143C9B00F126B9 /* SideMenuViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA15665826143C9B00F126B9 /* SideMenuViewController.swift in Sources */,
 				EA1566382614389100F126B9 /* HomePageViewController.swift in Sources */,
 				EA1565EC26140C4700F126B9 /* AppDelegate.swift in Sources */,
 				EA1565EE26140C4700F126B9 /* SceneDelegate.swift in Sources */,

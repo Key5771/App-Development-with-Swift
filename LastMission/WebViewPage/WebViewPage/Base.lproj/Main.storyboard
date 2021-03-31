@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Side Menu Navigation Controller-->
         <scene sceneID="fZY-Xv-XyM">
             <objects>
-                <navigationController id="ecl-nD-Gh6" sceneMemberID="viewController">
+                <navigationController id="ecl-nD-Gh6" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pAH-Qm-ylq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,12 @@
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Gkr-7S-5d2" customClass="HomePageViewController" customModule="WebViewPage" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="2n7-OF-Bnc">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="Obz-RX-TE2"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="Obz-RX-TE2">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="sideMenuClick:" destination="Gkr-7S-5d2" id="qmS-Rn-W0p"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sj1-1X-ZE9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -52,7 +57,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oAl-ah-vP1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstItem="Key-bf-i9v" firstAttribute="centerX" secondItem="rlv-0R-Gnj" secondAttribute="centerX" id="k9P-KY-zzN"/>
                             <constraint firstItem="Key-bf-i9v" firstAttribute="centerY" secondItem="rlv-0R-Gnj" secondAttribute="centerY" id="kdn-cs-5TK"/>
@@ -79,7 +84,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HEu-Pc-wt8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="XXm-c2-70O" firstAttribute="centerX" secondItem="Q4D-d2-9By" secondAttribute="centerX" id="gJ9-gF-KzY"/>
                             <constraint firstItem="XXm-c2-70O" firstAttribute="centerY" secondItem="Q4D-d2-9By" secondAttribute="centerY" id="u2l-W2-FOj"/>
@@ -106,7 +111,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7tX-c2-3I4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
                             <constraint firstItem="fCc-35-NH0" firstAttribute="centerY" secondItem="0wB-F0-gDg" secondAttribute="centerY" id="BXp-ZB-9gg"/>
                             <constraint firstItem="fCc-35-NH0" firstAttribute="centerX" secondItem="0wB-F0-gDg" secondAttribute="centerX" id="fhN-cP-Qiq"/>
@@ -116,6 +121,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBt-h6-o6W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="435" y="1184"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="51Y-pg-p0c">
+            <objects>
+                <viewController storyboardIdentifier="SideMenu" id="6lW-VF-i89" customClass="SideMenuViewController" customModule="WebViewPage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cd4-Mi-tCB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oWL-Ig-ThL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFV-kj-qqI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="-646"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="TCr-QV-kWx">
@@ -133,7 +153,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jtH-o4-lD4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
                             <constraint firstItem="ebX-tJ-UvX" firstAttribute="centerY" secondItem="bkY-94-Yy5" secondAttribute="centerY" id="AnO-qB-IyR"/>
                             <constraint firstItem="ebX-tJ-UvX" firstAttribute="centerX" secondItem="bkY-94-Yy5" secondAttribute="centerX" id="gy1-yp-3d9"/>
@@ -147,8 +167,23 @@
     </scenes>
     <resources>
         <image name="menu" width="19" height="19"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
