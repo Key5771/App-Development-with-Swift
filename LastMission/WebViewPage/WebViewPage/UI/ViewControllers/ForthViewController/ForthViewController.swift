@@ -10,13 +10,17 @@ import WebKit
 
 class ForthViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textField: UITextField!
     
-    private let items: [String] = []
+    private var items: [String] = []
     private let defaultURL: String = "https://developer.apple.com"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: tableView.frame.height / 2))
         
         let webView = WKWebView(frame: header.bounds)
@@ -27,6 +31,17 @@ class ForthViewController: UIViewController {
         
         tableView.tableHeaderView = header
     }
+    
+    @IBAction func sendClick(_ sender: Any) {
+        if let text = textField.text {
+            items.append(text)
+            tableView.reloadData()
+            textField.text = ""
+            
+            self.view.endEditing(true)
+        }
+    }
+    
 }
 
 extension ForthViewController: UITableViewDelegate {

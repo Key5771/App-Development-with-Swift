@@ -10,6 +10,7 @@ import WebKit
 
 class FirstViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textField: UITextField!
     
     private var items: [String] = []
     
@@ -31,6 +32,17 @@ class FirstViewController: UIViewController {
         
         tableView.tableHeaderView = header
     }
+    
+    @IBAction func sendClick(_ sender: Any) {
+        if let text = textField.text {
+            items.append(text)
+            tableView.reloadData()
+            textField.text = ""
+            
+            self.view.endEditing(true)
+        }
+    }
+    
 }
 
 extension FirstViewController: UITableViewDelegate {

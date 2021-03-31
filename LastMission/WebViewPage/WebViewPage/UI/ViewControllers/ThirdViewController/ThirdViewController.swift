@@ -10,8 +10,9 @@ import WebKit
 
 class ThirdViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textField: UITextField!
     
-    private let items: [String] = []
+    private var items: [String] = []
     private let defaultURL: String = "https://m.etoos.com"
     
     override func viewDidLoad() {
@@ -30,6 +31,17 @@ class ThirdViewController: UIViewController {
         
         tableView.tableHeaderView = header
     }
+    
+    @IBAction func sendClick(_ sender: Any) {
+        if let text = textField.text {
+            items.append(text)
+            tableView.reloadData()
+            textField.text = ""
+            
+            self.view.endEditing(true)
+        }
+    }
+    
 }
 
 extension ThirdViewController: UITableViewDelegate {
