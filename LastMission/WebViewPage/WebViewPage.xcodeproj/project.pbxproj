@@ -24,6 +24,7 @@
 		EA15665826143C9B00F126B9 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15665726143C9B00F126B9 /* SideMenuViewController.swift */; };
 		EA15665E2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15665D2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift */; };
 		EA15666B2614493300F126B9 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15666A2614493300F126B9 /* SideMenuTableViewCell.swift */; };
+		EA15667426144B5900F126B9 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15667326144B5900F126B9 /* GalleryViewController.swift */; };
 		F151DC5DED4D0549B4651306 /* Pods_WebViewPageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1CCD17267301355904C075 /* Pods_WebViewPageTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		EA15665726143C9B00F126B9 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		EA15665D2614480C00F126B9 /* HomePage+UIPageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePage+UIPageViewControllerDataSource.swift"; sourceTree = "<group>"; };
 		EA15666A2614493300F126B9 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		EA15667326144B5900F126B9 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		FC3B2598B71CFE029E562977 /* Pods-WebViewPage-WebViewPageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewPage-WebViewPageUITests/Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 		EA15664226143AB000F126B9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA15667226144B4C00F126B9 /* GalleryViewController */,
 				EA1566692614491C00F126B9 /* SideMenuController */,
 				EA15665C261447EB00F126B9 /* PageViewController */,
 				EA15664326143B1D00F126B9 /* FirstViewController.swift */,
@@ -219,6 +222,14 @@
 				EA15666A2614493300F126B9 /* SideMenuTableViewCell.swift */,
 			);
 			path = SideMenuController;
+			sourceTree = "<group>";
+		};
+		EA15667226144B4C00F126B9 /* GalleryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EA15667326144B5900F126B9 /* GalleryViewController.swift */,
+			);
+			path = GalleryViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA15667426144B5900F126B9 /* GalleryViewController.swift in Sources */,
 				EA15665826143C9B00F126B9 /* SideMenuViewController.swift in Sources */,
 				EA1566382614389100F126B9 /* HomePageViewController.swift in Sources */,
 				EA1565EC26140C4700F126B9 /* AppDelegate.swift in Sources */,

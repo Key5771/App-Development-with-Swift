@@ -23,6 +23,10 @@ class SideMenuViewController: UIViewController {
 extension SideMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let viewController = storyboard?.instantiateViewController(identifier: "GalleryViewController") as? GalleryViewController {
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
