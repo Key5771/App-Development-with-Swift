@@ -79,7 +79,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I5H-wT-cmB" id="BIw-7C-BOL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ear-Ks-P7c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <wkWebViewConfiguration key="configuration">
+                                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                        <wkPreferences key="preferences"/>
+                                                    </wkWebViewConfiguration>
+                                                </wkWebView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ear-Ks-P7c" firstAttribute="top" secondItem="BIw-7C-BOL" secondAttribute="top" id="FnX-sB-Opj"/>
+                                                <constraint firstAttribute="bottom" secondItem="ear-Ks-P7c" secondAttribute="bottom" id="YT7-Yb-J23"/>
+                                                <constraint firstAttribute="trailing" secondItem="ear-Ks-P7c" secondAttribute="trailing" id="aGI-Nc-GRc"/>
+                                                <constraint firstItem="ear-Ks-P7c" firstAttribute="leading" secondItem="BIw-7C-BOL" secondAttribute="leading" id="ny5-kt-srF"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="webView" destination="ear-Ks-P7c" id="Gqk-D8-TQC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -103,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SfE-Zw-XZm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="-198"/>
+            <point key="canvasLocation" x="434.78260869565219" y="-198.21428571428569"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="Uvn-Bf-Fma">
@@ -143,7 +162,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9EU-eF-Myu" id="jDU-RP-djN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1v-He-u9r">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <wkWebViewConfiguration key="configuration">
+                                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                        <wkPreferences key="preferences"/>
+                                                    </wkWebViewConfiguration>
+                                                </wkWebView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="J1v-He-u9r" secondAttribute="trailing" id="1lg-mH-AWL"/>
+                                                <constraint firstItem="J1v-He-u9r" firstAttribute="leading" secondItem="jDU-RP-djN" secondAttribute="leading" id="3kR-0M-c6P"/>
+                                                <constraint firstAttribute="bottom" secondItem="J1v-He-u9r" secondAttribute="bottom" id="mdA-jY-j4M"/>
+                                                <constraint firstItem="J1v-He-u9r" firstAttribute="top" secondItem="jDU-RP-djN" secondAttribute="top" id="y4h-6Z-2tX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="webView" destination="J1v-He-u9r" id="mZi-fY-Ebt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -167,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eM-b6-F8u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="492"/>
+            <point key="canvasLocation" x="434.78260869565219" y="491.51785714285711"/>
         </scene>
         <!--Forth View Controller-->
         <scene sceneID="ilV-fv-f34">
@@ -207,7 +245,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="csF-EC-iJs" id="I0V-LZ-SrW">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-qw-Ndf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <wkWebViewConfiguration key="configuration">
+                                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                        <wkPreferences key="preferences"/>
+                                                    </wkWebViewConfiguration>
+                                                </wkWebView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="E9Z-qw-Ndf" secondAttribute="trailing" id="6Xv-Xf-2PO"/>
+                                                <constraint firstItem="E9Z-qw-Ndf" firstAttribute="leading" secondItem="I0V-LZ-SrW" secondAttribute="leading" id="L1U-fL-dxE"/>
+                                                <constraint firstAttribute="bottom" secondItem="E9Z-qw-Ndf" secondAttribute="bottom" id="bi4-fv-vtL"/>
+                                                <constraint firstItem="E9Z-qw-Ndf" firstAttribute="top" secondItem="I0V-LZ-SrW" secondAttribute="top" id="sOv-La-spA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="webView" destination="E9Z-qw-Ndf" id="PsM-qS-BVf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -231,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBt-h6-o6W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="1184"/>
+            <point key="canvasLocation" x="434.78260869565219" y="1183.9285714285713"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="51Y-pg-p0c">
@@ -338,7 +395,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Wi-iR-Edo" id="TqV-EV-3cT">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lq-4L-sqC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <wkWebViewConfiguration key="configuration">
+                                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                        <wkPreferences key="preferences"/>
+                                                    </wkWebViewConfiguration>
+                                                </wkWebView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0lq-4L-sqC" firstAttribute="leading" secondItem="TqV-EV-3cT" secondAttribute="leading" id="9db-1H-nxz"/>
+                                                <constraint firstAttribute="bottom" secondItem="0lq-4L-sqC" secondAttribute="bottom" id="QnP-Jr-hcM"/>
+                                                <constraint firstAttribute="trailing" secondItem="0lq-4L-sqC" secondAttribute="trailing" id="gl8-on-2lI"/>
+                                                <constraint firstItem="0lq-4L-sqC" firstAttribute="top" secondItem="TqV-EV-3cT" secondAttribute="top" id="ui1-LR-7zk"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="webView" destination="0lq-4L-sqC" id="Fzl-4p-JKU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -362,7 +438,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9Y-qv-jvP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="-869"/>
+            <point key="canvasLocation" x="434.78260869565219" y="-869.19642857142856"/>
         </scene>
     </scenes>
     <resources>

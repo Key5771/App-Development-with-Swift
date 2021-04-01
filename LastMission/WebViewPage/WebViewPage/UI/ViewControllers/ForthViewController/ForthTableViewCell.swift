@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import WebKit
 
 class ForthTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var webView: WKWebView!
+    
+    var tableView: UITableView!
+    var height: CGFloat = 100.0
+    var heightConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +26,27 @@ class ForthTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func loadWebView() {
+        webView.navigationDelegate = self
+        webView.scrollView.isScrollEnabled = false
+        
+        guard let defaultURL = URL(string: "https://developer.apple.com") else { return }
+        let request = URLRequest(url: defaultURL)
+        webView.load(request)
+    }
+    
+    @objc func updateCellHeight() {
+        height = webView.scrollView.contentSize.height
+        
+        heightConstraint = webView.heightAnchor.constraint(equalToConstant: height)
+        heightConstraint.isActive = true
+        
+        tableView.reloadData()
+    }
+}
+
+extension ForthTableViewCell: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateCellHeight), userInfo: nil, repeats: false)
+    }
 }
