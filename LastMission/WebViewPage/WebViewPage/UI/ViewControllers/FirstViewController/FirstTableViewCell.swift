@@ -14,6 +14,8 @@ class FirstTableViewCell: UITableViewCell {
     var tableView: UITableView!
     var height: CGFloat = 100.0
     var heightConstraint: NSLayoutConstraint!
+    let dataInfoController = DataInfoController()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,12 +28,13 @@ class FirstTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadWebView() {
+    func loadWebView(urlString: String) {
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
+        webView.allowsBackForwardNavigationGestures = true
         
-        guard let defaultURL = URL(string: "https://www.apple.com") else { return }
-        let request = URLRequest(url: defaultURL)
+        guard let url = URL(string: urlString) else { return }
+        let request = URLRequest(url: url)
         webView.load(request)
     }
     
@@ -50,5 +53,37 @@ extension FirstTableViewCell: WKNavigationDelegate {
         print("WebViewSize: \(webView.scrollView.contentSize.height)")
         
         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateCellHeight), userInfo: nil, repeats: false)
+    }
+    
+    
+    // MARK: - 사용자가 웹뷰 내 링크를 눌렀을 때 해당 URL의 컨텐츠 높이만큼 높이를 업데이트
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        defer {
+            decisionHandler(.allow)
+        }
+        
+        if navigationAction.navigationType == .linkActivated {
+            guard let url = navigationAction.request.url else { return }
+//
+//            print("URL: \(url)")
+//            loadWebView(urlString: url.absoluteString)
+//
+//            Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateCellHeight), userInfo: nil, repeats: false)
+            
+            dataInfoController.fetchData(url: url) { (data) in
+                guard let data = data else { return }
+                print("DATA: \(data)")
+                
+                guard let id = data.id,
+                      let type = data.type,
+                      let url = data.url else { return }
+                
+                self.appDelegate.galleryData.append(DataModel(id: id, type: type, url: url))
+            }
+            
+            DispatchQueue.main.async {
+                webView.go(to: webView.backForwardList.item(at: 0)!)
+            }
+        }
     }
 }

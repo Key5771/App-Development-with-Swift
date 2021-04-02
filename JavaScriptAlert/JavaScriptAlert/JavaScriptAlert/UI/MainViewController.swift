@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     var contentController: WKUserContentController?
     
     let defaultUrl = "http://ec2-18-191-254-2.us-east-2.compute.amazonaws.com"
-    private let defaultPath = "/examples/jsp/test.jsp"
+    private let defaultPath = "/test/test.jsp"
     
     var userAgentIsChanged = false
     

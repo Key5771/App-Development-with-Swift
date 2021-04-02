@@ -29,6 +29,8 @@
 		EA15668B2614527700F126B9 /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15668A2614527700F126B9 /* SecondTableViewCell.swift */; };
 		EA1566912614538D00F126B9 /* ThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1566902614538D00F126B9 /* ThirdTableViewCell.swift */; };
 		EA15669D2614551700F126B9 /* ForthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15669C2614551700F126B9 /* ForthTableViewCell.swift */; };
+		EA7CC03426169D99007581F8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC03326169D99007581F8 /* Data.swift */; };
+		EA7CC03D2616AA75007581F8 /* DataInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC03C2616AA75007581F8 /* DataInfoController.swift */; };
 		F151DC5DED4D0549B4651306 /* Pods_WebViewPageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1CCD17267301355904C075 /* Pods_WebViewPageTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		EA15668A2614527700F126B9 /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
 		EA1566902614538D00F126B9 /* ThirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTableViewCell.swift; sourceTree = "<group>"; };
 		EA15669C2614551700F126B9 /* ForthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthTableViewCell.swift; sourceTree = "<group>"; };
+		EA7CC03326169D99007581F8 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		EA7CC03C2616AA75007581F8 /* DataInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInfoController.swift; sourceTree = "<group>"; };
 		FC3B2598B71CFE029E562977 /* Pods-WebViewPage-WebViewPageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewPage-WebViewPageUITests/Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +167,8 @@
 		EA1565EA26140C4700F126B9 /* WebViewPage */ = {
 			isa = PBXGroup;
 			children = (
+				EA7CC03B2616AA63007581F8 /* Controller */,
+				EA7CC03226169D8F007581F8 /* Model */,
 				EA1566362614387200F126B9 /* UI */,
 				EA1565EB26140C4700F126B9 /* AppDelegate.swift */,
 				EA1565ED26140C4700F126B9 /* SceneDelegate.swift */,
@@ -274,6 +280,22 @@
 				EA15669C2614551700F126B9 /* ForthTableViewCell.swift */,
 			);
 			path = ForthViewController;
+			sourceTree = "<group>";
+		};
+		EA7CC03226169D8F007581F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CC03326169D99007581F8 /* Data.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EA7CC03B2616AA63007581F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EA7CC03C2616AA75007581F8 /* DataInfoController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,7 +540,9 @@
 				EA15665826143C9B00F126B9 /* SideMenuViewController.swift in Sources */,
 				EA1566382614389100F126B9 /* HomePageViewController.swift in Sources */,
 				EA1565EC26140C4700F126B9 /* AppDelegate.swift in Sources */,
+				EA7CC03D2616AA75007581F8 /* DataInfoController.swift in Sources */,
 				EA1565EE26140C4700F126B9 /* SceneDelegate.swift in Sources */,
+				EA7CC03426169D99007581F8 /* Data.swift in Sources */,
 				EA15669D2614551700F126B9 /* ForthTableViewCell.swift in Sources */,
 				EA15665326143B3600F126B9 /* ForthViewController.swift in Sources */,
 				EA15667B2614508700F126B9 /* FirstTableViewCell.swift in Sources */,
