@@ -27,6 +27,12 @@ class GalleryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("items: \(items)")
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.invalidateLayout()
+        }
+    }
 }
 
 extension GalleryViewController: UICollectionViewDelegate {
@@ -68,5 +74,38 @@ extension GalleryViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension GalleryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if UIDevice.current.orientation.isLandscape {
+            return collectionView.getCellSize(numberOFItemsRowAt: 4)
+        } else {
+            return collectionView.getCellSize(numberOFItemsRowAt: 4)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 5, left: 8, bottom: 5, right: 8)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+}
+
+extension UICollectionView {
+    func getCellSize(numberOFItemsRowAt: Int) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        
+        let cellWidth =  screenWidth / CGFloat(numberOFItemsRowAt)
+        let cellHeight = cellWidth
+        return CGSize(width: cellWidth, height: cellHeight)
     }
 }
