@@ -32,6 +32,7 @@
 		EA7CC03426169D99007581F8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC03326169D99007581F8 /* Data.swift */; };
 		EA7CC03D2616AA75007581F8 /* DataInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC03C2616AA75007581F8 /* DataInfoController.swift */; };
 		EA7CC0452616D3B5007581F8 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC0442616D3B5007581F8 /* GalleryCollectionViewCell.swift */; };
+		EAA1DC282616F8DA00BA5A9E /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA1DC272616F8DA00BA5A9E /* ContentViewController.swift */; };
 		F151DC5DED4D0549B4651306 /* Pods_WebViewPageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1CCD17267301355904C075 /* Pods_WebViewPageTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		EA7CC03326169D99007581F8 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		EA7CC03C2616AA75007581F8 /* DataInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInfoController.swift; sourceTree = "<group>"; };
 		EA7CC0442616D3B5007581F8 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		EAA1DC272616F8DA00BA5A9E /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		FC3B2598B71CFE029E562977 /* Pods-WebViewPage-WebViewPageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewPage-WebViewPageUITests/Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +213,7 @@
 		EA15664226143AB000F126B9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EAA1DC262616F8BC00BA5A9E /* ContentViewController */,
 				EA1566792614507300F126B9 /* FirstViewController */,
 				EA1566892614526300F126B9 /* SecondViewController */,
 				EA15668F2614537400F126B9 /* ThirdViewController */,
@@ -299,6 +302,14 @@
 				EA7CC03C2616AA75007581F8 /* DataInfoController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		EAA1DC262616F8BC00BA5A9E /* ContentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EAA1DC272616F8DA00BA5A9E /* ContentViewController.swift */,
+			);
+			path = ContentViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -548,6 +559,7 @@
 				EA7CC03426169D99007581F8 /* Data.swift in Sources */,
 				EA7CC0452616D3B5007581F8 /* GalleryCollectionViewCell.swift in Sources */,
 				EA15669D2614551700F126B9 /* ForthTableViewCell.swift in Sources */,
+				EAA1DC282616F8DA00BA5A9E /* ContentViewController.swift in Sources */,
 				EA15665326143B3600F126B9 /* ForthViewController.swift in Sources */,
 				EA15667B2614508700F126B9 /* FirstTableViewCell.swift in Sources */,
 				EA15666B2614493300F126B9 /* SideMenuTableViewCell.swift in Sources */,

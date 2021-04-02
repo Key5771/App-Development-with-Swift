@@ -36,12 +36,18 @@ class GalleryViewController: UIViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension GalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        guard let viewController = storyboard?.instantiateViewController(identifier: "ContentViewController") as? ContentViewController else { return }
+        viewController.items = self.items
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension GalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -92,6 +98,7 @@ extension GalleryViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
