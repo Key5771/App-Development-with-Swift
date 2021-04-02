@@ -58,7 +58,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYA-aC-ZBn">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYA-aC-ZBn">
                                         <rect key="frame" x="362" y="15" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
                                         <connections>
@@ -105,7 +105,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oAl-ah-vP1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.9795874953" green="0.97972780469999998" blue="0.97955685849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kTG-YC-OTP" firstAttribute="leading" secondItem="oAl-ah-vP1" secondAttribute="leading" id="1hA-QU-Gzj"/>
                             <constraint firstItem="oAl-ah-vP1" firstAttribute="trailing" secondItem="LEF-Po-Wmb" secondAttribute="trailing" constant="8" id="3m7-Ab-IVg"/>
@@ -141,7 +141,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peE-ix-WI7">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peE-ix-WI7">
                                         <rect key="frame" x="362" y="15" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
                                         <connections>
@@ -188,7 +188,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HEu-Pc-wt8"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98298114540000003" green="0.98312205080000004" blue="0.98295038940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HEu-Pc-wt8" firstAttribute="trailing" secondItem="nTr-z7-qD7" secondAttribute="trailing" id="Ie2-in-0p6"/>
                             <constraint firstItem="HEu-Pc-wt8" firstAttribute="bottom" secondItem="OG5-YP-r2l" secondAttribute="bottom" id="SE8-Cp-XOs"/>
@@ -224,7 +224,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJK-uy-RZG">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJK-uy-RZG">
                                         <rect key="frame" x="362" y="15" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
                                         <connections>
@@ -271,7 +271,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7tX-c2-3I4"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98637253049999996" green="0.98651367430000003" blue="0.98634153599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aw3-oh-dUc" firstAttribute="leading" secondItem="7tX-c2-3I4" secondAttribute="leading" id="3T4-d2-two"/>
                             <constraint firstItem="FE6-7o-KwE" firstAttribute="top" secondItem="aw3-oh-dUc" secondAttribute="bottom" id="MAv-kf-RpQ"/>
@@ -342,7 +342,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dnI-t0-BHB">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GJ7-pw-t8z">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GJ7-pw-t8z">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -407,7 +407,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcd-4A-y2w">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcd-4A-y2w">
                                         <rect key="frame" x="362" y="15" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
                                         <connections>
