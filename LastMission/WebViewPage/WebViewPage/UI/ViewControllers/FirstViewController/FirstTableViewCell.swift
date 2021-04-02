@@ -16,6 +16,7 @@ class FirstTableViewCell: UITableViewCell {
     var heightConstraint: NSLayoutConstraint!
     let dataInfoController = DataInfoController()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let defaultURL: String = "http://ec2-18-191-254-2.us-east-2.compute.amazonaws.com"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -71,7 +72,7 @@ extension FirstTableViewCell: WKNavigationDelegate {
                       let type = data.type,
                       let url = data.url else { return }
                 
-                self?.appDelegate.galleryData.append(DataModel(id: id, type: type, url: url))
+                self?.appDelegate.galleryData.append(DataModel(defaultURL: self?.defaultURL, id: id, type: type, url: url))
             }
             
             DispatchQueue.main.async {

@@ -31,6 +31,7 @@
 		EA15669D2614551700F126B9 /* ForthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15669C2614551700F126B9 /* ForthTableViewCell.swift */; };
 		EA7CC03426169D99007581F8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC03326169D99007581F8 /* Data.swift */; };
 		EA7CC03D2616AA75007581F8 /* DataInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC03C2616AA75007581F8 /* DataInfoController.swift */; };
+		EA7CC0452616D3B5007581F8 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CC0442616D3B5007581F8 /* GalleryCollectionViewCell.swift */; };
 		F151DC5DED4D0549B4651306 /* Pods_WebViewPageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1CCD17267301355904C075 /* Pods_WebViewPageTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		EA15669C2614551700F126B9 /* ForthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthTableViewCell.swift; sourceTree = "<group>"; };
 		EA7CC03326169D99007581F8 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		EA7CC03C2616AA75007581F8 /* DataInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInfoController.swift; sourceTree = "<group>"; };
+		EA7CC0442616D3B5007581F8 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC3B2598B71CFE029E562977 /* Pods-WebViewPage-WebViewPageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewPage-WebViewPageUITests/Pods-WebViewPage-WebViewPageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				EA15667326144B5900F126B9 /* GalleryViewController.swift */,
+				EA7CC0442616D3B5007581F8 /* GalleryCollectionViewCell.swift */,
 			);
 			path = GalleryViewController;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				EA7CC03D2616AA75007581F8 /* DataInfoController.swift in Sources */,
 				EA1565EE26140C4700F126B9 /* SceneDelegate.swift in Sources */,
 				EA7CC03426169D99007581F8 /* Data.swift in Sources */,
+				EA7CC0452616D3B5007581F8 /* GalleryCollectionViewCell.swift in Sources */,
 				EA15669D2614551700F126B9 /* ForthTableViewCell.swift in Sources */,
 				EA15665326143B3600F126B9 /* ForthViewController.swift in Sources */,
 				EA15667B2614508700F126B9 /* FirstTableViewCell.swift in Sources */,

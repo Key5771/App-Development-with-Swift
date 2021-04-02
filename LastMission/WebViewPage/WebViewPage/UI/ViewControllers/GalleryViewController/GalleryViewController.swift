@@ -8,9 +8,9 @@
 import UIKit
 
 class GalleryViewController: UIViewController {
-    @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var urlLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var defaultURL: String = ""
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var items: [DataModel] = []
@@ -20,12 +20,53 @@ class GalleryViewController: UIViewController {
 
         items = appDelegate.galleryData
         
-        idLabel.text = items[0].id
-        typeLabel.text = items[0].type
-        urlLabel.text = items[0].url
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("items: \(items)")
+    }
+}
+
+extension GalleryViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+}
+
+extension GalleryViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath) as? GalleryCollectionViewCell else {
+            print("RETURN")
+            return UICollectionViewCell()
+        }
+        
+        guard let baseURL = items[indexPath.row].defaultURL,
+              let query = items[indexPath.row].url else {
+            fatalError("URL is nil")
+        }
+        
+        print("BaseURL: \(baseURL)")
+        print("query: \(query)")
+        
+        guard let url = URL(string: baseURL + query) else {
+            fatalError("URL is nil222")
+        }
+        
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url),
+               let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    cell.thumbnailImageView.image = image
+                }
+            }
+        }
+        
+        return cell
     }
 }

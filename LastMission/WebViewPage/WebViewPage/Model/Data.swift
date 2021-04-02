@@ -8,11 +8,8 @@
 import Foundation
 
 struct DataModel: Codable {
+    let defaultURL: String?
     let id: String?
     let type: String?
     let url: String?
-}
-
-protocol GalleryDataSource {
-    func passData(id: String, type: String, url: String)
 }
