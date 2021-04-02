@@ -64,21 +64,14 @@ extension FirstTableViewCell: WKNavigationDelegate {
         
         if navigationAction.navigationType == .linkActivated {
             guard let url = navigationAction.request.url else { return }
-//
-//            print("URL: \(url)")
-//            loadWebView(urlString: url.absoluteString)
-//
-//            Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateCellHeight), userInfo: nil, repeats: false)
             
-            dataInfoController.fetchData(url: url) { (data) in
-                guard let data = data else { return }
-                print("DATA: \(data)")
-                
-                guard let id = data.id,
+            dataInfoController.fetchData(url: url) { [weak self] (data) in
+                guard let data = data,
+                      let id = data.id,
                       let type = data.type,
                       let url = data.url else { return }
                 
-                self.appDelegate.galleryData.append(DataModel(id: id, type: type, url: url))
+                self?.appDelegate.galleryData.append(DataModel(id: id, type: type, url: url))
             }
             
             DispatchQueue.main.async {

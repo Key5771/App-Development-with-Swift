@@ -14,6 +14,8 @@ class SecondTableViewCell: UITableViewCell {
     var tableView: UITableView!
     var height: CGFloat = 100.0
     var heightConstraint: NSLayoutConstraint!
+    let dataInfoController = DataInfoController()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,12 +28,12 @@ class SecondTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func loadWebView() {
+    func loadWebView(urlString: String) {
         webView.navigationDelegate = self
         webView.scrollView.isScrollEnabled = false
         
-        guard let defaultURL = URL(string: "https://www.google.com") else { return }
-        let request = URLRequest(url: defaultURL)
+        guard let url = URL(string: urlString) else { return }
+        let request = URLRequest(url: url)
         webView.load(request)
     }
     
@@ -48,5 +50,28 @@ class SecondTableViewCell: UITableViewCell {
 extension SecondTableViewCell: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateCellHeight), userInfo: nil, repeats: false)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        defer {
+            decisionHandler(.allow)
+        }
+        
+        if navigationAction.navigationType == .linkActivated {
+            guard let url = navigationAction.request.url else { return }
+            
+            dataInfoController.fetchData(url: url) { [weak self] (data) in
+                guard let data = data,
+                      let id = data.id,
+                      let type = data.type,
+                      let url = data.url else { return }
+                
+                self?.appDelegate.galleryData.append(DataModel(id: id, type: type, url: url))
+            }
+            
+            DispatchQueue.main.async {
+                webView.go(to: webView.backForwardList.item(at: 0)!)
+            }
+        }
     }
 }

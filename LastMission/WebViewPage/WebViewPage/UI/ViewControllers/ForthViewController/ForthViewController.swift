@@ -13,6 +13,7 @@ class ForthViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     
     private var items: [String] = []
+    private let defaultURL: String = "http://ec2-18-191-254-2.us-east-2.compute.amazonaws.com/test/ks/m4.jsp"
     
     var loaded = false
 
@@ -67,7 +68,7 @@ extension ForthViewController: UITableViewDataSource {
         
         if indexPath.section == 0 {
             if !loaded {
-                cell.loadWebView()
+                cell.loadWebView(urlString: defaultURL)
                 cell.tableView = tableView
             }
             
