@@ -23,27 +23,50 @@ class FirstViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-//        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: tableView.frame.height / 2))
-//
-//        let webView = WKWebView(frame: header.bounds)
-//        guard let url = URL(string: defaultURL) else { return }
-//        let request = URLRequest(url: url)
-//        webView.load(request)
-//        header.addSubview(webView)
-//
-//        tableView.tableHeaderView = header
+        textField.delegate = self
+        
+        registerForKeyboardNotification()
     }
     
     @IBAction func sendClick(_ sender: Any) {
         if let text = textField.text {
             items.append(text)
-            tableView.reloadData()
-            textField.text = ""
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.textField.text = ""
+            }
             
             self.view.endEditing(true)
         }
     }
     
+    func registerForKeyboardNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWasShown(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillBeHidden(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    @objc func keyboardWasShown(_ notification: NSNotification) {
+        guard let info = notification.userInfo,
+              let keyboardFrameValue = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardFrame = keyboardFrameValue.cgRectValue
+        let keyboardSize = keyboardFrame.size
+        
+        self.view.frame.origin.y = -keyboardSize.height
+        
+        print("keyboard height: \(keyboardSize.height)")
+    }
+    
+    @objc func keyboardWillBeHidden(_ notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
 }
 
 extension FirstViewController: UITableViewDelegate {
@@ -74,9 +97,32 @@ extension FirstViewController: UITableViewDataSource {
             
             loaded = true
         } else {
+            cell.textLabel?.numberOfLines = 0
             cell.textLabel?.text = items[indexPath.row]
         }
 
         return cell
+    }
+}
+
+extension FirstViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == textField,
+           let text = textField.text {
+            items.append(text)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.textField.text = ""
+            }
+            
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
     }
 }
