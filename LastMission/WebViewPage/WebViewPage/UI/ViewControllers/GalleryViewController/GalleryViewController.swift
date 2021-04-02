@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GalleryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -48,29 +49,43 @@ extension GalleryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath) as? GalleryCollectionViewCell else {
-            print("RETURN")
             return UICollectionViewCell()
         }
         
         guard let baseURL = items[indexPath.row].defaultURL,
-              let query = items[indexPath.row].url else {
+              let query = items[indexPath.row].url,
+              let type = items[indexPath.row].type else {
+            fatalError("The Data is nil")
+        }
+        
+        guard let url = URL(string: baseURL + query) else {
             fatalError("URL is nil")
         }
         
-        print("BaseURL: \(baseURL)")
-        print("query: \(query)")
-        
-        guard let url = URL(string: baseURL + query) else {
-            fatalError("URL is nil222")
-        }
-        
         DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url),
-               let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    cell.thumbnailImageView.image = image
+            if type == "image" {
+                if let data = try? Data(contentsOf: url),
+                   let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.thumbnailImageView.image = image
+                    }
                 }
+            } else {
+                let asset = AVURLAsset(url: url)
+                let imageGenerator = AVAssetImageGenerator(asset: asset)
+                do {
+                    let cgImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
+                    let uiImage = UIImage(cgImage: cgImage)
+                    
+                    DispatchQueue.main.async {
+                        cell.thumbnailImageView.image = uiImage
+                    }
+                } catch(let error) {
+                    print("ERROR: \(error)")
+                }
+                
             }
+            
         }
         
         return cell
