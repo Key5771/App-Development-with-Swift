@@ -90,6 +90,7 @@ extension SecondViewController: UITableViewDataSource {
         }
         
         if indexPath.section == 0 {
+            cell.textLabel?.text = ""
             if !loaded {
                 cell.loadWebView(urlString: defaultURL)
                 cell.tableView = tableView
@@ -125,5 +126,10 @@ extension SecondViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.resignFirstResponder()
+        
+        DispatchQueue.main.async {
+            let endIndex = IndexPath(row: self.items.count - 1, section: 1)
+            self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: true)
+        }
     }
 }
