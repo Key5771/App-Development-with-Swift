@@ -21,6 +21,9 @@ class ContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(_:)))
+        imageView.addGestureRecognizer(pinchRecognizer)
+        
         playButton.isHidden = true
         loadImageView()
     }
@@ -62,6 +65,12 @@ class ContentViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func pinchAction(_ sender: UIPinchGestureRecognizer) {
+        imageView.transform = imageView.transform.scaledBy(x: sender.scale, y: sender.scale)
+        
+        sender.scale = 1.0
     }
     
     @IBAction func playClick(_ sender: Any) {

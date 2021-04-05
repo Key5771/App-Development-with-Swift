@@ -106,9 +106,9 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if UIDevice.current.orientation.isLandscape {
-            return collectionView.getCellSize(numberOFItemsRowAt: 4)
+            return collectionView.getCellSize(numberOfItemsRowAt: 3)
         } else {
-            return collectionView.getCellSize(numberOFItemsRowAt: 4)
+            return collectionView.getCellSize(numberOfItemsRowAt: 3)
         }
     }
     
@@ -126,10 +126,10 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension UICollectionView {
-    func getCellSize(numberOFItemsRowAt: Int) -> CGSize {
+    func getCellSize(numberOfItemsRowAt: Int) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         
-        let cellWidth =  screenWidth / CGFloat(numberOFItemsRowAt)
+        let cellWidth =  screenWidth / CGFloat(numberOfItemsRowAt + 1)
         let cellHeight = cellWidth
         return CGSize(width: cellWidth, height: cellHeight)
     }
