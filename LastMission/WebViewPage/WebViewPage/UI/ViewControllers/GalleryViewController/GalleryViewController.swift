@@ -41,8 +41,9 @@ extension GalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        guard let viewController = storyboard?.instantiateViewController(identifier: "ContentViewController") as? ContentViewController else { return }
+        guard let viewController = storyboard?.instantiateViewController(identifier: "ContentPageViewController") as? ContentPageViewController else { return }
         viewController.items = self.items
+        viewController.currentIndex = indexPath.row
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
