@@ -64,7 +64,32 @@ class MainViewController: UIViewController {
         navigationController?.pushViewController(photosViewController, animated: true)
     }
     
+    @IBAction func actionSave(_ sender: Any) {
+        guard let image = imageView.image else { return }
+        
+        PhotoWriter.save(image)
+            .asSingle()
+            .subscribe { [weak self] (id) in
+                self?.showMessage("Saved with ID: \(id)")
+                self?.actionClear(sender)
+            } onFailure: { [weak self] (error) in
+                self?.showMessage("Error")
+            } onDisposed: {
+                print("Disposed")
+            }.disposed(by: disposeBag)
+
+        
+    }
+    
     @IBAction func actionClear(_ sender: Any) {
         images.accept([])
+    }
+    
+    func showMessage(_ message: String) {
+        let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        
+        alertController.addAction(closeAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
