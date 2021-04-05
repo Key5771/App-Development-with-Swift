@@ -45,6 +45,7 @@ class ContentViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.imageView.image = image
                         self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
                     }
                 }
             } else {
@@ -59,6 +60,7 @@ class ContentViewController: UIViewController {
                         self.playButton.isHidden = false
                         self.imageView.image = uiImage
                         self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
                     }
                 } catch(let error) {
                     print("ERROR: \(error)")
