@@ -350,18 +350,34 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WOE-K1-6Sa">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="493-p2-ASN">
+                                <rect key="frame" x="151.5" y="392.5" width="111" height="111"/>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="playClick:" destination="ZYc-xv-mIW" eventType="touchUpInside" id="gQy-PA-uWg"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="YMQ-qb-JS7">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8sa-9c-rVV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="493-p2-ASN" firstAttribute="centerY" secondItem="Ldj-PQ-zVy" secondAttribute="centerY" id="7Fo-ub-MtC"/>
+                            <constraint firstItem="YMQ-qb-JS7" firstAttribute="centerX" secondItem="Ldj-PQ-zVy" secondAttribute="centerX" id="C2f-SN-bbf"/>
                             <constraint firstItem="WOE-K1-6Sa" firstAttribute="top" secondItem="8sa-9c-rVV" secondAttribute="top" id="R9I-lb-Oo8"/>
+                            <constraint firstItem="YMQ-qb-JS7" firstAttribute="centerY" secondItem="Ldj-PQ-zVy" secondAttribute="centerY" id="RrD-6k-kML"/>
                             <constraint firstItem="WOE-K1-6Sa" firstAttribute="leading" secondItem="8sa-9c-rVV" secondAttribute="leading" id="ix8-8l-78B"/>
                             <constraint firstItem="8sa-9c-rVV" firstAttribute="bottom" secondItem="WOE-K1-6Sa" secondAttribute="bottom" id="lNS-7w-uXT"/>
+                            <constraint firstItem="493-p2-ASN" firstAttribute="centerX" secondItem="Ldj-PQ-zVy" secondAttribute="centerX" id="veT-Sg-TDQ"/>
                             <constraint firstItem="8sa-9c-rVV" firstAttribute="trailing" secondItem="WOE-K1-6Sa" secondAttribute="trailing" id="wJA-n6-KGo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="YMQ-qb-JS7" id="AxE-xn-ril"/>
                         <outlet property="imageView" destination="WOE-K1-6Sa" id="8Bf-7C-s4l"/>
+                        <outlet property="playButton" destination="493-p2-ASN" id="PDM-A6-dMB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R13-hY-nXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -514,6 +530,7 @@
     </scenes>
     <resources>
         <image name="menu" width="19" height="19"/>
+        <image name="play" width="110.5" height="110.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

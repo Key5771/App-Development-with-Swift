@@ -10,7 +10,7 @@ import UIKit
 class ContentPageViewController: UIPageViewController {
 
     var items: [DataModel] = []
-    var imageArray: [String] = []
+    var imageArray: [(String, String)] = []
     var currentIndex: Int!
     
     override func viewDidLoad() {
@@ -18,9 +18,10 @@ class ContentPageViewController: UIPageViewController {
         
         for element in items {
             guard let baseURL = element.defaultURL,
-                  let query = element.url else { return }
+                  let query = element.url,
+                  let type = element.type else { return }
             
-            imageArray.append(baseURL + query)
+            imageArray.append((baseURL + query, type))
         }
         
         print("imageArray: \(imageArray)")
