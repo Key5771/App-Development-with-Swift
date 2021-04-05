@@ -21,6 +21,8 @@ class GalleryViewController: UIViewController {
 
         items = appDelegate.galleryData
         
+        self.title = "Gallery"
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }

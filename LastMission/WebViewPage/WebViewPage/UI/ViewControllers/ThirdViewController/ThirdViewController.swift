@@ -11,6 +11,7 @@ import WebKit
 class ThirdViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var stackView: UIStackView!
     
     private var items: [String] = []
     private let defaultURL: String = "http://ec2-18-191-254-2.us-east-2.compute.amazonaws.com/test/ks/m3.jsp"
@@ -59,7 +60,7 @@ class ThirdViewController: UIViewController {
         let keyboardFrame = keyboardFrameValue.cgRectValue
         let keyboardSize = keyboardFrame.size
         
-        self.view.frame.origin.y = -keyboardSize.height
+        self.view.frame.origin.y = -keyboardSize.height + stackView.frame.height / 2
         
         print("keyboard height: \(keyboardSize.height)")
     }
@@ -97,6 +98,7 @@ extension ThirdViewController: UITableViewDataSource {
             
             loaded = true
         } else {
+            tableView.separatorStyle = .singleLine
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.text = items[indexPath.row]
         }

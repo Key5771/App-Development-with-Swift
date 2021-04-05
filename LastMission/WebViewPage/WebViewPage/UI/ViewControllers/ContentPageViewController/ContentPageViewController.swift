@@ -16,6 +16,8 @@ class ContentPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Photos"
+        
         for element in items {
             guard let baseURL = element.defaultURL,
                   let query = element.url,

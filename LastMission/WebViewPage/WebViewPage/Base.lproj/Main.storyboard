@@ -117,6 +117,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="stackView" destination="LEF-Po-Wmb" id="c0T-9C-oNs"/>
                         <outlet property="tableView" destination="kTG-YC-OTP" id="fBa-lx-ZLo"/>
                         <outlet property="textField" destination="kZu-nt-3p1" id="Tnv-tY-AB7"/>
                     </connections>
@@ -200,6 +201,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="stackView" destination="OG5-YP-r2l" id="zfM-sd-Td9"/>
                         <outlet property="tableView" destination="nTr-z7-qD7" id="3b7-ek-hsj"/>
                         <outlet property="textField" destination="ATG-m4-QKX" id="0vt-4p-KqN"/>
                     </connections>
@@ -283,6 +285,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="stackView" destination="FE6-7o-KwE" id="rVv-Gn-mJV"/>
                         <outlet property="tableView" destination="aw3-oh-dUc" id="86W-bG-RUu"/>
                         <outlet property="textField" destination="cag-6b-nxM" id="Hso-QG-oPi"/>
                     </connections>
@@ -519,6 +522,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="stackView" destination="yYV-io-TxU" id="qSs-cV-GjA"/>
                         <outlet property="tableView" destination="bnx-u3-k7P" id="DL4-O5-Mev"/>
                         <outlet property="textField" destination="0Ir-YM-eH7" id="Qbc-5F-rVg"/>
                     </connections>
