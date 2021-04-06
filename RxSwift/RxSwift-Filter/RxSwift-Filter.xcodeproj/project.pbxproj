@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -59,6 +59,7 @@
 		EAA1DCD2261B02ED00BA5A9E /* RxSwift-FilterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwift-FilterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA1DCD6261B02ED00BA5A9E /* RxSwift_FilterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwift_FilterUITests.swift; sourceTree = "<group>"; };
 		EAA1DCD8261B02ED00BA5A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAA1DCF0261B037D00BA5A9E /* RxSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwift.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EDDF318FD41E8C26736878B1 /* Pods_RxSwift_FilterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwift_FilterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22AEEA1E564196B6CC092FB /* Pods_RxSwift_Filter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwift_Filter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,13 +112,13 @@
 				A0E7DE1146561B8EE5B3CE97 /* Pods-RxSwift-FilterTests.debug.xcconfig */,
 				90FF85E6AC61FA836386771A /* Pods-RxSwift-FilterTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		EAA1DCA8261B02EC00BA5A9E = {
 			isa = PBXGroup;
 			children = (
+				EAA1DCF0261B037D00BA5A9E /* RxSwift.playground */,
 				EAA1DCB3261B02EC00BA5A9E /* RxSwift-Filter */,
 				EAA1DCCA261B02ED00BA5A9E /* RxSwift-FilterTests */,
 				EAA1DCD5261B02ED00BA5A9E /* RxSwift-FilterUITests */,
