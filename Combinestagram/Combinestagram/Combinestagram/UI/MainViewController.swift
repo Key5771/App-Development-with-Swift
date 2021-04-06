@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private let images = BehaviorRelay<[UIImage]>(value: [])
+    private var imageCache = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,15 @@ class MainViewController: UIViewController {
             .filter { newImage in
                 return newImage.size.width > newImage.size.height       // 가로사진만 허용하도록 필터
             }
+            .filter { [weak self] newImage in                           // 이미지 중복 저장을 피하기 위해 이미지 데이터의 길이를 바이트 단위로 저장하고 검색
+                let len = newImage.pngData()?.count ?? 0
+                guard self?.imageCache.contains(len) == false else {
+                    return false                                        // imageCache에 동일한 값이 있다면 이미지가 이미 있다고 판단하고 false를 리턴
+                }
+                
+                self?.imageCache.append(len)
+                return true                                             // 이미지가 고유한 경우 해당 바이트 길이를 imageCache에 저장하고 true를 리턴
+            }
             .subscribe { [weak self] newImage in
                 guard let images = self?.images else { return }
                 images.accept(images.value + [newImage])
@@ -96,6 +106,7 @@ class MainViewController: UIViewController {
     
     @IBAction func actionClear(_ sender: Any) {
         images.accept([])
+        imageCache = []                             // clear 버튼 클릭 시 imageCache에 있는 데이터를 삭제
     }
     
     func showMessage(_ message: String) {
