@@ -21,6 +21,7 @@
 		EA1565772612F84700F126B9 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1565762612F84700F126B9 /* PhotosViewController.swift */; };
 		EA1565802612FF1D00F126B9 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA15657F2612FF1D00F126B9 /* PhotoCell.swift */; };
 		EAA1DC46261AEE8D00BA5A9E /* PhotoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA1DC45261AEE8D00BA5A9E /* PhotoWriter.swift */; };
+		EAA1DCF5261C014600BA5A9E /* PHPhotoLibrary+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA1DCF4261C014600BA5A9E /* PHPhotoLibrary+Rx.swift */; };
 		F12A2E0E633D1C2F8005BEA5 /* Pods_CombinestagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C42326BB95DF3339025C83 /* Pods_CombinestagramTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		EA1565762612F84700F126B9 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		EA15657F2612FF1D00F126B9 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		EAA1DC45261AEE8D00BA5A9E /* PhotoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWriter.swift; sourceTree = "<group>"; };
+		EAA1DCF4261C014600BA5A9E /* PHPhotoLibrary+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Rx.swift"; sourceTree = "<group>"; };
 		F2C42326BB95DF3339025C83 /* Pods_CombinestagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CombinestagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E61B8856BEF56C757EC033 /* Pods-CombinestagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombinestagramTests.release.xcconfig"; path = "Target Support Files/Pods-CombinestagramTests/Pods-CombinestagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB932FF667AAE083484A3586 /* Pods_Combinestagram_CombinestagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Combinestagram_CombinestagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				EA1565692612EF6F00F126B9 /* UIImage+Collage.swift */,
+				EAA1DCF4261C014600BA5A9E /* PHPhotoLibrary+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				EA15651D2612E59700F126B9 /* SceneDelegate.swift in Sources */,
 				EA15656A2612EF6F00F126B9 /* UIImage+Collage.swift in Sources */,
 				EA1565802612FF1D00F126B9 /* PhotoCell.swift in Sources */,
+				EAA1DCF5261C014600BA5A9E /* PHPhotoLibrary+Rx.swift in Sources */,
 				EA1565772612F84700F126B9 /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
