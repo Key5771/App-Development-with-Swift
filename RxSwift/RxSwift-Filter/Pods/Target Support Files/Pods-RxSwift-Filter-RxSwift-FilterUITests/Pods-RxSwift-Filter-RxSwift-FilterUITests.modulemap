@@ -1,0 +1,6 @@
+framework module Pods_RxSwift_Filter_RxSwift_FilterUITests {
+  umbrella header "Pods-RxSwift-Filter-RxSwift-FilterUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
