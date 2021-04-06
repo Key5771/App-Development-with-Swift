@@ -134,3 +134,40 @@ example(of: "takeUntil") {
     trigger.onNext("X")
     subject.onNext("3")
 }
+
+example(of: "distinctUntilChanged") {
+    let disposeBag = DisposeBag()
+    
+    Observable.of("A", "A", "B", "B", "A")
+        .distinctUntilChanged()
+        .subscribe {
+            print($0)
+        }
+        .disposed(by: disposeBag)
+}
+
+example(of: "distinctUntilChanged(_:)") {
+    let disposeBag = DisposeBag()
+    
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .spellOut
+    
+    Observable<NSNumber>.of(10, 110, 20, 200, 210, 310)
+        .distinctUntilChanged { (a, b) -> Bool in
+            guard let aWords = formatter.string(from: a)?.components(separatedBy: " "),
+                  let bWords = formatter.string(from: b)?.components(separatedBy: " ") else { return false }
+            
+            var containsMatch = false
+            
+            for aWord in aWords where bWords.contains(aWord) {
+                containsMatch = true
+                break
+            }
+            
+            return containsMatch
+        }
+        .subscribe {
+            print($0)
+        }
+        .disposed(by: disposeBag)
+}
