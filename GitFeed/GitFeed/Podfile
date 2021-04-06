@@ -8,5 +8,6 @@ target 'GitFeed' do
   # Pods for GitFeed
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Kingfisher'
 
 end

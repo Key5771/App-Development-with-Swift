@@ -1,0 +1,110 @@
+//
+//  MainViewController.swift
+//  GitFeed
+//
+//  Created by 김기현 on 2021/04/06.
+//
+
+import UIKit
+import RxSwift
+import RxCocoa
+import Kingfisher
+
+class ActivityController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
+    private let repo = "ReactiveX/RxSwift"
+    
+    private let events = BehaviorRelay<[Event]>(value: [])
+    private let disposeBag = DisposeBag()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = repo
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        fetchEvents(repo: repo)
+    }
+
+    func fetchEvents(repo: String) {
+        let response = Observable.from([repo])
+            .map { urlString -> URL in                                                      // String -> URL
+                return URL(string: "https://api.github.com/repos/\(urlString)/events")!
+            }
+            .map { url -> URLRequest in                                                     // URL -> URLRequest
+                return URLRequest(url: url)
+            }
+            .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in    // URLRequest -> Response
+                return URLSession.shared.rx.response(request: request)                      // 요청을 서버로 보내고 응답을 받으면 반환된 데이터와 함께 .next 이벤트를 한번만 내보내고 완료
+            }
+            /*
+             Observable을 공유하고 마지막으로 발생한 이벤트를 버퍼에 보관
+             Observable이 완료되고 다시 구독하면 새 구독이 생성되고 서버에 또 다른 동일한 요청이 발생하는데 이러한 상황을 방지하기 위해 사용
+             이 연산자는 방출된 마지막 아이템의 버퍼를 유지하고 새로 구독한 observer에게 제공
+             따라서 요청이 완료되고 새 observer가 공유 시퀀스를 구독하면 이전에 실행된 네트워크 요청에서 버퍼링 된 응답을 즉시 수신
+             
+             share(relpay: scope:) 시용에 대한 경험적 규칙은 완료할 것으로 예상되는 시퀀스 또는 과도한 워크로드를 유발하고 여러번 구독하는 시퀀스에서 사용
+            */
+            .share(replay: 1)
+        
+        response
+            .filter { response, _ in                                            // 200~299 상태 코드를 가진 응답만 통과
+                return 200..<300 ~= response.statusCode                         // ~= -> 왼쪽의 범위에 오른쪽 값이 포함되어 있는지 확인
+            }
+            .map { _, data -> [Event] in                                        // Data -> [Event]
+                let decoder = JSONDecoder()
+                let events = try? decoder.decode([Event].self, from: data)
+                return events ?? []
+            }
+            .filter { objects in                                                // 새 이벤트가 포함되지 않은 오류 응답 또는 응답이 삭제
+                return !objects.isEmpty
+            }
+            .subscribe { [weak self] newEvents in
+                self?.processEvents(newEvents)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func processEvents(_ newEvents: [Event]) {
+        var updateEvents = newEvents + events.value
+        
+        if updateEvents.count > 50 {
+            updateEvents = [Event](updateEvents.prefix(upTo: 50))
+        }
+        
+        events.accept(updateEvents)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
+
+extension ActivityController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
+
+extension ActivityController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.value.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ActivityTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let event = events.value[indexPath.row]
+        
+        cell.loginNameLabel.text = event.actor.name
+        cell.descriptionLabel.text = event.repo.name + ", " + event.action.replacingOccurrences(of: "Event", with: "").lowercased()
+        cell.contentImageView.kf.setImage(with: event.actor.avatar)
+        
+        return cell
+    }
+}

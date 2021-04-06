@@ -3,31 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4EE11615E01E2AEFB306BFCB /* Pods_GitFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817537BE561D059D34BB9992 /* Pods_GitFeed.framework */; };
+		EA2BC361261C3F7D00D36E4B /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2BC360261C3F7D00D36E4B /* ActivityController.swift */; };
+		EA2BC367261C4BAC00D36E4B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2BC366261C4BAC00D36E4B /* Event.swift */; };
 		EA804F10261C3E6B00004AC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA804F0F261C3E6B00004AC7 /* AppDelegate.swift */; };
 		EA804F12261C3E6B00004AC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA804F11261C3E6B00004AC7 /* SceneDelegate.swift */; };
-		EA804F14261C3E6B00004AC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA804F13261C3E6B00004AC7 /* ViewController.swift */; };
 		EA804F17261C3E6B00004AC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA804F15261C3E6B00004AC7 /* Main.storyboard */; };
 		EA804F19261C3E6C00004AC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA804F18261C3E6C00004AC7 /* Assets.xcassets */; };
 		EA804F1C261C3E6C00004AC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA804F1A261C3E6C00004AC7 /* LaunchScreen.storyboard */; };
+		EAF8AE66261C559100090A44 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF8AE65261C559100090A44 /* ActivityTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4F0F1354BA88F322C268DB55 /* Pods-GitFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitFeed.debug.xcconfig"; path = "Target Support Files/Pods-GitFeed/Pods-GitFeed.debug.xcconfig"; sourceTree = "<group>"; };
 		817537BE561D059D34BB9992 /* Pods_GitFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9573E7D23A7E2905B420EBE /* Pods-GitFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitFeed.release.xcconfig"; path = "Target Support Files/Pods-GitFeed/Pods-GitFeed.release.xcconfig"; sourceTree = "<group>"; };
+		EA2BC360261C3F7D00D36E4B /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		EA2BC366261C4BAC00D36E4B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		EA804F0C261C3E6B00004AC7 /* GitFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA804F0F261C3E6B00004AC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA804F11261C3E6B00004AC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA804F13261C3E6B00004AC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EA804F16261C3E6B00004AC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA804F18261C3E6C00004AC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA804F1B261C3E6C00004AC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA804F1D261C3E6C00004AC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF8AE65261C559100090A44 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,24 @@
 				4F0F1354BA88F322C268DB55 /* Pods-GitFeed.debug.xcconfig */,
 				D9573E7D23A7E2905B420EBE /* Pods-GitFeed.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EA2BC35F261C3F6500D36E4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA2BC360261C3F7D00D36E4B /* ActivityController.swift */,
+				EAF8AE65261C559100090A44 /* ActivityTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EA2BC365261C4BA200D36E4B /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				EA2BC366261C4BAC00D36E4B /* Event.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		EA804F03261C3E6B00004AC7 = {
@@ -81,9 +101,10 @@
 		EA804F0E261C3E6B00004AC7 /* GitFeed */ = {
 			isa = PBXGroup;
 			children = (
+				EA2BC365261C4BA200D36E4B /* Event */,
+				EA2BC35F261C3F6500D36E4B /* View */,
 				EA804F0F261C3E6B00004AC7 /* AppDelegate.swift */,
 				EA804F11261C3E6B00004AC7 /* SceneDelegate.swift */,
-				EA804F13261C3E6B00004AC7 /* ViewController.swift */,
 				EA804F15261C3E6B00004AC7 /* Main.storyboard */,
 				EA804F18261C3E6C00004AC7 /* Assets.xcassets */,
 				EA804F1A261C3E6C00004AC7 /* LaunchScreen.storyboard */,
@@ -206,7 +227,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA804F14261C3E6B00004AC7 /* ViewController.swift in Sources */,
+				EA2BC367261C4BAC00D36E4B /* Event.swift in Sources */,
+				EA2BC361261C3F7D00D36E4B /* ActivityController.swift in Sources */,
+				EAF8AE66261C559100090A44 /* ActivityTableViewCell.swift in Sources */,
 				EA804F10261C3E6B00004AC7 /* AppDelegate.swift in Sources */,
 				EA804F12261C3E6B00004AC7 /* SceneDelegate.swift in Sources */,
 			);
