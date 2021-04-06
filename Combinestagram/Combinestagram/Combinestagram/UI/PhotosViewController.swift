@@ -40,7 +40,7 @@ class PhotosViewController: UICollectionViewController {
         alert(title: "No access to Camera Roll",
               text: "You can grant access to Combinestagram from the Settings app")
             .asObservable()
-            .take(for: RxTimeInterval.microseconds(5), scheduler: MainScheduler.instance)
+            .take(for: RxTimeInterval.seconds(5), scheduler: MainScheduler.instance)
             .subscribe(onCompleted: { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
                 _ = self?.navigationController?.popViewController(animated: true)

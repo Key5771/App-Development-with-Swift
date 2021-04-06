@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         images.asObservable()
+            .throttle(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)     // throttle(_, scheduler:) 지정된 시간 간격 내에서 다른 아이템이 뒤따르는 모든 아이템을 필터링
             .subscribe(onNext: { [weak self] photos in
                 self?.updateUI(photos: photos)
             })
