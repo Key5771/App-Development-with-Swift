@@ -51,13 +51,26 @@ class MainViewController: UIViewController {
         
         guard let photosViewController = storyboard!.instantiateViewController(identifier: "PhotosViewController") as? PhotosViewController else { return }
         
-        photosViewController.selectedPhotos
+        // share() 기능을 통해 subscribe을 공유할 수 있다.
+        let newPhotos = photosViewController.selectedPhotos.share()
+        
+        newPhotos
+            .filter { newImage in
+                return newImage.size.width > newImage.size.height       // 가로사진만 허용하도록 필터
+            }
             .subscribe { [weak self] newImage in
                 guard let images = self?.images else { return }
                 images.accept(images.value + [newImage])
             } onDisposed: {
                 print("completed photo selection")
             }
+            .disposed(by: disposeBag)
+        
+        newPhotos
+            .ignoreElements()
+            .subscribe(onCompleted: { [weak self] in
+                self?.updateNavigationIcon()
+            })
             .disposed(by: disposeBag)
 
         
@@ -91,5 +104,13 @@ class MainViewController: UIViewController {
         
         alertController.addAction(closeAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func updateNavigationIcon() {
+        let icon = imageView.image?
+            .scaled(CGSize(width: 22, height: 22))
+            .withRenderingMode(.alwaysOriginal)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: icon, style: .done, target: nil, action: nil)
     }
 }
