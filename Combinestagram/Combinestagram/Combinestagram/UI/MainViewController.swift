@@ -56,6 +56,10 @@ class MainViewController: UIViewController {
         let newPhotos = photosViewController.selectedPhotos.share()
         
         newPhotos
+            .take(while: { [weak self] image -> Bool in
+                let count = self?.images.value.count ?? 0
+                return count < 6                                        // 6장의 사진을 추가하면 더 이상 추가할 수 없도록 함. 그 전까지는 모든 입력을 받음.
+            })
             .filter { newImage in
                 return newImage.size.width > newImage.size.height       // 가로사진만 허용하도록 필터
             }
