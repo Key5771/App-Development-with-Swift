@@ -543,3 +543,33 @@ example(of: "switchLatest") {
     
     disposable.dispose()
 }
+
+
+// MARK: - Combining elements within a sequence
+
+example(of: "reduce") {
+    let source = Observable.of(1, 3, 5, 7, 9)
+    
+    let observable1 = source.reduce(0, accumulator: +)
+    _ = observable1.subscribe(onNext: { value in
+        print(value)
+    })
+    
+    print("=================================")
+    
+    let observable2 = source.reduce(0) { summary, newValue in
+        return summary + newValue
+    }
+    _ = observable2.subscribe(onNext: { value in
+        print(value)
+    })
+}
+
+example(of: "scan") {
+    let source = Observable.of(1, 3, 5, 7, 9)
+    
+    let observable = source.scan(0, accumulator: +)
+    _ = observable.subscribe(onNext: { value in
+        print(value)
+    })
+}
