@@ -10,13 +10,15 @@ import RxSwift
 import RxCocoa
 
 class CategoriesViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    
     let categories = BehaviorRelay<[EOCategory]>(value: [])
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
     }
 
 }
@@ -27,6 +29,10 @@ extension CategoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CategoriesTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        return cell
     }
 }
