@@ -309,3 +309,51 @@ example(of: "materialize and dematerialize") {
     
     student.onNext(charlotte)
 }
+
+
+// MARK: - Combining Operators
+
+// MARK: - Prefixing and concatenating
+
+example(of: "startWith") {
+    let numbers = Observable.of(2, 3, 4)
+    
+    let observable = numbers.startWith(1)
+    _ = observable.subscribe(onNext: { value in
+        print(value)
+    })
+}
+
+example(of: "Observable.concat") {
+    let first = Observable.of(1, 2, 3)
+    let second = Observable.of(4, 5, 6)
+    
+    let observable = Observable.concat([first, second])
+    observable.subscribe(onNext: { (value) in
+        print(value)
+    })
+}
+
+example(of: "concat") {
+    let germanCities = Observable.of("Berlin", "Münich", "Frankfurt")
+    let spanishCities = Observable.of("Madrid", "Barcelona", "Valencia")
+    
+    let observable = germanCities.concat(spanishCities)
+    _ = observable.subscribe(onNext: { value in
+        print(value)
+    })
+}
+
+example(of: "concatMap") {
+    let sequences = [
+        "German cities": Observable.of("Berlin", "Münich", "Frankfurt"),
+        "Spanish cities": Observable.of("Madrid", "Barcelona", "Valencia")
+    ]
+    
+    let observable = Observable.of("German cities", "Spanish cities")
+        .concatMap { country in sequences[country] ?? .empty() }
+    
+    _ = observable.subscribe(onNext: { string in
+        print(string)
+    })
+}
