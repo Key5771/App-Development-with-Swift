@@ -12,6 +12,7 @@ import Kingfisher
 
 class ActivityController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    let refreshControl = UIRefreshControl()
     
     private let repo = "ReactiveX/RxSwift"
     
@@ -26,7 +27,21 @@ class ActivityController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        fetchEvents(repo: repo)
+        refreshControl.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
+        refreshControl.tintColor = .darkGray
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        tableView.addSubview(refreshControl)
+        
+        refresh()
+    }
+    
+    @objc func refresh() {
+        DispatchQueue.global(qos: .default).async { [weak self] in
+            guard let self = self else { return }
+            self.fetchEvents(repo: self.repo)
+        }
     }
 
     func fetchEvents(repo: String) {
@@ -79,6 +94,7 @@ class ActivityController: UIViewController {
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
 }
