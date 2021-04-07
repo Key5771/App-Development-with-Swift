@@ -448,3 +448,38 @@ example(of: "zip") {
         print(value)
     })
 }
+
+
+// MARK: - Triggers
+
+example(of: "withLatestFrom") {
+    let button = PublishSubject<Void>()
+    let textField = PublishSubject<String>()
+    
+    let observer = button.withLatestFrom(textField)
+    _ = observer.subscribe(onNext: { value in
+        print(value)
+    })
+    
+    textField.onNext("Par")
+    textField.onNext("Pari")
+    textField.onNext("Paris")
+    button.onNext(())
+    button.onNext(())
+}
+
+example(of: "sample") {
+    let button = PublishSubject<Void>()
+    let textField = PublishSubject<String>()
+    
+    let observer = textField.sample(button)
+    _ = observer.subscribe(onNext: { value in
+        print(value)
+    })
+    
+    textField.onNext("Par")
+    textField.onNext("Pari")
+    textField.onNext("Paris")
+    button.onNext(())
+    button.onNext(())
+}
