@@ -3,16 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		EAC2B691261D9690007CCF59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B690261D9690007CCF59 /* AppDelegate.swift */; };
 		EAC2B693261D9690007CCF59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B692261D9690007CCF59 /* SceneDelegate.swift */; };
-		EAC2B695261D9690007CCF59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B694261D9690007CCF59 /* ViewController.swift */; };
 		EAC2B698261D9690007CCF59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC2B696261D9690007CCF59 /* Main.storyboard */; };
 		EAC2B69A261D9691007CCF59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC2B699261D9691007CCF59 /* Assets.xcassets */; };
 		EAC2B69D261D9691007CCF59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC2B69B261D9691007CCF59 /* LaunchScreen.storyboard */; };
+		EAC2B6AF261D9A49007CCF59 /* EOCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B6AE261D9A49007CCF59 /* EOCategory.swift */; };
+		EAC2B6B2261D9A52007CCF59 /* EOEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B6B1261D9A52007CCF59 /* EOEvent.swift */; };
+		EAC2B6B5261D9A6F007CCF59 /* EONET.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B6B4261D9A6F007CCF59 /* EONET.swift */; };
+		EAC2B6B8261D9B8F007CCF59 /* EOLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B6B7261D9B8F007CCF59 /* EOLocation.swift */; };
+		EAC2B6BB261D9FBC007CCF59 /* EOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B6BA261D9FBC007CCF59 /* EOError.swift */; };
 		FC85B58084CCA2A9A7FD372F /* Pods_OurPlanet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC20EAF82AF1260A6416A8C /* Pods_OurPlanet.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,11 +27,15 @@
 		EAC2B68D261D9690007CCF59 /* OurPlanet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OurPlanet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC2B690261D9690007CCF59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAC2B692261D9690007CCF59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EAC2B694261D9690007CCF59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EAC2B697261D9690007CCF59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAC2B699261D9691007CCF59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAC2B69C261D9691007CCF59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAC2B69E261D9691007CCF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAC2B6AE261D9A49007CCF59 /* EOCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOCategory.swift; sourceTree = "<group>"; };
+		EAC2B6B1261D9A52007CCF59 /* EOEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOEvent.swift; sourceTree = "<group>"; };
+		EAC2B6B4261D9A6F007CCF59 /* EONET.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EONET.swift; sourceTree = "<group>"; };
+		EAC2B6B7261D9B8F007CCF59 /* EOLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOLocation.swift; sourceTree = "<group>"; };
+		EAC2B6BA261D9FBC007CCF59 /* EOError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +64,6 @@
 				9663702A81805B5ACBD5C34D /* Pods-OurPlanet.debug.xcconfig */,
 				9D423201A4AC713495E29D0B /* Pods-OurPlanet.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,15 +88,35 @@
 		EAC2B68F261D9690007CCF59 /* OurPlanet */ = {
 			isa = PBXGroup;
 			children = (
+				EAC2B6AD261D9A22007CCF59 /* Model */,
+				EAC2B6AC261D9A1D007CCF59 /* View */,
 				EAC2B690261D9690007CCF59 /* AppDelegate.swift */,
 				EAC2B692261D9690007CCF59 /* SceneDelegate.swift */,
-				EAC2B694261D9690007CCF59 /* ViewController.swift */,
 				EAC2B696261D9690007CCF59 /* Main.storyboard */,
 				EAC2B699261D9691007CCF59 /* Assets.xcassets */,
 				EAC2B69B261D9691007CCF59 /* LaunchScreen.storyboard */,
 				EAC2B69E261D9691007CCF59 /* Info.plist */,
 			);
 			path = OurPlanet;
+			sourceTree = "<group>";
+		};
+		EAC2B6AC261D9A1D007CCF59 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAC2B6AD261D9A22007CCF59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAC2B6AE261D9A49007CCF59 /* EOCategory.swift */,
+				EAC2B6B1261D9A52007CCF59 /* EOEvent.swift */,
+				EAC2B6B4261D9A6F007CCF59 /* EONET.swift */,
+				EAC2B6B7261D9B8F007CCF59 /* EOLocation.swift */,
+				EAC2B6BA261D9FBC007CCF59 /* EOError.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,9 +233,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAC2B695261D9690007CCF59 /* ViewController.swift in Sources */,
 				EAC2B691261D9690007CCF59 /* AppDelegate.swift in Sources */,
+				EAC2B6BB261D9FBC007CCF59 /* EOError.swift in Sources */,
 				EAC2B693261D9690007CCF59 /* SceneDelegate.swift in Sources */,
+				EAC2B6B8261D9B8F007CCF59 /* EOLocation.swift in Sources */,
+				EAC2B6B5261D9A6F007CCF59 /* EONET.swift in Sources */,
+				EAC2B6B2261D9A52007CCF59 /* EOEvent.swift in Sources */,
+				EAC2B6AF261D9A49007CCF59 /* EOCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
