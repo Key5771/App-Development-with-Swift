@@ -27,7 +27,7 @@ import RxCocoa
 
 class EONET {
     // https://eonet.sci.gsfc.nasa.gov/api/v2/events
-    static let API = "https://eonet.sci.gsfc.nasa.gov/api/v2"
+    static let API = "https://eonet.sci.gsfc.nasa.gov/api/v3"
     static let categoriesEndpoint = "/categories"
     static let eventsEndpoint = "/events"
     
