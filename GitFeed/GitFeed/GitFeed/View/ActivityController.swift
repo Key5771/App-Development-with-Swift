@@ -81,7 +81,7 @@ class ActivityController: UIViewController {
                 return Observable.from(items.map { $0["full_name"] as! String })
             }
             .map { urlString -> URL in                                                      // String -> URL
-                return URL(string: "https://api.github.com/repos/\(urlString)/events?per_page=10")!
+                return URL(string: "https://api.github.com/repos/\(urlString)/events?per_page=5")!
             }
             .map { [weak self] url -> URLRequest in                                         // URL -> URLRequest
                 var request = URLRequest(url: url)
