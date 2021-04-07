@@ -18,6 +18,7 @@ class ActivityController: UIViewController {
     
     private let events = BehaviorRelay<[Event]>(value: [])
     private let disposeBag = DisposeBag()
+    private let eventsFileURL = cachedFileURL("events.json")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,17 @@ class ActivityController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         tableView.addSubview(refreshControl)
+        
+        /*
+         디스크에 저장된 파일을 읽어오는 코드
+         파일에서 객체를 한번만 읽어야 하므로 viewDidLoad()에서 수행
+         저장된 이벤트가 있는 파일이 있는지 확인하고 해당 파일이 있는 경우 해당 내용을 이벤트에 로드
+        */
+        let decoder = JSONDecoder()
+        if let eventsData = try? Data(contentsOf: eventsFileURL),
+           let persistedEvents = try? decoder.decode([Event].self, from: eventsData) {
+            events.accept(persistedEvents)
+        }
         
         refresh()
     }
@@ -96,6 +108,11 @@ class ActivityController: UIViewController {
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
         }
+        
+        let encoder = JSONEncoder()
+        if let eventsData = try? encoder.encode(updateEvents) {                 // updateEvents를 Data객체로 인코딩 시도
+            try? eventsData.write(to: eventsFileURL, options: .atomic)          // 결과 데이터로 write(to: options:)를 호출하고 파일을 만들거나 덮어쓸 파일의 URL을 제공
+        }
     }
 }
 
@@ -123,4 +140,11 @@ extension ActivityController: UITableViewDataSource {
         
         return cell
     }
+}
+
+func cachedFileURL(_ fileName: String) -> URL {
+    return FileManager.default
+        .urls(for: .cachesDirectory, in: .allDomainsMask)
+        .first!
+        .appendingPathComponent(fileName)
 }
