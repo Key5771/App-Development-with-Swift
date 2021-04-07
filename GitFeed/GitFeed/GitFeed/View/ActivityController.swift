@@ -63,9 +63,25 @@ class ActivityController: UIViewController {
     }
 
     func fetchEvents(repo: String) {
-        let response = Observable.from([repo])
+        // 가장 인기있는 레포를 가져오도록 URL 변경
+        let response = Observable.from(["https://api.github.com/search/repositories?q=language:swift&per_page=5"])
+            .map { urlString -> URL in
+                return URL(string: urlString)!
+            }
+            .flatMap { url -> Observable<Any> in
+                let request = URLRequest(url: url)
+                return URLSession.shared.rx.json(request: request)
+            }
+            .flatMap { response -> Observable<String> in
+                guard let response = response as? [String: Any],
+                      let items = response["items"] as? [[String: Any]] else {
+                    return Observable.empty()
+                }
+                
+                return Observable.from(items.map { $0["full_name"] as! String })
+            }
             .map { urlString -> URL in                                                      // String -> URL
-                return URL(string: "https://api.github.com/repos/\(urlString)/events")!
+                return URL(string: "https://api.github.com/repos/\(urlString)/events?per_page=10")!
             }
             .map { [weak self] url -> URLRequest in                                         // URL -> URLRequest
                 var request = URLRequest(url: url)
