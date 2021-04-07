@@ -15,10 +15,12 @@ class ActivityController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     private let repo = "ReactiveX/RxSwift"
+    private let disposeBag = DisposeBag()
     
     private let events = BehaviorRelay<[Event]>(value: [])
-    private let disposeBag = DisposeBag()
+    private let lastModified = BehaviorRelay<String?>(value: nil)
     private let eventsFileURL = cachedFileURL("events.json")
+    private let modifiedFileURL = cachedFileURL("modified.txt")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,10 @@ class ActivityController: UIViewController {
             events.accept(persistedEvents)
         }
         
+        if let lastModifiedString = try? String(contentsOf: modifiedFileURL, encoding: .utf8) {
+            lastModified.accept(lastModifiedString)
+        }
+        
         refresh()
     }
     
@@ -61,8 +67,14 @@ class ActivityController: UIViewController {
             .map { urlString -> URL in                                                      // String -> URL
                 return URL(string: "https://api.github.com/repos/\(urlString)/events")!
             }
-            .map { url -> URLRequest in                                                     // URL -> URLRequest
-                return URLRequest(url: url)
+            .map { [weak self] url -> URLRequest in                                         // URL -> URLRequest
+                var request = URLRequest(url: url)
+                
+                if let modifiedHeader = self?.lastModified.value {
+                    request.addValue(modifiedHeader, forHTTPHeaderField: "Last-Modified")   // lastModified의 값이 nil이 아니면 해당 값을 헤더에 요청
+                }
+                
+                return request
             }
             .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in    // URLRequest -> Response
                 return URLSession.shared.rx.response(request: request)                      // 요청을 서버로 보내고 응답을 받으면 반환된 데이터와 함께 .next 이벤트를 한번만 내보내고 완료
@@ -92,6 +104,27 @@ class ActivityController: UIViewController {
             .subscribe { [weak self] newEvents in
                 self?.processEvents(newEvents)
             }
+            .disposed(by: disposeBag)
+        
+        response
+            .filter { response, _ in                                            // 현재 response의 statusCode가 200~399 사이인 경우만 필터링
+                return 200..<400 ~= response.statusCode
+            }
+            .flatMap { response, _ -> Observable<String> in                     // 만약 response에 "Last-Modified"라는 헤더필드가 있으면 그 값을 리턴, 아니면 빈 Observable을 리턴
+                guard let value = response.allHeaderFields["Last-Modified"] as? String else {
+                    return Observable.empty()
+                }
+                
+                return Observable.just(value)
+            }
+            .subscribe(onNext: { [weak self] modifiedHeader in
+                guard let self = self else { return }
+                
+                self.lastModified.accept(modifiedHeader)
+                
+                // modifiedFileURL 에 받아온 modifiedHeader를 저장
+                try? modifiedHeader.write(to: self.modifiedFileURL, atomically: true, encoding: .utf8)
+            })
             .disposed(by: disposeBag)
     }
     
