@@ -46,6 +46,8 @@ class EONET {
     return decoder
   }
   
+  
+  // Generic request technique
   static func request<T: Decodable>(endpoint: String, query: [String: Any] = [:], contentIdentifier: String) -> Observable<T> {
     do {
       guard let url = URL(string: API)?.appendingPathComponent(endpoint),
@@ -79,6 +81,7 @@ class EONET {
     }
   }
   
+  // Fetch categories
   // Singleton(static var)
   static var categories: Observable<[EOCategory]> = {
     let request: Observable<[EOCategory]> = EONET.request(endpoint: categoriesEndpoint, contentIdentifier: "categories")
