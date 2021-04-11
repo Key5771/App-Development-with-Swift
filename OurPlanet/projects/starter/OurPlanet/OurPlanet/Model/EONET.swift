@@ -96,8 +96,8 @@ class EONET {
       return event.categories.contains(where: { $0.id == category.id }) && !category.events.contains {
         $0.id == event.id
       }
-      }
-      .sorted(by: EOEvent.compareDates)
+    }
+    .sorted(by: EOEvent.compareDates)
   }
   
   private static func events(forLast days: Int, closed: Bool) -> Observable<[EOEvent]> {
