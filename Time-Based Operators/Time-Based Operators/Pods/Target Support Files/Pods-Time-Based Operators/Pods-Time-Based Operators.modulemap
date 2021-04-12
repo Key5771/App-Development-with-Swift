@@ -1,0 +1,6 @@
+framework module Pods_Time_Based_Operators {
+  umbrella header "Pods-Time-Based Operators-umbrella.h"
+
+  export *
+  module * { export * }
+}
