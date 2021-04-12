@@ -42,6 +42,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
   let disposeBag = DisposeBag()
   
   var activityIndicator: UIActivityIndicatorView!
+  let download = DownloadView()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -50,6 +51,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
     activityIndicator.startAnimating()
     
+    view.addSubview(download)
     view.layoutIfNeeded()
     
     categories
@@ -65,6 +67,9 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
   }
 
   func startDownload() {
+    download.progress.progress = 0.0
+    download.label.text = "Download: 0%"
+    
     let eoCategories = EONET.categories                     // 모든 범위의 배열을 다운로드
     
     // EONET 클래스에 추가한 이벤트 함수를 호출하고 작년의 이벤트를 다운로드
@@ -93,8 +98,26 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
     .do(onCompleted: { [weak self] in
       DispatchQueue.main.async {
         self?.activityIndicator.stopAnimating()
+        self?.download.isHidden = true
       }
     })
+    
+    eoCategories.flatMap { categories in
+      return updateCategories.scan(0) { count, _ in
+        return count + 1
+      }
+      .startWith(0)
+      .map { ($0, categories.count) }
+    }
+    .subscribe(onNext: { tuple in
+      DispatchQueue.main.async { [weak self] in
+        let progress = Float(tuple.0) / Float(tuple.1)
+        self?.download.progress.progress = progress
+        let percent = Int(progress * 100.0)
+        self?.download.label.text = "Download: \(percent)%"
+      }
+    })
+    .disposed(by: disposeBag)
     
     eoCategories
       .concat(updateCategories)                             // Observable eoCategories의 항목과 Observable updateCategories의 항목을 바인딩
