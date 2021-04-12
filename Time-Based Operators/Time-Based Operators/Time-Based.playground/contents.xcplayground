@@ -3,5 +3,6 @@
     <pages>
         <page name='buffer'/>
         <page name='window'/>
+        <page name='delay'/>
     </pages>
 </playground>
