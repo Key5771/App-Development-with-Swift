@@ -66,7 +66,7 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
           EONET.events(forLast: 360, category: category)
         })
       }
-      .merge(maxConcurrent: 2)
+      .merge(maxConcurrent: 2)                              // flatMap(_:)이 Observable로 푸시하는 이벤트 다운로드 Observable의 수에 관계없이 동시에 2개만 구족된다는 것을 의미
     
     let updateCategories = eoCategories.flatMap { categories in
       downloadedEvents.scan(categories) { updated, events in        // 새로운 이벤트 그룹이 도착할 때마다 scan은 카테고리 업데이트를 내보낸다.
