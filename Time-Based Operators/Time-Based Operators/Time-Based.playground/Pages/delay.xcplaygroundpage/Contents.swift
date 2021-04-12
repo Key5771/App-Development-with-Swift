@@ -34,10 +34,16 @@ _ = sourceObservable.subscribe(sourceTimeline)
 //    .delaySubscription(delay, scheduler: MainScheduler.instance)
 //    .subscribe(delayedTimeline)
 
-_ = sourceObservable
-    .delay(delay, scheduler: MainScheduler.instance)
-    .subscribe(delayedTimeline)
+//_ = sourceObservable
+//    .delay(delay, scheduler: MainScheduler.instance)
+//    .subscribe(delayedTimeline)
 
+_ = Observable<Int>
+    .timer(.seconds(3), scheduler: MainScheduler.instance)
+    .flatMap { _ in
+        sourceObservable.delay(delay, scheduler: MainScheduler.instance)
+    }
+    .subscribe(delayedTimeline)
 
 let hostView = setupHostView()
 hostView.addSubview(stack)
