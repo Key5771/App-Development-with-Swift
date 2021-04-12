@@ -4,5 +4,6 @@
         <page name='buffer'/>
         <page name='window'/>
         <page name='delay'/>
+        <page name='replay'/>
     </pages>
 </playground>
