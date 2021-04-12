@@ -38,7 +38,7 @@ class EONET {
   static let API = "https://eonet.sci.gsfc.nasa.gov/api/v2.1"
   static let categoriesEndpoint = "/categories"
   static let eventsEndpoint = "/events"
-
+  
   static func jsonDecoder(contentIdentifier: String) -> JSONDecoder {
     let decoder = JSONDecoder()
     decoder.userInfo[.contentIdentifier] = contentIdentifier
@@ -90,7 +90,7 @@ class EONET {
       .catchErrorJustReturn([])
       .share(replay: 1, scope: .forever)
   }()
-
+  
   static func filteredEvents(events: [EOEvent], forCategory category: EOCategory) -> [EOEvent] {
     return events.filter { event in
       return event.categories.contains(where: { $0.id == category.id }) && !category.events.contains {
@@ -114,7 +114,17 @@ class EONET {
     let openEvents = events(forLast: days, closed: false)
     let closedEvents = events(forLast: days, closed: true)
     
-    return openEvents.concat(closedEvents)
+//    return openEvents.concat(closedEvents)
+    
+    /*
+     fetch open events, fetch closed events -> open events - closed events -> [EOEvent]
+     */
+    return Observable.of(openEvents, closedEvents)
+      .merge()                                          // openEvents, closedEvents 순서대로 방출되는 아이템을 방출
+      .reduce([]) { running, new in                     // 빈 배열로 시작하고 Observable 중 하나가 이벤트 배열을 전달할 때마다 클로저 호출. 기존 배열에 새 배열을 추가하고 반환
+                                                        // 모든 Observable이 완료될 때까지 지속적으로 진행하고 완료되면 reduce는 단일 값을 방출하고 완료
+        running + new
+      }
   }
-
+  
 }
