@@ -57,8 +57,23 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
   }
 
   func startDownload() {
-    let eoCategories = EONET.categories
+    let eoCategories = EONET.categories                     // 모든 범위의 배열을 다운로드
+    let downloadedEvents = EONET.events(forLast: 360)       // EONET 클래스에 추가한 이벤트 함수를 호출하고 작년의 이벤트를 다운로드
+    
+    let updateCategories = Observable.combineLatest(eoCategories, downloadedEvents) { (categories, events) -> [EOCategory] in
+      return categories.map { category in
+        var cat = category
+        cat.events = events.filter {
+          $0.categories.contains(where: { $0.id == category.id })
+        }
+        
+        return cat
+      }
+    }
+    
     eoCategories
+      .concat(updateCategories)                             // Observable eoCategories의 항목과 Observable updateCategories의 항목을 바인딩
+                                                            // 이렇게 하면 concat(_:) 연산자가 다음의 Observable updateCategories를 구독할 수 있다.
       .bind(to: categories)
       .disposed(by: disposeBag)
   }
@@ -72,7 +87,8 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
     let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell")!
     
     let category = categories.value[indexPath.row]
-    cell.textLabel?.text = category.name
+    cell.textLabel?.text = "\(category.name) (\(category.events.count))"
+    cell.accessoryType = (category.events.count > 0) ? .disclosureIndicator : .none
     cell.detailTextLabel?.text = category.description
     
     return cell
