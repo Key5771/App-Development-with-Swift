@@ -58,16 +58,28 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
 
   func startDownload() {
     let eoCategories = EONET.categories                     // 모든 범위의 배열을 다운로드
-    let downloadedEvents = EONET.events(forLast: 360)       // EONET 클래스에 추가한 이벤트 함수를 호출하고 작년의 이벤트를 다운로드
     
-    let updateCategories = Observable.combineLatest(eoCategories, downloadedEvents) { (categories, events) -> [EOCategory] in
-      return categories.map { category in
-        var cat = category
-        cat.events = events.filter {
-          $0.categories.contains(where: { $0.id == category.id })
+    // EONET 클래스에 추가한 이벤트 함수를 호출하고 작년의 이벤트를 다운로드
+    let downloadedEvents = eoCategories
+      .flatMap { categories in
+        return Observable.from(categories.map { category in
+          EONET.events(forLast: 360, category: category)
+        })
+      }
+      .merge(maxConcurrent: 2)
+    
+    let updateCategories = eoCategories.flatMap { categories in
+      downloadedEvents.scan(categories) { updated, events in        // 새로운 이벤트 그룹이 도착할 때마다 scan은 카테고리 업데이트를 내보낸다.
+        return updated.map { category in
+          let eventsForCategory = EONET.filteredEvents(events: events, forCategory: category)
+          if !eventsForCategory.isEmpty {
+            var cat = category
+            cat.events = cat.events + eventsForCategory
+            return cat
+          }
+          
+          return category
         }
-        
-        return cat
       }
     }
     
