@@ -40,9 +40,17 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
   
   let categories = BehaviorRelay<[EOCategory]>(value: [])
   let disposeBag = DisposeBag()
+  
+  var activityIndicator: UIActivityIndicatorView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    activityIndicator = UIActivityIndicatorView()
+    navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
+    activityIndicator.startAnimating()
+    
+    view.layoutIfNeeded()
     
     categories
       .asObservable()
@@ -82,6 +90,11 @@ class CategoriesViewController: UIViewController, UITableViewDataSource, UITable
         }
       }
     }
+    .do(onCompleted: { [weak self] in
+      DispatchQueue.main.async {
+        self?.activityIndicator.stopAnimating()
+      }
+    })
     
     eoCategories
       .concat(updateCategories)                             // Observable eoCategories의 항목과 Observable updateCategories의 항목을 바인딩
