@@ -24,6 +24,7 @@
 		EAE9B47E2623EA58005FE3E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAE9B4812623EA58005FE3E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAE9B4832623EA58005FE3E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAE9B48A2623EA82005FE3E5 /* Time-Based.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Time-Based.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		EAE9B4692623EA56005FE3E5 = {
 			isa = PBXGroup;
 			children = (
+				EAE9B48A2623EA82005FE3E5 /* Time-Based.playground */,
 				EAE9B4742623EA56005FE3E5 /* Time-Based Operators */,
 				EAE9B4732623EA56005FE3E5 /* Products */,
 			);
