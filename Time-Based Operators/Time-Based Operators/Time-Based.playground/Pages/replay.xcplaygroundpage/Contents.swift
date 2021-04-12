@@ -9,21 +9,25 @@ let maxElements = 5
 let replayedElemets = 1
 let replayDelay: TimeInterval = 3
 
-let sourceObservable = Observable<Int>.create { observer in
-    var value = 1
-    let timer = DispatchSource.timer(interval: 1.0 / Double(elementsPerSecond), queue: .main) {
-        if value <= maxElements {
-            observer.onNext(value)
-            value += 1
-        }
-    }
+//let sourceObservable = Observable<Int>.create { observer in
+//    var value = 1
+//    let timer = DispatchSource.timer(interval: 1.0 / Double(elementsPerSecond), queue: .main) {
+//        if value <= maxElements {
+//            observer.onNext(value)
+//            value += 1
+//        }
+//    }
+//
+//    return Disposables.create {
+//        timer.suspend()
+//    }
+//}
+////.replay(replayedElemets)
+//.replayAll()
 
-    return Disposables.create {
-        timer.suspend()
-    }
-}
-//.replay(replayedElemets)
-.replayAll()
+let sourceObservable = Observable<Int>
+    .interval(.milliseconds(Int(1000.0 / Double(elementsPerSecond))), scheduler: MainScheduler.instance)
+    .replay(replayedElemets)
 
 let sourceTimeline = TimelineView<Int>.make()
 let replayedTimeline = TimelineView<Int>.make()
