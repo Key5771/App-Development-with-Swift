@@ -30,14 +30,16 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
+import PlaygroundSupport
 
-public extension DispatchSource {
-  class func timer(interval: Double, queue: DispatchQueue, handler: @escaping () -> Void) -> DispatchSourceTimer {
-    let source = DispatchSource.makeTimerSource(queue: queue)
-    source.setEventHandler(handler: handler)
-    source.schedule(deadline: .now(), repeating: interval, leeway: .nanoseconds(0))
-    source.resume()
-    return source
-  }
+public func setupHostView() -> UIView {
+  
+  let hostView = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 640))
+  hostView.backgroundColor = .white
+
+  PlaygroundPage.current.needsIndefiniteExecution = true
+  PlaygroundPage.current.liveView = hostView
+  
+  return hostView
 }

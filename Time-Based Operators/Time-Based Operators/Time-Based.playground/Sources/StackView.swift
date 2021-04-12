@@ -30,14 +30,28 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-public extension DispatchSource {
-  class func timer(interval: Double, queue: DispatchQueue, handler: @escaping () -> Void) -> DispatchSourceTimer {
-    let source = DispatchSource.makeTimerSource(queue: queue)
-    source.setEventHandler(handler: handler)
-    source.schedule(deadline: .now(), repeating: interval, leeway: .nanoseconds(0))
-    source.resume()
-    return source
+extension UIStackView {
+  public class func makeVertical(_ views: [UIView]) -> UIStackView {
+    let stack = UIStackView(arrangedSubviews: views)
+    stack.translatesAutoresizingMaskIntoConstraints = false
+    stack.distribution = .fill
+    stack.axis = .vertical
+    stack.spacing = 15
+    return stack
+  }
+  
+  public func insert(_ view: UIView, at index: Int) {
+    insertArrangedSubview(view, at: index)
+  }
+  
+  public func keep(atMost: Int) {
+    while arrangedSubviews.count > atMost {
+      let view = arrangedSubviews.last!
+      removeArrangedSubview(view)
+      view.removeFromSuperview()
+    }
   }
 }
+

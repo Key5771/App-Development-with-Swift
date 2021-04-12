@@ -30,14 +30,21 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-public extension DispatchSource {
-  class func timer(interval: Double, queue: DispatchQueue, handler: @escaping () -> Void) -> DispatchSourceTimer {
-    let source = DispatchSource.makeTimerSource(queue: queue)
-    source.setEventHandler(handler: handler)
-    source.schedule(deadline: .now(), repeating: interval, leeway: .nanoseconds(0))
-    source.resume()
-    return source
+extension UILabel {
+  public class func make(_ title: String) -> UILabel {
+    let label = UILabel()
+    label.text = title
+    label.numberOfLines = 0
+    label.lineBreakMode = .byWordWrapping
+    return label
+  }
+  
+  public class func makeTitle(_ title: String) -> UILabel {
+    let label = make(title)
+    label.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize * 2.0)
+    label.textAlignment = .center
+    return label
   }
 }
