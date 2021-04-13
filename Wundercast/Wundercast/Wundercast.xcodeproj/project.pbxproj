@@ -19,6 +19,7 @@
 		CB4D69701DE9C70100DC0488 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D696E1DE9C70100DC0488 /* Appearance.swift */; };
 		CB4D69711DE9C70100DC0488 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D696F1DE9C70100DC0488 /* Colors.swift */; };
 		EA235AC8262525E9005C8A04 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA235AC7262525E9005C8A04 /* ApiController.swift */; };
+		EA235AD126253873005C8A04 /* API_KEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA235AD026253873005C8A04 /* API_KEY.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CB4D696E1DE9C70100DC0488 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		CB4D696F1DE9C70100DC0488 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EA235AC7262525E9005C8A04 /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
+		EA235AD026253873005C8A04 /* API_KEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEY.swift; sourceTree = "<group>"; };
 		FC4B4648F5B20CC478716C97 /* Pods_Wundercast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wundercast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 		CB4D693F1DE9A7D100DC0488 /* Wundercast */ = {
 			isa = PBXGroup;
 			children = (
+				EA235ACF2625385E005C8A04 /* Private */,
 				CB4D69671DE9AD5100DC0488 /* Assets */,
 				CB4D69631DE9AD2A00DC0488 /* Controllers */,
 				CB4D69641DE9AD2A00DC0488 /* Utils */,
@@ -128,6 +131,14 @@
 				CB4D696A1DE9AD7C00DC0488 /* LICENSE */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		EA235ACF2625385E005C8A04 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				EA235AD026253873005C8A04 /* API_KEY.swift */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA235AD126253873005C8A04 /* API_KEY.swift in Sources */,
 				CB4D69431DE9A7D100DC0488 /* ViewController.swift in Sources */,
 				CB4D69711DE9C70100DC0488 /* Colors.swift in Sources */,
 				EA235AC8262525E9005C8A04 /* ApiController.swift in Sources */,
