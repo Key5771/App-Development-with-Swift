@@ -93,6 +93,7 @@ class ApiController {
     
     /// The api key to communicate with openweathermap.org
     /// Create you own on https://home.openweathermap.org/users/sign_up
+    // API 노출을 방지하기 위해 API KEY를 외부 파일로 빼서 사용
     private let apiKey = APIKEY.shared.apiKey
     
     /// API base URL
