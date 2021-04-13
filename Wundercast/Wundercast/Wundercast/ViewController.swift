@@ -74,29 +74,55 @@ class ViewController: UIViewController {
 //            })
 //            .disposed(by: disposeBag)
         
+        // MARK: - bind(to: )
+//        let search = searchCityName.rx.text.orEmpty
+//            .filter { !$0.isEmpty }
+//            .flatMapLatest { text in
+//                return ApiController.shared.currentWeather(for: text)
+//                    .catchErrorJustReturn(ApiController.Weather.empty)
+//            }
+//            .share(replay: 1)
+//            .observeOn(MainScheduler.instance)
+        
+//        search.map { "\($0.temperature)° C" }
+//            .bind(to: tempLabel.rx.text)                // 기존의 데이터 소스를 tempLabel에 바인딩
+//            .disposed(by: disposeBag)
+//
+//        search.map { $0.icon }
+//            .bind(to: iconLabel.rx.text)
+//            .disposed(by: disposeBag)
+//
+//        search.map { "\($0.humidity)%" }
+//            .bind(to: humidityLabel.rx.text)
+//            .disposed(by: disposeBag)
+//
+//        search.map { $0.cityName }
+//            .bind(to: cityNameLabel.rx.text)
+//            .disposed(by: disposeBag)
+        
+        // MARK: - driver
         let search = searchCityName.rx.text.orEmpty
             .filter { !$0.isEmpty }
             .flatMapLatest { text in
                 return ApiController.shared.currentWeather(for: text)
                     .catchErrorJustReturn(ApiController.Weather.empty)
             }
-            .share(replay: 1)
-            .observeOn(MainScheduler.instance)
+            .asDriver(onErrorJustReturn: ApiController.Weather.empty)
         
         search.map { "\($0.temperature)° C" }
-            .bind(to: tempLabel.rx.text)                // 기존의 데이터 소스를 tempLabel에 바인딩
+            .drive(tempLabel.rx.text)
             .disposed(by: disposeBag)
         
         search.map { $0.icon }
-            .bind(to: iconLabel.rx.text)
+            .drive(iconLabel.rx.text)
             .disposed(by: disposeBag)
         
         search.map { "\($0.humidity)%" }
-            .bind(to: humidityLabel.rx.text)
+            .drive(humidityLabel.rx.text)
             .disposed(by: disposeBag)
         
         search.map { $0.cityName }
-            .bind(to: cityNameLabel.rx.text)
+            .drive(cityNameLabel.rx.text)
             .disposed(by: disposeBag)
     }
     
