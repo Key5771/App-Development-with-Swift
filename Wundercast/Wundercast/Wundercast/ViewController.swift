@@ -101,7 +101,16 @@ class ViewController: UIViewController {
 //            .disposed(by: disposeBag)
         
         // MARK: - driver
-        let search = searchCityName.rx.text.orEmpty
+//        let search = searchCityName.rx.text.orEmpty
+//            .filter { !$0.isEmpty }
+//            .flatMapLatest { text in
+//                return ApiController.shared.currentWeather(for: text)
+//                    .catchErrorJustReturn(ApiController.Weather.empty)
+//            }
+//            .asDriver(onErrorJustReturn: ApiController.Weather.empty)
+        
+        let search = searchCityName.rx.controlEvent(.editingDidEndOnExit)
+            .map { self.searchCityName.text ?? ""}
             .filter { !$0.isEmpty }
             .flatMapLatest { text in
                 return ApiController.shared.currentWeather(for: text)
