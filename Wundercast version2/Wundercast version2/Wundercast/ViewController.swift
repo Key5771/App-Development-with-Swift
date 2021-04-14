@@ -34,6 +34,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import MapKit
+import CoreLocation
 
 class ViewController: UIViewController {
     @IBOutlet private var mapView: MKMapView!
@@ -45,6 +46,8 @@ class ViewController: UIViewController {
     @IBOutlet private var humidityLabel: UILabel!
     @IBOutlet private var iconLabel: UILabel!
     @IBOutlet private var cityNameLabel: UILabel!
+    
+    private let locationManager = CLLocationManager()           // CLLocationManager 객체 생성
     
     private let bag = DisposeBag()
     
@@ -107,6 +110,21 @@ class ViewController: UIViewController {
         
         running
             .drive(cityNameLabel.rx.isHidden)
+            .disposed(by: bag)
+        
+        geoLocationButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.locationManager.requestWhenInUseAuthorization()
+                self.locationManager.startUpdatingLocation()
+            })
+            .disposed(by: bag)
+        
+        locationManager.rx.didUpdateLocations
+            .subscribe(onNext: { locations in
+                print(locations)
+            })
             .disposed(by: bag)
     }
     
