@@ -52,4 +52,18 @@ public extension Reactive where Base: MKMapView {
     var delegate: DelegateProxy<MKMapView, MKMapViewDelegate> {
         return RxMKMapViewDelegateProxy.proxy(for: base)
     }
+    
+    var overlays: Binder<[MKOverlay]> {
+        // Binder를 사용하면 바인딩 또는 드라이브 방법을 사용할 수 있다.
+        return Binder(self.base) { mapView, overlays in
+            mapView.removeOverlays(mapView.overlays)
+            mapView.addOverlays(overlays)
+        }
+    }
+    
+    func setDelegate(_ delegate: MKMapViewDelegate) -> Disposable {
+        return RxMKMapViewDelegateProxy.installForwardDelegate(delegate,
+                                                               retainDelegate: false,
+                                                               onProxyForObject: self.base)
+    }
 }

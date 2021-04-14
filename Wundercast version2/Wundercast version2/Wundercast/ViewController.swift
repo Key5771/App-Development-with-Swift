@@ -143,6 +143,13 @@ class ViewController: UIViewController {
             })
             .disposed(by: bag)
         
+        mapView.rx.setDelegate(self)
+            .disposed(by: bag)
+        
+        search.map { [$0.overlay()] }
+            .drive(mapView.rx.overlays)
+            .disposed(by: bag)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -175,5 +182,18 @@ class ViewController: UIViewController {
         humidityLabel.textColor = UIColor.cream
         iconLabel.textColor = UIColor.cream
         cityNameLabel.textColor = UIColor.cream
+    }
+}
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let overlay = overlay as? ApiController.Weather.Overlay else {
+            return MKOverlayRenderer()
+        }
+        
+        // 맵의 정도를 렌더링 하기 위해 MKMapView 인스턴스에 필요한 타입
+        // 여기서 목표는 추가 정보를 제공하지 않고 지도 위에 날씨 아이콘을 표시하는 것
+        let overlayView = ApiController.Weather.OverlayView(overlay: overlay, overlayIcon: overlay.icon)
+        return overlayView
     }
 }
