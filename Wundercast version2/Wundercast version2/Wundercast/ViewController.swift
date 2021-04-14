@@ -60,13 +60,45 @@ class ViewController: UIViewController {
             .map { self.searchCityName.text ?? "" }
             .filter { !$0.isEmpty }
         
-        let search = searchInput
-            .flatMapLatest { text in
-                ApiController.shared
-                    .currentWeather(for: text)
-                    .catchErrorJustReturn(.empty)
+        // 유효한 위치를 반환하는 Observable
+        let currentLocation = locationManager.rx.didUpdateLocations
+            .map { locations in locations[0] }
+            .filter { location in
+                return location.horizontalAccuracy < kCLLocationAccuracyHundredMeters
             }
+        
+        let geoInput = geoLocationButton.rx.tap.asObservable()
+            .do(onNext: {
+                self.locationManager.requestWhenInUseAuthorization()
+                self.locationManager.startUpdatingLocation()
+            })
+        
+        let geoLocation = geoInput.flatMap {
+            return currentLocation.take(1)
+        }
+        
+        let geoSearch = geoLocation.flatMap { location in
+            return ApiController.shared.currentWeather(at: location.coordinate)
+                .catchErrorJustReturn(.empty)
+        }
+        
+        let textSearch = searchInput.flatMap { text in
+            return ApiController.shared.currentWeather(for: text)
+                .catchErrorJustReturn(.empty)
+        }
+        
+        let search = Observable
+            .merge(geoSearch, textSearch)
             .asDriver(onErrorJustReturn: .empty)
+        
+        let running = Observable.merge(
+            searchInput.map { _ in true },
+            geoInput.map { _ in true },
+            search.map { _ in false }.asObservable()
+        )
+        .startWith(true)
+        .asDriver(onErrorJustReturn: false)
+        
         
         search.map { "\($0.temperature)° C" }
             .drive(tempLabel.rx.text)
@@ -83,13 +115,6 @@ class ViewController: UIViewController {
         search.map(\.cityName)
             .drive(cityNameLabel.rx.text)
             .disposed(by: bag)
-        
-        let running = Observable.merge(
-            searchInput.map { _ in true },
-            search.map { _ in false }.asObservable()
-        )
-        .startWith(true)
-        .asDriver(onErrorJustReturn: false)
         
         running
             .skip(1)
@@ -112,20 +137,21 @@ class ViewController: UIViewController {
             .drive(cityNameLabel.rx.isHidden)
             .disposed(by: bag)
         
-        geoLocationButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                guard let self = self else { return }
-                
-                self.locationManager.requestWhenInUseAuthorization()
-                self.locationManager.startUpdatingLocation()
-            })
-            .disposed(by: bag)
+//        geoLocationButton.rx.tap
+//            .subscribe(onNext: { [weak self] _ in
+//                guard let self = self else { return }
+//
+//                self.locationManager.requestWhenInUseAuthorization()
+//                self.locationManager.startUpdatingLocation()
+//            })
+//            .disposed(by: bag)
         
         locationManager.rx.didUpdateLocations
             .subscribe(onNext: { locations in
                 print(locations)
             })
             .disposed(by: bag)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
