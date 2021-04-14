@@ -73,6 +73,10 @@ class ViewController: UIViewController {
                 self.locationManager.startUpdatingLocation()
             })
         
+        let mapInput = mapView.rx.regionDidChangeAnimated
+            .skip(1)
+            .map { [unowned self] _ in self.mapView.centerCoordinate }
+        
         let geoLocation = geoInput.flatMap {
             return currentLocation.take(1)
         }
@@ -87,13 +91,20 @@ class ViewController: UIViewController {
                 .catchErrorJustReturn(.empty)
         }
         
+        let mapSearch = mapInput
+            .flatMap { coordinate in
+                return ApiController.shared.currentWeather(at: coordinate)
+                    .catchErrorJustReturn(.empty)
+            }
+        
         let search = Observable
-            .merge(geoSearch, textSearch)
+            .merge(geoSearch, textSearch, mapSearch)
             .asDriver(onErrorJustReturn: .empty)
         
         let running = Observable.merge(
             searchInput.map { _ in true },
             geoInput.map { _ in true },
+            mapInput.map { _ in true },
             search.map { _ in false }.asObservable()
         )
         .startWith(true)

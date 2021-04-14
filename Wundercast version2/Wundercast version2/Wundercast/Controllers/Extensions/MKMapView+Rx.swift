@@ -66,4 +66,14 @@ public extension Reactive where Base: MKMapView {
                                                                retainDelegate: false,
                                                                onProxyForObject: self.base)
     }
+    
+    var regionDidChangeAnimated: ControlEvent<Bool> {
+        let source = delegate
+            .methodInvoked(#selector(MKMapViewDelegate.mapView(_:regionDidChangeAnimated:)))
+            .map { parameters in
+                return (parameters[1] as? Bool) ?? false
+            }
+        
+        return ControlEvent(events: source)
+    }
 }
