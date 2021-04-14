@@ -137,18 +137,9 @@ class ViewController: UIViewController {
             .drive(cityNameLabel.rx.isHidden)
             .disposed(by: bag)
         
-//        geoLocationButton.rx.tap
-//            .subscribe(onNext: { [weak self] _ in
-//                guard let self = self else { return }
-//
-//                self.locationManager.requestWhenInUseAuthorization()
-//                self.locationManager.startUpdatingLocation()
-//            })
-//            .disposed(by: bag)
-        
-        locationManager.rx.didUpdateLocations
-            .subscribe(onNext: { locations in
-                print(locations)
+        mapButton.rx.tap
+            .subscribe(onNext: {
+                self.mapView.isHidden.toggle()
             })
             .disposed(by: bag)
         
