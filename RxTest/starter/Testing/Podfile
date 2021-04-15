@@ -9,10 +9,10 @@ target 'Testing' do
   pod 'RxSwift', '5.1.1'
   pod 'RxCocoa', '5.1.1'
   pod 'Hue'
+  pod 'RxTest'
 
   target 'TestingTests' do
     inherit! :search_paths
-    pod 'RxTest'
-    pod 'RxBlocking'
+    
   end
 end
