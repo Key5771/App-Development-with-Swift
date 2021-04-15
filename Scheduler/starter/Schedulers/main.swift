@@ -40,7 +40,9 @@ let bag = DisposeBag()
 let animal = BehaviorSubject(value: "[dog]")
 
 animal
+    .subscribeOn(MainScheduler.instance)
     .dump()
+    .observeOn(globalScheduler)
     .dumpingSubscription()
     .disposed(by: bag)
 
@@ -57,9 +59,24 @@ let fruit = Observable<String>.create { observer in
 }
 
 fruit
-    .subscribeOn(globalScheduler)
+    .subscribeOn(globalScheduler)                           // background thread 에서 실행
     .dump()
+    .observeOn(MainScheduler.instance)                      // main thread 로 전환
     .dumpingSubscription()
     .disposed(by: bag)
+
+let animalsThread = Thread() {
+    sleep(3)
+    animal.onNext("[cat]")
+    sleep(3)
+    animal.onNext("[tiger]")
+    sleep(3)
+    animal.onNext("[fox]")
+    sleep(3)
+    animal.onNext("[leopard]")
+}
+
+animalsThread.name = "Animals Thread"
+animalsThread.start()
 
 RunLoop.main.run(until: Date(timeIntervalSinceNow: 13))
