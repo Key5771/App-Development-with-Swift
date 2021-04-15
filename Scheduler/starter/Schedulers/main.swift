@@ -40,9 +40,9 @@ let bag = DisposeBag()
 let animal = BehaviorSubject(value: "[dog]")
 
 animal
-    .subscribeOn(MainScheduler.instance)
+    .subscribeOn(MainScheduler.instance)     // MainScheduler 에서 subscribeOn을 했지만 실제 연산은 animal의 스케줄러인 animalsThread에서 실행("Hot and Cold Observable")
     .dump()
-    .observeOn(globalScheduler)
+    .observeOn(globalScheduler)              // globalScheduler 로 전환
     .dumpingSubscription()
     .disposed(by: bag)
 
@@ -59,9 +59,9 @@ let fruit = Observable<String>.create { observer in
 }
 
 fruit
-    .subscribeOn(globalScheduler)                           // background thread 에서 실행
+    .subscribeOn(globalScheduler)            // background thread 에서 실행
     .dump()
-    .observeOn(MainScheduler.instance)                      // main thread 로 전환
+    .observeOn(MainScheduler.instance)       // main thread 로 전환
     .dumpingSubscription()
     .disposed(by: bag)
 
