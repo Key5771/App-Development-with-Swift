@@ -61,8 +61,6 @@ class SecondViewController: UIViewController {
         let keyboardSize = keyboardFrame.size
         
         self.view.frame.origin.y = -keyboardSize.height + stackView.frame.height / 2
-        
-        print("keyboard height: \(keyboardSize.height)")
     }
     
     @objc func keyboardWillBeHidden(_ notification: NSNotification) {

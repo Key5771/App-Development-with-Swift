@@ -18,7 +18,7 @@ class DataInfoController {
                    let dataInfo = try? jsonDecoder.decode(DataModel.self, from: data) {
                     completion(dataInfo)
                 } else {
-                    print("Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    print("Error: data in nil || decode fail")
                     completion(nil)
                 }
             }

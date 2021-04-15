@@ -26,8 +26,6 @@ class ContentPageViewController: UIPageViewController {
             imageArray.append((baseURL + query, type))
         }
         
-        print("imageArray: \(imageArray)")
-        
         dataSource = self
         
         if let viewController = viewPhotoController(currentIndex ?? 0) {
