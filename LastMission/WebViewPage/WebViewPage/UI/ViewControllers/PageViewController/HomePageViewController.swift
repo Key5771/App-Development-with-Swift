@@ -25,7 +25,7 @@ class HomePageViewController: UIPageViewController {
         super.viewDidLoad()
 
         self.dataSource = self
-        self.title = "LastMission"
+        self.title = "WebViewPage"
         
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
