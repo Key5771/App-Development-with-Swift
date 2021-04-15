@@ -1,4 +1,4 @@
-platform :ios, '13.0'
+platform :ios, '12.0'
 
 # Hue has some warnings, let's silence them.
 inhibit_all_warnings!
