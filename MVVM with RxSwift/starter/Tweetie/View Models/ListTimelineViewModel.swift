@@ -40,18 +40,38 @@ import RxCocoa
 class ListTimelineViewModel {
   private let bag = DisposeBag()
   private let fetcher: TimelineFetcher
+  
+  let list: ListIdentifier
+  let account: Driver<TwitterAccount.AccountStatus>
 
-  // MARK: - Input
+  // MARK: - Input -> 일반 변수 또는 RxSwift의 Subject와 같은 공용 속성을 포함. ViewController가 입력을 제공할 수 있도록 하는 Relay
+  
+  var paused: Bool = false {                    // fetcher 클래스에서 paused 값을 설정하는 프록시
+    didSet {
+      fetcher.paused.accept(paused)
+    }
+  }
 
-  // MARK: - Output
+  // MARK: - Output -> ViewModel의 출력을 제공하는 공용 속성을 포함.
+  
+  private(set) var tweets: Observable<(AnyRealmCollection<Tweet>, RealmChangeset?)>!    // Realm에서 로드된 Observable 트윗 객체
+  private(set) var loggedIn: Driver<Bool>!                                              // 로그인을 했는지 여부를 나타내는 Boolean value
 
   // MARK: - Init
   init(account: Driver<TwitterAccount.AccountStatus>,
        list: ListIdentifier,
        apiType: TwitterAPIProtocol.Type = TwitterAPI.self) {
 
+    self.list = list
+    self.account = account
+    
     // fetch and store tweets
     fetcher = TimelineFetcher(account: account, list: list, apiType: apiType)
+    
+    fetcher.timeline
+      .subscribe(Realm.rx.add(update: .all))      // Realm 데이터베이스에 저장
+      .disposed(by: bag)
+    
     bindOutput()
 
   }
@@ -59,7 +79,19 @@ class ListTimelineViewModel {
   // MARK: - Methods
   private func bindOutput() {
     // Bind tweets
+    
+    guard let realm = try? Realm() else { return }
+    tweets = Observable.changeset(from: realm.objects(Tweet.self))    // 변경 사항을 구독
 
     // Bind if an account is available
+    
+    loggedIn = account
+      .map { status in
+        switch status {
+        case .unavailable: return false
+        case .authorized: return true
+        }
+      }
+      .asDriver(onErrorJustReturn: false)
   }
 }
