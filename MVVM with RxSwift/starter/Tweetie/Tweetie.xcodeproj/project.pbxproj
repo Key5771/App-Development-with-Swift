@@ -168,6 +168,7 @@
 		DF827AD44589B43E99A48B5A /* Pods-TweetieAbstract-Tweetie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweetieAbstract-Tweetie.release.xcconfig"; path = "Target Support Files/Pods-TweetieAbstract-Tweetie/Pods-TweetieAbstract-Tweetie.release.xcconfig"; sourceTree = "<group>"; };
 		E2D3AF45FCBFC0907103693E /* Pods_TweetieAbstract_MacTweetie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TweetieAbstract_MacTweetie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DA341F0794402D1C049DD1 /* Pods-TweetieAbstract-TweetieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweetieAbstract-TweetieTests.debug.xcconfig"; path = "Target Support Files/Pods-TweetieAbstract-TweetieTests/Pods-TweetieAbstract-TweetieTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EAD327B826295E1300EE6D6E /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +215,7 @@
 		6783A56ED5030AA55C1986B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAD327B826295E1300EE6D6E /* RealmSwift.framework */,
 				E2D3AF45FCBFC0907103693E /* Pods_TweetieAbstract_MacTweetie.framework */,
 				C2ECFA2E81D7205040A02AC0 /* Pods_TweetieAbstract_Tweetie.framework */,
 				66395882C953142DA57DDAF9 /* Pods_TweetieAbstract_TweetieTests.framework */,
@@ -1104,6 +1106,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
