@@ -3,20 +3,20 @@ source 'https://cdn.cocoapods.org'
 inhibit_all_warnings!
 
 abstract_target 'TweetieAbstract' do
-    pod 'Alamofire', '4.9.1'
+    pod 'Alamofire'
 
-    pod 'RxSwift', '5.1.1'
-    pod 'RxCocoa', '5.1.1'
-    pod 'RealmSwift', '5.1.0'
-    pod 'RxRealm', '3.0.0'
-    pod 'Unbox', '4.0.0'
-    pod 'Then', '2.7.0'
-    pod 'Reachability', '3.2.0'
-    pod 'RxRealmDataSources', '0.3.0'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'RealmSwift'
+    pod 'RxRealm'
+    pod 'Unbox'
+    pod 'Then'
+    pod 'Reachability'
+    pod 'RxRealmDataSources'
 
     target 'Tweetie' do
         platform :ios, '12.0'
-        pod 'RxDataSources', '4.0.1'
+        pod 'RxDataSources'
     end
     
     target 'MacTweetie' do
@@ -25,8 +25,8 @@ abstract_target 'TweetieAbstract' do
     
     target 'TweetieTests' do
         platform :ios, '12.0'
-        pod 'RxTest', '5.1.1'
-        pod 'RxBlocking', '5.1.1'
+        pod 'RxTest'
+        pod 'RxBlocking'
     end
 end
 
