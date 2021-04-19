@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		EA415B8A262D449D00DAA57B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA415B88262D449D00DAA57B /* LaunchScreen.storyboard */; };
 		EA415B95262D449D00DAA57B /* RealmProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA415B94262D449D00DAA57B /* RealmProjectTests.swift */; };
 		EA415BA0262D449D00DAA57B /* RealmProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA415B9F262D449D00DAA57B /* RealmProjectUITests.swift */; };
+		EAD2F7D5262D45840097CE26 /* LocalOnlyQsTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD2F7D4262D45840097CE26 /* LocalOnlyQsTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		EA415B9B262D449D00DAA57B /* RealmProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealmProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA415B9F262D449D00DAA57B /* RealmProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProjectUITests.swift; sourceTree = "<group>"; };
 		EA415BA1262D449D00DAA57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAD2F7D4262D45840097CE26 /* LocalOnlyQsTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalOnlyQsTask.swift; sourceTree = "<group>"; };
 		F28487E00B77855F6B9ACCC3 /* Pods-RealmProject-RealmProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmProject-RealmProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-RealmProject-RealmProjectUITests/Pods-RealmProject-RealmProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +103,6 @@
 				AC672C404AC56F9C68448A9D /* Pods-RealmProjectTests.debug.xcconfig */,
 				89BA9B74CAA8B900D6122633 /* Pods-RealmProjectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -130,6 +131,7 @@
 		EA415B7C262D449D00DAA57B /* RealmProject */ = {
 			isa = PBXGroup;
 			children = (
+				EAD2F7D3262D45730097CE26 /* Model */,
 				EA415B7D262D449D00DAA57B /* AppDelegate.swift */,
 				EA415B7F262D449D00DAA57B /* SceneDelegate.swift */,
 				EA415B81262D449D00DAA57B /* ViewController.swift */,
@@ -157,6 +159,14 @@
 				EA415BA1262D449D00DAA57B /* Info.plist */,
 			);
 			path = RealmProjectUITests;
+			sourceTree = "<group>";
+		};
+		EAD2F7D3262D45730097CE26 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAD2F7D4262D45840097CE26 /* LocalOnlyQsTask.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FB3B0659B5DE23A67E8296CE /* Frameworks */ = {
@@ -407,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD2F7D5262D45840097CE26 /* LocalOnlyQsTask.swift in Sources */,
 				EA415B82262D449D00DAA57B /* ViewController.swift in Sources */,
 				EA415B7E262D449D00DAA57B /* AppDelegate.swift in Sources */,
 				EA415B80262D449D00DAA57B /* SceneDelegate.swift in Sources */,
