@@ -25,13 +25,13 @@ PODS:
   - RxSwift (5.1.1)
 
 DEPENDENCIES:
-  - Action (~> 4.0)
-  - "NSObject+Rx (~> 5.1)"
-  - RealmSwift (~> 5.0)
-  - RxCocoa (= 5.1.1)
-  - RxDataSources (~> 4.0)
-  - RxRealm (~> 3.0)
-  - RxSwift (= 5.1.1)
+  - Action
+  - "NSObject+Rx"
+  - RealmSwift
+  - RxCocoa
+  - RxDataSources
+  - RxRealm
+  - RxSwift
 
 SPEC REPOS:
   trunk:
@@ -58,6 +58,6 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: bd68740ecd28b8185f72341e798a64c037f54044
+PODFILE CHECKSUM: 0fb221c25b07ef35c480d7d71f0d676ae183ab33
 
 COCOAPODS: 1.10.1
