@@ -16,13 +16,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Create
-        let task = LocalOnlyQsTask(name: "Do laundry")
+        let task = QsTask(name: "Do laundry")
         try! localRealm.write {
             localRealm.add(task)
         }
         
         // Get All tasks
-        let tasks = localRealm.objects(LocalOnlyQsTask.self)
+        let tasks = localRealm.objects(QsTask.self)
         print(tasks)
         
         // change observe
