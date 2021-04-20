@@ -29,9 +29,10 @@ class MainCoordinator: NSObject, Coordinator {
     }
     
     func buySubscription() {
-        let vc = BuyViewController.instantiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        let child = BuyCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
     }
 }
 

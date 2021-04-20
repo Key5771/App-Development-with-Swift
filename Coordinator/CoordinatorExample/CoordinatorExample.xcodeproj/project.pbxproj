@@ -19,6 +19,7 @@
 		EAE3ACA3262D7DAA00EB5ED7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE3ACA2262D7DAA00EB5ED7 /* CreateAccountViewController.swift */; };
 		EAE3ACAB262D7E2A00EB5ED7 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE3ACAA262D7E2A00EB5ED7 /* BuyViewController.swift */; };
 		EAE3ACB3262E4B5100EB5ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE3ACB2262E4B5100EB5ED7 /* ViewController.swift */; };
+		EAE3ACB8262E672300EB5ED7 /* BuyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE3ACB7262E672300EB5ED7 /* BuyCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		EAE3ACA2262D7DAA00EB5ED7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		EAE3ACAA262D7E2A00EB5ED7 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		EAE3ACB2262E4B5100EB5ED7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EAE3ACB7262E672300EB5ED7 /* BuyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				EAE3AC8B262D767F00EB5ED7 /* MainCoordinator.swift */,
 				EAE3AC93262D76C600EB5ED7 /* Coordinator.swift */,
+				EAE3ACB7262E672300EB5ED7 /* BuyCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				EAE3ACA3262D7DAA00EB5ED7 /* CreateAccountViewController.swift in Sources */,
 				EAE3AC94262D76C600EB5ED7 /* Coordinator.swift in Sources */,
 				EAE3AC9A262D7C1C00EB5ED7 /* Storyboarded.swift in Sources */,
+				EAE3ACB8262E672300EB5ED7 /* BuyCoordinator.swift in Sources */,
 				EAE3AC8C262D767F00EB5ED7 /* MainCoordinator.swift in Sources */,
 				EAE3ACB3262E4B5100EB5ED7 /* ViewController.swift in Sources */,
 				EAE3ACAB262D7E2A00EB5ED7 /* BuyViewController.swift in Sources */,
