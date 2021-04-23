@@ -11,6 +11,7 @@ protocol Storyboarded {
     static func instantiate() -> Self
 }
 
+// Storyboard에 있는 ViewController의 이름을 "." 기준으로 분리
 extension Storyboarded where Self: UIViewController {
     static func instantiate() -> Self {
         // ex) "CoordinatorExample(프로젝트 이름).ViewController"
