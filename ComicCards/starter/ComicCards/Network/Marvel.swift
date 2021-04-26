@@ -1,15 +1,15 @@
-/// Copyright (c) 2021 Razeware LLC
-/// 
+/// Copyright (c) 2018 Razeware LLC
+///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -30,59 +30,54 @@ import Foundation
 import Moya
 
 public enum Marvel {
-  static private let publicKey = APIKEY.shared.publicKey
   static private let privateKey = APIKEY.shared.privateKey
-  
-  // Marvel의 API인 GET/v1/public/comics로 표현할 Endpoint
+  static private let publicKey = APIKEY.shared.publicKey
+
   case comics
 }
 
-// MARK: - TargetType Protocol
 extension Marvel: TargetType {
   public var baseURL: URL {
     return URL(string: "https://gateway.marvel.com/v1/public")!
   }
-  
+
   public var path: String {
     switch self {
     case .comics: return "/comics"
     }
   }
-  
+
   public var method: Moya.Method {
     switch self {
     case .comics: return .get
     }
   }
-  
+
   public var sampleData: Data {
     return Data()
   }
-  
+
   public var task: Task {
     let ts = "\(Date().timeIntervalSince1970)"
-    
     let hash = (ts + Marvel.privateKey + Marvel.publicKey).md5
-    
-    let authParams = ["apiKey": Marvel.publicKey, "ts": ts, "hash": hash]
-    
+
+    let authParams = ["apikey": Marvel.publicKey, "ts": ts, "hash": hash]
+
     switch self {
     case .comics:
-      return .requestParameters(
-        parameters: [
-          "format": "comic",
-          "formatType": "comic",
-          "orderBy": "-onsaleDate",
-          "dateDescriptor": "lastWeek",
-          "limit": 50] + authParams,
-        encoding: URLEncoding.default)
+      return .requestParameters(parameters: ["format": "comic",
+                                             "formatType": "comic",
+                                             "orderBy": "-onsaleDate",
+                                             "dateDescriptor": "lastWeek",
+                                             "limit": 50] + authParams,
+                                encoding: URLEncoding.default)
     }
   }
-  
-  public var headers: [String : String]? {
-    return ["Content-Type":"application/json"]
+
+  public var headers: [String: String]? {
+    return ["Content-Type": "application/json"]
   }
-  
+
   public var validationType: ValidationType {
     return .successCodes
   }
