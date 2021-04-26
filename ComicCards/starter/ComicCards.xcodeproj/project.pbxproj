@@ -22,6 +22,8 @@
 		D2A5F2091F4A9144005CD714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F2071F4A9144005CD714 /* Main.storyboard */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
 		D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */; };
+		EA869E4226365E7D0064507A /* Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA869E4126365E7D0064507A /* Marvel.swift */; };
+		EA869E4526365E890064507A /* API_KEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA869E4426365E890064507A /* API_KEY.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		D2A5F20A1F4A9144005CD714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2A5F20F1F4A9144005CD714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EA869E4126365E7D0064507A /* Marvel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel.swift; sourceTree = "<group>"; };
+		EA869E4426365E890064507A /* API_KEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEY.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				78CBCC082082654600FBF930 /* CodableResponses.swift */,
+				EA869E4126365E7D0064507A /* Marvel.swift */,
+				EA869E4426365E890064507A /* API_KEY.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -290,8 +296,10 @@
 				78CBCBFD20823E2700FBF930 /* ComicsViewController.swift in Sources */,
 				7808ECB620888D400042B134 /* UploadResult.swift in Sources */,
 				78CBCC0B20826AFF00FBF930 /* Date+ISO8601.swift in Sources */,
+				EA869E4226365E7D0064507A /* Marvel.swift in Sources */,
 				7808ECB220879FEB0042B134 /* CardViewController.swift in Sources */,
 				78CBCC092082654600FBF930 /* CodableResponses.swift in Sources */,
+				EA869E4526365E890064507A /* API_KEY.swift in Sources */,
 				78CBCC0420825A8C00FBF930 /* Comic.swift in Sources */,
 				78597F4C20829A8500F7C6D8 /* Dictionary+Ext.swift in Sources */,
 				D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */,
