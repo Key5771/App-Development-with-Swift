@@ -62,11 +62,45 @@ class ComicsViewController: UIViewController {
   @IBOutlet weak private var viewMessage: UIView!
   @IBOutlet weak private var lblMessage: UILabel!
   @IBOutlet weak private var imgMeessage: UIImageView!
+  
+  // MARK: - Moya
+  let provider = MoyaProvider<Marvel>()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    state = .error
+    
+    state = .loading
+    
+    if #available(iOS 13, *) {
+      let appearance = UINavigationBarAppearance()
+      appearance.backgroundColor = .red
+      appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+      appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+      
+      self.navigationController?.navigationBar.tintColor = .white
+      self.navigationController?.navigationBar.standardAppearance = appearance
+      self.navigationController?.navigationBar.compactAppearance = appearance
+      self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    } else {
+      self.navigationController?.navigationBar.tintColor = .white
+      self.navigationController?.navigationBar.barTintColor = .red
+      self.navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    provider.request(.comics) { [weak self] result in
+      guard let self = self else { return }
+      
+      switch result {
+      case .success(let response):
+        do {
+          self.state = .ready(try response.map(MarvelResponse<Comic>.self).data.results)
+        } catch {
+          self.state = .error
+        }
+      case .failure:
+        self.state = .error
+      }
+    }
   }
 }
 
