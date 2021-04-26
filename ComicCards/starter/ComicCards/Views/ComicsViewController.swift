@@ -30,6 +30,7 @@ import Foundation
 import UIKit
 import Moya
 
+// 유저에게 만화 목록을 보여주기 위한 ViewController
 class ComicsViewController: UIViewController {
   // MARK: - View State
   private var state: State = .loading {

@@ -31,6 +31,7 @@ import UIKit
 import Kingfisher
 import Moya
 
+// 선택한 만화에 대한 카드를 만들고 사용자가 생성된 카드를 공유하도록 하는 ViewController
 class CardViewController: UIViewController {
   // - MARK: - Dependencies
   private var comic: Comic?
