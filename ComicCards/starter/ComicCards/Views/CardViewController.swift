@@ -67,7 +67,17 @@ class CardViewController: UIViewController {
 // MARK: - Imgur handling
 extension CardViewController {
   private func layoutCard(comic: Comic) {
-
+    lblTitle.text = comic.title
+    lblDesc.text = comic.description ?? "Not Available"
+    
+    if comic.characters.items.isEmpty {
+      lblChars.text = "No characters"
+    } else {
+      lblChars.text = comic.characters.items.map { $0.name }.joined(separator: ", ")
+    }
+    
+    lblDate.text = dateFormatter.string(from: comic.onsaleDate)
+    image.kf.setImage(with: comic.thumbnail.url)
   }
 
   @IBAction private func uploadCard() {
