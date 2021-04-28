@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let navController = UINavigationController()
+        let navController = UINavigationController()    // main.storyboard에서 NavigationController를 추가하지 않아도 UINavigationController가 추가됨.
         coordinator = MainCoordinator(navigationController: navController)
         coordinator?.start()
         window = UIWindow(frame: UIScreen.main.bounds)
