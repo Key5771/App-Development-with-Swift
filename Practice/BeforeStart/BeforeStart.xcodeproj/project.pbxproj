@@ -15,6 +15,7 @@
 		EA0C76ED2637A83A000E43EE /* BeforeStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0C76EC2637A83A000E43EE /* BeforeStartTests.swift */; };
 		EA0C76F82637A83A000E43EE /* BeforeStartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0C76F72637A83A000E43EE /* BeforeStartUITests.swift */; };
 		EA0C771A2637AAB3000E43EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0C77192637AAB3000E43EE /* HomeViewController.swift */; };
+		EA7C5396263A703A00881900 /* BasicTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5395263A703A00881900 /* BasicTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EA0C76F72637A83A000E43EE /* BeforeStartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeStartUITests.swift; sourceTree = "<group>"; };
 		EA0C76F92637A83A000E43EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA0C77192637AAB3000E43EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EA7C5395263A703A00881900 /* BasicTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +133,18 @@
 		EA0C772D2637AAF7000E43EE /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EA7C538C263A559C00881900 /* Bottom */,
 				EA0C77192637AAB3000E43EE /* HomeViewController.swift */,
+				EA7C5395263A703A00881900 /* BasicTabBarViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		EA7C538C263A559C00881900 /* Bottom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bottom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0C76DA2637A839000E43EE /* ViewController.swift in Sources */,
+				EA7C5396263A703A00881900 /* BasicTabBarViewController.swift in Sources */,
 				EA0C76D62637A839000E43EE /* AppDelegate.swift in Sources */,
 				EA0C771A2637AAB3000E43EE /* HomeViewController.swift in Sources */,
 			);
