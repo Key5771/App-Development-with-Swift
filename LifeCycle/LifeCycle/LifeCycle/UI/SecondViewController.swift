@@ -31,6 +31,7 @@ class SecondViewController: UIViewController {
         print("SecondViewController - viewDidDisappear")
     }
     
+    // 할당 해제 체크
     deinit {
         print("SecondViewController - deinit")
     }
