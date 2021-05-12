@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA88929C264BCA700058E2D7 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA88929B264BCA700058E2D7 /* test.storyboard */; };
+		EA8892A2264BD0B20058E2D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8892A1264BD0B20058E2D7 /* MainViewController.swift */; };
+		EA8892A4264BD1060058E2D7 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8892A3264BD1060058E2D7 /* TestViewController.swift */; };
 		EAB3218E25FEFEFC00ABD25B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3218D25FEFEFC00ABD25B /* AppDelegate.swift */; };
 		EAB3219025FEFEFC00ABD25B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3218F25FEFEFC00ABD25B /* SceneDelegate.swift */; };
 		EAB3219225FEFEFC00ABD25B /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3219125FEFEFC00ABD25B /* RedViewController.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA88929B264BCA700058E2D7 /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
+		EA8892A1264BD0B20058E2D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EA8892A3264BD1060058E2D7 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		EAB3218A25FEFEFC00ABD25B /* TabBarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB3218D25FEFEFC00ABD25B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAB3218F25FEFEFC00ABD25B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 				EAB3219625FEFEFD00ABD25B /* Assets.xcassets */,
 				EAB3219825FEFEFD00ABD25B /* LaunchScreen.storyboard */,
 				EAB3219B25FEFEFD00ABD25B /* Info.plist */,
+				EA88929B264BCA700058E2D7 /* test.storyboard */,
+				EA8892A1264BD0B20058E2D7 /* MainViewController.swift */,
+				EA8892A3264BD1060058E2D7 /* TestViewController.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -247,6 +256,7 @@
 			files = (
 				EAB3219A25FEFEFD00ABD25B /* LaunchScreen.storyboard in Resources */,
 				EAB3219725FEFEFD00ABD25B /* Assets.xcassets in Resources */,
+				EA88929C264BCA700058E2D7 /* test.storyboard in Resources */,
 				EAB3219525FEFEFC00ABD25B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA8892A4264BD1060058E2D7 /* TestViewController.swift in Sources */,
+				EA8892A2264BD0B20058E2D7 /* MainViewController.swift in Sources */,
 				EAB321C525FF1E5100ABD25B /* YellowViewController.swift in Sources */,
 				EAB321CD25FF1E5C00ABD25B /* OrangeViewController.swift in Sources */,
 				EAB3219225FEFEFC00ABD25B /* RedViewController.swift in Sources */,
