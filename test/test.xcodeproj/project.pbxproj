@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,12 @@
 		EAD973C3268D3A63005DDEAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD973C1268D3A63005DDEAA /* Main.storyboard */; };
 		EAD973C5268D3A65005DDEAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD973C4268D3A65005DDEAA /* Assets.xcassets */; };
 		EAD973C8268D3A65005DDEAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD973C6268D3A65005DDEAA /* LaunchScreen.storyboard */; };
+		EAD973D0268D3C03005DDEAA /* restaurants.json in Resources */ = {isa = PBXBuildFile; fileRef = EAD973CF268D3C03005DDEAA /* restaurants.json */; };
+		EAD973D3268D3C64005DDEAA /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD973D2268D3C64005DDEAA /* Restaurant.swift */; };
+		EAD973D6268D3CD5005DDEAA /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD973D5268D3CD5005DDEAA /* RestaurantService.swift */; };
+		EAD973D9268D3DFA005DDEAA /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD973D8268D3DFA005DDEAA /* RestaurantViewModel.swift */; };
+		EAD973DB268D3E6A005DDEAA /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD973DA268D3E6A005DDEAA /* RestaurantListViewModel.swift */; };
+		EAD973DE268D3F22005DDEAA /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD973DD268D3F22005DDEAA /* RestaurantViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		EAD973C4268D3A65005DDEAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAD973C7268D3A65005DDEAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAD973C9268D3A65005DDEAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAD973CF268D3C03005DDEAA /* restaurants.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurants.json; sourceTree = "<group>"; };
+		EAD973D2268D3C64005DDEAA /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		EAD973D5268D3CD5005DDEAA /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
+		EAD973D8268D3DFA005DDEAA /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		EAD973DA268D3E6A005DDEAA /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
+		EAD973DD268D3F22005DDEAA /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +60,6 @@
 				451F33A6DFB9ED78B13BDB16 /* Pods-test.debug.xcconfig */,
 				B1A20F02B56B7607F5B9CF0F /* Pods-test.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -63,6 +74,7 @@
 		EAD973AF268D3A63005DDEAA = {
 			isa = PBXGroup;
 			children = (
+				EAD973DF268D40B3005DDEAA /* Resources */,
 				EAD973BA268D3A63005DDEAA /* test */,
 				EAD973B9268D3A63005DDEAA /* Products */,
 				896249AB568328603CCDE7DD /* Pods */,
@@ -81,6 +93,10 @@
 		EAD973BA268D3A63005DDEAA /* test */ = {
 			isa = PBXGroup;
 			children = (
+				EAD973DC268D3F0C005DDEAA /* View */,
+				EAD973D7268D3DEC005DDEAA /* ViewModel */,
+				EAD973D4268D3CC3005DDEAA /* Service */,
+				EAD973D1268D3C51005DDEAA /* Model */,
 				EAD973BB268D3A63005DDEAA /* AppDelegate.swift */,
 				EAD973BD268D3A63005DDEAA /* SceneDelegate.swift */,
 				EAD973BF268D3A63005DDEAA /* ViewController.swift */,
@@ -90,6 +106,47 @@
 				EAD973C9268D3A65005DDEAA /* Info.plist */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		EAD973D1268D3C51005DDEAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAD973D2268D3C64005DDEAA /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EAD973D4268D3CC3005DDEAA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EAD973D5268D3CD5005DDEAA /* RestaurantService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		EAD973D7268D3DEC005DDEAA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EAD973D8268D3DFA005DDEAA /* RestaurantViewModel.swift */,
+				EAD973DA268D3E6A005DDEAA /* RestaurantListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EAD973DC268D3F0C005DDEAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAD973DD268D3F22005DDEAA /* RestaurantViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAD973DF268D40B3005DDEAA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EAD973CF268D3C03005DDEAA /* restaurants.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD973D0268D3C03005DDEAA /* restaurants.json in Resources */,
 				EAD973C8268D3A65005DDEAA /* LaunchScreen.storyboard in Resources */,
 				EAD973C5268D3A65005DDEAA /* Assets.xcassets in Resources */,
 				EAD973C3268D3A63005DDEAA /* Main.storyboard in Resources */,
@@ -206,8 +264,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD973D3268D3C64005DDEAA /* Restaurant.swift in Sources */,
+				EAD973DE268D3F22005DDEAA /* RestaurantViewController.swift in Sources */,
+				EAD973D9268D3DFA005DDEAA /* RestaurantViewModel.swift in Sources */,
+				EAD973DB268D3E6A005DDEAA /* RestaurantListViewModel.swift in Sources */,
 				EAD973C0268D3A63005DDEAA /* ViewController.swift in Sources */,
 				EAD973BC268D3A63005DDEAA /* AppDelegate.swift in Sources */,
+				EAD973D6268D3CD5005DDEAA /* RestaurantService.swift in Sources */,
 				EAD973BE268D3A63005DDEAA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +426,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = key.test;
+				PRODUCT_BUNDLE_IDENTIFIER = key.test.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -383,7 +446,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = key.test;
+				PRODUCT_BUNDLE_IDENTIFIER = key.test.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
