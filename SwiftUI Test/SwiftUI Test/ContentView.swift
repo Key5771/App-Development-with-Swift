@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+struct ContainerView: View {
+    var body: some View {
+        NavigationView {
+            NavigationLink(
+                destination: ContentView(),
+                label: {
+                    Text("이걸 누르면")
+                })
+                .navigationBarTitle("TEST")
+        }
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         VStack{
@@ -29,10 +42,10 @@ struct ContentView: View {
             }
             
             HStack {
-                Text("TEST")
+                Text("HStack")
                     .padding()
                     .font(.subheadline)
-                    .foregroundColor(.yellow)
+                    .foregroundColor(.pink)
                 
                 Text("TEST 2")
                     .padding()
@@ -45,11 +58,13 @@ struct ContentView: View {
                     .foregroundColor(.black)
             }
         }
+        .navigationBarTitle("이게 나온다")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        ContainerView()
         ContentView()
     }
 }
