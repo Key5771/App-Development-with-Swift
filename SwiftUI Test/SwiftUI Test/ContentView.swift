@@ -21,44 +21,50 @@ struct ContainerView: View {
 }
 
 struct ContentView: View {
+    @State private var selectedIndex = 0
+    
     var body: some View {
-        VStack{
-            VStack {
-                Text("Hello, World!")
-                    .padding()
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
-                
-                Text("Hello, SwiftUI!")
-                    .padding()
-                    .font(.largeTitle)
-                    .foregroundColor(.black)
-                
-                Button("Button") {
-                    print("Button")
-                }
+        
+        Picker("", selection: $selectedIndex) {
+            Text("A").tag(0)
+            Text("B").tag(1)
+            Text("C").tag(2)
+        }.pickerStyle(SegmentedPickerStyle())
+        
+        VStack {
+            Text("Hello, World!")
+                .padding()
                 .font(.largeTitle)
-                .foregroundColor(.blue)
-            }
+                .foregroundColor(.red)
             
-            HStack {
-                Text("HStack")
-                    .padding()
-                    .font(.subheadline)
-                    .foregroundColor(.pink)
-                
-                Text("TEST 2")
-                    .padding()
-                    .font(.subheadline)
-                    .foregroundColor(.green)
-                
-                Text("TEST 3")
-                    .padding()
-                    .font(.subheadline)
-                    .foregroundColor(.black)
+            Text("Hello, SwiftUI!")
+                .padding()
+                .font(.largeTitle)
+                .foregroundColor(.black)
+            
+            Button("Button") {
+                print("Button")
             }
+            .font(.largeTitle)
+            .foregroundColor(.blue)
         }
-        .navigationBarTitle("이게 나온다")
+        
+        HStack {
+            Text("HStack")
+                .padding()
+                .font(.subheadline)
+                .foregroundColor(.pink)
+            
+            Text("TEST 2")
+                .padding()
+                .font(.subheadline)
+                .foregroundColor(.green)
+            
+            Text("TEST 3")
+                .padding()
+                .font(.subheadline)
+                .foregroundColor(.black)
+        }
     }
 }
 
